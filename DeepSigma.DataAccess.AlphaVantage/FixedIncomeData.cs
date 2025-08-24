@@ -1,16 +1,9 @@
-﻿using DeepSigma.DataAccess.API.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.API.AlphaVantage.Enums;
+﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
+using DeepSigma.DataAccess.AlphaVantage.Enums;
+using DeepSigma.DataAccess.API;
 using DeepSigma.General.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Net.WebRequestMethods;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage
+namespace DeepSigma.DataAccess.AlphaVantage
 {
     public class FixedIncomeData
     {

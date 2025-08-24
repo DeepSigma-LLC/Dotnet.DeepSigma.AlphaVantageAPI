@@ -1,7 +1,7 @@
 ﻿
 using System.Text.Json.Serialization;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage.DataModels
+namespace DeepSigma.DataAccess.AlphaVantage.DataModels
 {
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
     public class AVValue

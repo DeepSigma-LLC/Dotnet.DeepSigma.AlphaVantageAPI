@@ -1,13 +1,9 @@
-﻿using DeepSigma.DataAccess.API.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.API.AlphaVantage.Enums;
+﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
+using DeepSigma.DataAccess.AlphaVantage.Enums;
 using DeepSigma.General.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DeepSigma.DataAccess.API;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage
+namespace DeepSigma.DataAccess.AlphaVantage
 {
     public class UtilitiesData
     {

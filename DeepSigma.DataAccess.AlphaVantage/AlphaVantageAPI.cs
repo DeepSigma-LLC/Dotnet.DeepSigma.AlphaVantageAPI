@@ -1,17 +1,6 @@
-﻿using DeepSigma.DataAccess.API.AlphaVantage.DataModels;
-using System;
-using System.Collections.Generic;
-using System.Formats.Asn1;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Security.Policy;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿
 
-namespace DeepSigma.DataAccess.API.AlphaVantage
+namespace DeepSigma.DataAccess.AlphaVantage
 {
     public class AlphaVantageAPI
     {

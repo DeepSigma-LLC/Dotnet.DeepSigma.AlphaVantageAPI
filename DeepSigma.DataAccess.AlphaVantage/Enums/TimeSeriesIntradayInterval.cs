@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage.Enums
+namespace DeepSigma.DataAccess.AlphaVantage.Enums
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum TimeSeriesIntradayInterval
     {
         [Description("1Min")]

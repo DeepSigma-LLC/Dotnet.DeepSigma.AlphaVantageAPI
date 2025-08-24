@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage.Parsers
+namespace DeepSigma.DataAccess.AlphaVantage.Parsers
 {
     public class AVResponseParser
     {

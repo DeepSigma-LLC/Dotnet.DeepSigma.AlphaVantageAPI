@@ -1,8 +1,9 @@
-﻿using DeepSigma.DataAccess.API.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.API.AlphaVantage.Enums;
+﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
+using DeepSigma.DataAccess.AlphaVantage.Enums;
+using DeepSigma.DataAccess.API;
 using DeepSigma.General.Extensions;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage
+namespace DeepSigma.DataAccess.AlphaVantage
 {
     public class EconomicData
     {

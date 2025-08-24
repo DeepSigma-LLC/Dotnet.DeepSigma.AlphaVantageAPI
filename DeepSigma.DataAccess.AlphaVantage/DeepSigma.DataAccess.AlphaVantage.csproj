@@ -16,4 +16,8 @@
     <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DeepSigma.DataAccess" Version="1.0.0.2" />
+  </ItemGroup>
+
 </Project>

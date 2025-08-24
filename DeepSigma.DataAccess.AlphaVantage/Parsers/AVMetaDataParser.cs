@@ -1,7 +1,7 @@
-﻿using DeepSigma.DataAccess.API.AlphaVantage.DataModels;
+﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
 using System.Text.Json;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage.Parsers
+namespace DeepSigma.DataAccess.AlphaVantage.Parsers
 {
     public class AVMetaDataParser : AVResponseParser
     {

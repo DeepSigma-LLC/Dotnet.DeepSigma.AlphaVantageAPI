@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DeepSigma.DataAccess.API.AlphaVantage.DataModels
+namespace DeepSigma.DataAccess.AlphaVantage.DataModels
 {
     public class AVDataRequest<T>
     {
