@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSigma.DataAccess.AlphaVantage", "DeepSigma.DataAccess.AlphaVantage.csproj", "{A7B889DF-7A22-4095-B567-E4FA1FB930B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSigma.DataAccess.AlphaVantage.Tests", "..\DeepSigma.DataAccess.AlphaVantage.Tests\DeepSigma.DataAccess.AlphaVantage.Tests.csproj", "{5413F5AE-4A05-4CCD-963E-8D654B8C5C80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7B889DF-7A22-4095-B567-E4FA1FB930B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B889DF-7A22-4095-B567-E4FA1FB930B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B889DF-7A22-4095-B567-E4FA1FB930B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B889DF-7A22-4095-B567-E4FA1FB930B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5413F5AE-4A05-4CCD-963E-8D654B8C5C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5413F5AE-4A05-4CCD-963E-8D654B8C5C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5413F5AE-4A05-4CCD-963E-8D654B8C5C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5413F5AE-4A05-4CCD-963E-8D654B8C5C80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F70EDB99-5669-4F71-99BA-FC35F5A24E51}
+	EndGlobalSection
+EndGlobal

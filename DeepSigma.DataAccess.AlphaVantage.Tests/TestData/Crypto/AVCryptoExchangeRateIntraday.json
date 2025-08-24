@@ -1,0 +1,50 @@
+{
+  "Meta Data": {
+    "1. Information": "Crypto Intraday (5min) Time Series",
+    "2. Digital Currency Code": "ETH",
+    "3. Digital Currency Name": "Ethereum",
+    "4. Market Code": "USD",
+    "5. Market Name": "United States Dollar",
+    "6. Last Refreshed": "2025-08-24 03:00:00",
+    "7. Interval": "5min",
+    "8. Output Size": "Compact",
+    "9. Time Zone": "UTC"
+  },
+  "Time Series Crypto (5min)": {
+    "2025-08-24 03:00:00": {
+      "1. open": "4774.00000",
+      "2. high": "4775.75000",
+      "3. low": "4758.36000",
+      "4. close": "4772.32000",
+      "5. volume": 365
+    },
+    "2025-08-24 02:55:00": {
+      "1. open": "4777.25000",
+      "2. high": "4778.11000",
+      "3. low": "4771.02000",
+      "4. close": "4774.33000",
+      "5. volume": 160
+    },
+    "2025-08-24 02:50:00": {
+      "1. open": "4779.35000",
+      "2. high": "4783.24000",
+      "3. low": "4776.50000",
+      "4. close": "4777.19000",
+      "5. volume": 138
+    },
+    "2025-08-24 02:45:00": {
+      "1. open": "4782.41000",
+      "2. high": "4783.20000",
+      "3. low": "4774.62000",
+      "4. close": "4779.36000",
+      "5. volume": 150
+    },
+    "2025-08-24 02:40:00": {
+      "1. open": "4782.08000",
+      "2. high": "4786.46000",
+      "3. low": "4780.49000",
+      "4. close": "4782.40000",
+      "5. volume": 133
+    }
+  }
+}

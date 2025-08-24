@@ -1,0 +1,834 @@
+{
+  "data": [
+    {
+      "transaction_date": "2025-07-01",
+      "ticker": "IBM",
+      "executive": "ROBINSON, ANNE",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "1412.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-07-01",
+      "ticker": "IBM",
+      "executive": "ROBINSON, ANNE",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "8825.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-07-01",
+      "ticker": "IBM",
+      "executive": "ROBINSON, ANNE",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "4881.0",
+      "share_price": "292.595"
+    },
+    {
+      "transaction_date": "2025-07-01",
+      "ticker": "IBM",
+      "executive": "ROBINSON, ANNE",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "1412.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-07-01",
+      "ticker": "IBM",
+      "executive": "ROBINSON, ANNE",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "781.0",
+      "share_price": "292.595"
+    },
+    {
+      "transaction_date": "2025-07-01",
+      "ticker": "IBM",
+      "executive": "ROBINSON, ANNE",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "8825.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "LIVERIS, ANDREW N",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "331.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "MCNABB, FREDERICK WILLIAM III",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "310.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "ZOLLAR, ALFRED W",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "310.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "WADDELL, FREDERICK H",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "331.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "BUBERL, THOMAS",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "310.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "FARR, DAVID N",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "196.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "BROWN, MARIANNE CATHERINE",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "310.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "VOSER, PETER R.",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "340.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "POLLACK, MARTHA E",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "196.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "GORSKY, ALEX",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "365.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "MIEBACH, MICHAEL",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "310.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-30",
+      "ticker": "IBM",
+      "executive": "HOWARD, MICHELLE J",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "279.0",
+      "share_price": "294.78"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "LAMOREAUX, NICKLE JACLYN",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "1379.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "LAMOREAUX, NICKLE JACLYN",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "1379.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "3443.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "3443.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "1739.0",
+      "share_price": "268.85"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "262.0",
+      "share_price": "268.85"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "5163.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "5163.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "8606.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "4298.0",
+      "share_price": "268.85"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "517.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "517.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "2588.0",
+      "share_price": "268.85"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "8606.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-06-08",
+      "ticker": "IBM",
+      "executive": "LAMOREAUX, NICKLE JACLYN",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "705.0",
+      "share_price": "268.85"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "BUBERL, THOMAS",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "367.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "GORSKY, ALEX",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "433.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "HOWARD, MICHELLE J",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "331.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "FARR, DAVID N",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "232.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "BROWN, MARIANNE CATHERINE",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "367.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "MCNABB, FREDERICK WILLIAM III",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "367.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "MIEBACH, MICHAEL",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "367.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "POLLACK, MARTHA E",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "232.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "VOSER, PETER R.",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "403.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "WADDELL, FREDERICK H",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "393.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "ZOLLAR, ALFRED W",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "367.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-31",
+      "ticker": "IBM",
+      "executive": "LIVERIS, ANDREW N",
+      "executive_title": "Director",
+      "security_type": "Promised Fee Share",
+      "acquisition_or_disposal": "A",
+      "shares": "393.0",
+      "share_price": "248.66"
+    },
+    {
+      "transaction_date": "2025-03-06",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "400.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-03-03",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "26543.0",
+      "share_price": "253.0098"
+    },
+    {
+      "transaction_date": "2025-02-28",
+      "ticker": "IBM",
+      "executive": "FARR, DAVID N",
+      "executive_title": "Director",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "1200.0",
+      "share_price": "249.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "3380.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "6123.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "2584.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "5163.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "LAMOREAUX, NICKLE JACLYN",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "1051.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "2628.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "3116.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "1349.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "2666.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "1575.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "3116.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "1327.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "2628.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "LAMOREAUX, NICKLE JACLYN",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "1600.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "3069.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "5613.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "2813.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "5163.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "6123.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KRISHNA, ARVIND",
+      "executive_title": "Director, Chairman, President & CEO",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "5613.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "3380.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "1694.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "3575.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "1792.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "2877.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "COHN, GARY D",
+      "executive_title": "Vice Chairman",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "2245.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "THOMAS, ROBERT DAVID",
+      "executive_title": "Senior Vice President",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "2666.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "1442.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "KAVANAUGH, JAMES J",
+      "executive_title": "Sr. VP and CFO",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "3575.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "541.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "193.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "A",
+      "shares": "631.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Common Stock",
+      "acquisition_or_disposal": "D",
+      "shares": "225.0",
+      "share_price": "262.925"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "541.0",
+      "share_price": "0.0"
+    },
+    {
+      "transaction_date": "2025-02-21",
+      "ticker": "IBM",
+      "executive": "FEHRING, NICOLAS A.",
+      "executive_title": "VP, Controller",
+      "security_type": "Rst. Stock Unit",
+      "acquisition_or_disposal": "D",
+      "shares": "631.0",
+      "share_price": "0.0"
+    }
+   ]
+}

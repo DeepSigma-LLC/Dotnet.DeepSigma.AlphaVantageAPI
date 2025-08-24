@@ -1,0 +1,101 @@
+﻿using DeepSigma.DataAccess.API.AlphaVantage.DataModels;
+using DeepSigma.DataAccess.API.AlphaVantage.Enums;
+using DeepSigma.General.Extensions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace DeepSigma.DataAccess.API.AlphaVantage
+{
+    public class FXData
+    {
+        private string api_key { get; set; }
+        private Action<string?>? json_logger { get; set; } = null;
+        private int timeout_seconds { get; set; }
+        internal FXData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
+        {
+            this.api_key = api_key;
+            this.json_logger = json_logger;
+            this.timeout_seconds = timeout_seconds;
+        }
+
+        /// <summary>
+        /// This API returns the realtime exchange rate for any pair of 2 currencies. For example, USD vs JPY or digital currency (e.g., Bitcoin) vs physical currency (e.g., USD).
+        /// </summary>
+        /// <param name="base_currency"></param>
+        /// <param name="local_currnecy"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVCurrencyExchangeRateQuoteResponse?> GetExchangeRate(string base_currency, string local_currnecy, CancellationToken ct = default)
+        {
+            string url = $"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={local_currnecy}&to_currency={base_currency}&apikey={api_key}";
+            AVCurrencyExchangeRateQuoteResponse? results = await APIUtilities.GetDataFromURLAsync<AVCurrencyExchangeRateQuoteResponse>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+
+        /// <summary>
+        /// This API returns intraday time series (timestamp, open, high, low, close) of the FX currency pair specified, updated realtime.
+        /// </summary>
+        /// <param name="base_currency"></param>
+        /// <param name="local_currnecy"></param>
+        /// <param name="interval"></param>
+        /// <param name="output_size"></param>
+        /// <param name="return_type"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesIntraday(string base_currency, string local_currnecy, TimeSeriesIntradayInterval interval = TimeSeriesIntradayInterval.Fifteen, OutputSize output_size = OutputSize.Full, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        {
+            string url = $"https://www.alphavantage.co/query?function=FX_INTRADAY&from_currency={local_currnecy}&to_currency={base_currency}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+        /// <summary>
+        /// This API returns the daily time series (timestamp, open, high, low, close) of the FX currency pair specified, updated realtime.
+        /// </summary>
+        /// <param name="base_currency"></param>
+        /// <param name="local_currnecy"></param>
+        /// <param name="output_size"></param>
+        /// <param name="return_type"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesDaily(string base_currency, string local_currnecy, OutputSize output_size = OutputSize.Full, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        {
+            string url = $"https://www.alphavantage.co/query?function=FX_DAILY&from_currency={local_currnecy}&to_currency={base_currency}&outputsize={output_size.ToDescriptionString()}&datetype={return_type.ToDescriptionString()}&apikey={api_key}";
+            AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+        /// <summary>
+        /// This API returns the weekly time series (timestamp, open, high, low, close) of the FX currency pair specified, updated realtime.
+        /// The latest data point is the price information for the week(or partial week) containing the current trading day, updated realtime.
+        /// </summary>
+        /// <param name="base_currency"></param>
+        /// <param name="local_currnecy"></param>
+        /// <param name="return_type"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesWeekly(string base_currency, string local_currnecy,  DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        {
+            string url = $"https://www.alphavantage.co/query?function=FX_WEEKLY&from_currency={local_currnecy}&to_currency={base_currency}&datetype={return_type.ToDescriptionString()}&apikey={api_key}";
+            AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+        /// <summary>
+        /// This API returns the monthly time series (timestamp, open, high, low, close) of the FX currency pair specified, updated realtime.
+        /// The latest data point is the prices information for the month(or partial month) containing the current trading day, updated realtime.
+        /// </summary>
+        /// <param name="base_currency"></param>
+        /// <param name="local_currnecy"></param>
+        /// <param name="return_type"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesMonthly(string base_currency, string local_currnecy, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        {
+            string url = $"https://www.alphavantage.co/query?function=FX_MONTHLY&from_currency={local_currnecy}&to_currency={base_currency}&datetype={return_type.ToDescriptionString()}&apikey={api_key}";
+            AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+    }
+}
