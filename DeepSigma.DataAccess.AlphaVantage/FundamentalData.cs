@@ -86,25 +86,47 @@ namespace DeepSigma.DataAccess.AlphaVantage
             return results;
         }
 
-
-        public async Task<T?> GetIncomeStatement<T>(string symbol, CancellationToken ct = default)
+        /// <summary>
+        /// This API returns the annual and quarterly income statements for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
+        /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="symbol"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVIncomeStatementResponse?> GetIncomeStatement(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={symbol}&apikey={api_key}";
-            var results = await APIUtilities.GetDataAsync<T>(url, cancel_token: ct);
+            AVIncomeStatementResponse? results = await APIUtilities.GetDataFromURLAsync<AVIncomeStatementResponse>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
-        public async Task<T?> GetBalanceSheet<T>(string symbol, CancellationToken ct = default)
+        /// <summary>
+        /// This API returns the annual and quarterly balance sheets for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
+        /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+        /// </summary>
+        /// <param name="symbol"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVBalanceSheetResponse?> GetBalanceSheet(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol={symbol}&apikey={api_key}";
-            var results = await APIUtilities.GetDataAsync<T>(url, cancel_token: ct);
+            AVBalanceSheetResponse? results = await APIUtilities.GetDataFromURLAsync<AVBalanceSheetResponse>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
-        public async Task<T?> GetCashFlow<T>(string symbol, CancellationToken ct = default)
+        /// <summary>
+        /// This API returns the annual and quarterly cash flow for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
+        /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="symbol"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<AVCashFlowResponse?> GetCashFlow<T>(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=CASH_FLOW&symbol={symbol}&apikey={api_key}";
-            var results = await APIUtilities.GetDataAsync<T>(url, cancel_token: ct);
+            AVCashFlowResponse? results = await APIUtilities.GetDataFromURLAsync<AVCashFlowResponse?>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
