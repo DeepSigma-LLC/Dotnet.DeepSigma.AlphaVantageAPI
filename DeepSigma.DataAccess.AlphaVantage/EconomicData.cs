@@ -5,6 +5,9 @@ using DeepSigma.General.Extensions;
 
 namespace DeepSigma.DataAccess.AlphaVantage
 {
+    /// <summary>
+    /// This class contains methods to access economic data from the Alpha Vantage API.
+    /// </summary>
     public class EconomicData
     {
         private string api_key { get; set; }

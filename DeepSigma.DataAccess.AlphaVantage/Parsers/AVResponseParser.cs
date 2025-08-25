@@ -3,7 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace DeepSigma.DataAccess.AlphaVantage.Parsers
 {
-    public class AVResponseParser
+    /// <summary>
+    /// Base class for parsing Alpha Vantage API responses.
+    /// </summary>
+    public abstract class AVResponseParser
     {
 
         private static readonly Regex NumberPrefix = new(@"^\s*\d+\.\s*", RegexOptions.Compiled);

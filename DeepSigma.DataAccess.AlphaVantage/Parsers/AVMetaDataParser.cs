@@ -3,8 +3,16 @@ using System.Text.Json;
 
 namespace DeepSigma.DataAccess.AlphaVantage.Parsers
 {
+    /// <summary>
+    /// This class parses the metadata section of an Alpha Vantage API response.
+    /// </summary>
     public class AVMetaDataParser : AVResponseParser
     {
+        /// <summary>
+        /// Parses the metadata section of an Alpha Vantage API response.
+        /// </summary>
+        /// <param name="json_object"></param>
+        /// <returns></returns>
         public static AVMetaData Parse(JsonElement json_object)
         {
             Dictionary<string, string> map = GetResponseElements(json_object);

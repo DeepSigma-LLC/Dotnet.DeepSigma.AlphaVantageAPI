@@ -4,9 +4,11 @@ using DeepSigma.DataAccess.API;
 
 namespace DeepSigma.DataAccess.AlphaVantage
 {
+    /// <summary>
+    /// This class contains methods to access option data from the Alpha Vantage API.
+    /// </summary>
     public class OptionData
     {
-
         private string api_key { get; set; }
         private Action<string?>? json_logger { get; set; } = null;
         private int timeout_seconds { get; set; }

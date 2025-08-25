@@ -3,8 +3,16 @@ using System.Text.Json;
 
 namespace DeepSigma.DataAccess.AlphaVantage.Parsers
 {
+    /// <summary>
+    /// This class parses JSON responses from the Alpha Vantage API.
+    /// </summary>
     public class AVBarParser : AVResponseParser
     {
+        /// <summary>
+        /// Parses a JsonElement into an AVBar object.
+        /// </summary>
+        /// <param name="json_object"></param>
+        /// <returns></returns>
         public static AVBar Parse(JsonElement json_object)
         {
             Dictionary<string, string> map = GetResponseElements(json_object);

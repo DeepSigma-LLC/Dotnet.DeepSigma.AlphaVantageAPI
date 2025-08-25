@@ -5,6 +5,9 @@ using DeepSigma.DataAccess.API;
 
 namespace DeepSigma.DataAccess.AlphaVantage
 {
+    /// <summary>
+    /// This class contains various utility functions provided by Alpha Vantage, such as ticker search, market status, top gainers/losers, news sentiment, ETF profiles, and listings.
+    /// </summary>
     public class UtilitiesData
     {
         private string api_key { get; set; }
@@ -25,23 +28,22 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="keyword"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<T?> GetTickerSearch<T>(string keyword, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTickerSearchResponse?> GetTickerSearch(string keyword, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords={keyword}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
-            var results = await APIUtilities.GetDataAsync<T>(url, cancel_token: ct);
+            AVTickerSearchResponse? results = await APIUtilities.GetDataFromURLAsync<AVTickerSearchResponse>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
         /// <summary>
         /// This endpoint returns the current market status (open vs. closed) of major trading venues for equities, forex, and cryptocurrencies around the world.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<T?> GetGlobalMarketStatus<T>(CancellationToken ct = default)
+        public async Task<AVMarketClosureResponse?> GetGlobalMarketStatus(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=MARKET_STATUS&apikey={api_key}";
-            var results = await APIUtilities.GetDataAsync<T>(url, cancel_token: ct);
+            AVMarketClosureResponse? results = await APIUtilities.GetDataFromURLAsync<AVMarketClosureResponse>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
@@ -51,10 +53,10 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <typeparam name="T"></typeparam>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<T?> GetTopGainersAndLosers<T>(CancellationToken ct = default)
+        public async Task<AVMoverResponse?> GetTopGainersAndLosers(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey={api_key}";
-            var results = await APIUtilities.GetDataAsync<T>(url, cancel_token: ct);
+            AVMoverResponse? results = await APIUtilities.GetDataFromURLAsync<AVMoverResponse>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
@@ -72,7 +74,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="limit"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<T?> GetHistroicalNews<T>(string[] symbols, DateTime? StartDate = null, DateTime? EndDate = null, SortType sort_type = SortType.Latest, NewsTopicTypes[]? topics = null, int limit = 1000, CancellationToken ct = default)
+        public async Task<dynamic?> GetHistroicalNews(string[] symbols, DateTime? StartDate = null, DateTime? EndDate = null, SortType sort_type = SortType.Latest, NewsTopicTypes[]? topics = null, int limit = 1000, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers={string.Join(",", symbols)}&limit={limit}&sort=LATEST&apikey={api_key}";
             
@@ -91,7 +93,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
                 url += $"&topics={string.Join(",", topics.Select(t => t.ToDescriptionString()))}";
             }
 
-            var results = await APIUtilities.GetDataAsync<T>(url, cancel_token: ct);
+            var results = await APIUtilities.GetDataFromURLAsync<dynamic>(url, timeout_seconds, json_logger, ct);       
             return results;
         }
 
@@ -110,35 +112,58 @@ namespace DeepSigma.DataAccess.AlphaVantage
             return results;
         }
 
-
-        public async Task<List<T>> GetAllActiveListings<T>(CancellationToken ct = default)
+        /// <summary>
+        /// This API returns a list of active or delisted US stocks and ETFs, either as of the latest trading day. 
+        /// The endpoint is positioned to facilitate equity research on asset lifecycle and survivorship.
+        /// </summary>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<List<AVListingStatusCSVData>> GetAllActiveListings(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=LISTING_STATUS&apikey={api_key}";
-            var results = await APIUtilities.GetCsvDataAsync<T>(url, cancel_token: ct);
+            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger);
             return results;
         }
 
-
-        public async Task<List<T>> GetAllListings<T>(DateOnly date, ListingStatus listing_status, CancellationToken ct = default)
+        /// <summary>
+        /// This API returns a list of active or delisted US stocks and ETFs, either as of the latest trading day or at a specific time in history. 
+        /// The endpoint is positioned to facilitate equity research on asset lifecycle and survivorship.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="listing_status"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<List<AVListingStatusCSVData>> GetAllListings(DateOnly date, ListingStatus listing_status, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=LISTING_STATUS&date={date.ToString("D")}&state={listing_status.ToDescriptionString()}&apikey={api_key}";
-            var results = await APIUtilities.GetCsvDataAsync<T>(url, cancel_token: ct);
+            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger);
             return results;
         }
 
-
-        public async Task<List<T>> GetEarningsCalandar<T>(string symbol, EarningsHorizon horizon, CancellationToken ct = default)
+        /// <summary>
+        /// This API returns a list of company earnings expected in the next 3, 6, or 12 months.
+        /// </summary>
+        /// <param name="symbol"></param>
+        /// <param name="horizon"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<List<AVEarningsCalandarCSVData>> GetEarningsCalandar(string symbol, EarningsHorizon horizon, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&symbol={symbol}&horizon={horizon.ToDescriptionString()}&&apikey={api_key}";
-            var results = await APIUtilities.GetCsvDataAsync<T>(url, cancel_token: ct);
+            List<AVEarningsCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVEarningsCalandarCSVData>(url, timeout_seconds, json_logger);
             return results;
         }
 
-
-        public async Task<List<T>> GetIPOCalandar<T>(DateOnly date, CancellationToken ct = default)
+        /// <summary>
+        /// This API returns a list of IPOs expected in the next 3 months.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="ct"></param>
+        /// <returns></returns>
+        public async Task<List<AVIpoCalandarCSVData>> GetIPOCalandar(DateOnly date, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=IPO_CALENDAR&apikey={api_key}";
-            var results = await APIUtilities.GetCsvDataAsync<T>(url, cancel_token: ct);
+            List<AVIpoCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVIpoCalandarCSVData>(url, timeout_seconds, json_logger);
             return results;
         }
 

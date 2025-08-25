@@ -2,34 +2,51 @@
 
 namespace DeepSigma.DataAccess.AlphaVantage
 {
-    public class AlphaVantageAPI
+    /// <summary>
+    /// Alpha Vantage API Client.
+    /// </summary>
+    /// <param name="api_key"></param>
+    /// <param name="json_logger"></param>
+    public class AlphaVantageAPI(string api_key = "demo", Action<string?>? json_logger = null)
     {
-        private string api_key {  get; }
-        public UtilitiesData Utilities { get; }
-        public StockData StockData { get; }
-        public OptionData OptionData { get; }
-        public CommodityData CommodityData { get; }
-        public FundamentalData FundamentalData { get; }
-        public FXData FXData { get; }
-        public CryptoData CryptoData { get; }
-        public EconomicData EconomicData { get; }
-        public FixedIncomeData FixedIncomeData { get; }
-        private Action<string?>? json_logger { get; set; } = null;
-        public AlphaVantageAPI(string api_key = "demo", Action<string?>? json_logger = null)
-        {
-            this.api_key = api_key;
-            this.json_logger = json_logger;
-            Utilities = new UtilitiesData(api_key, json_logger);
-            StockData = new StockData(api_key, json_logger);
-            OptionData = new OptionData(api_key, json_logger);
-            CommodityData = new CommodityData(api_key, json_logger);
-            FundamentalData = new FundamentalData(api_key, json_logger);
-            FXData = new FXData(api_key, json_logger);
-            CryptoData = new CryptoData(api_key, json_logger);
-            EconomicData = new EconomicData(api_key, json_logger);
-            FixedIncomeData = new FixedIncomeData(api_key, json_logger);
-        }
-
+        private string api_key {  get; } = api_key;
+        /// <summary>
+        /// Utilities for Alpha Vantage API.
+        /// </summary>
+        public UtilitiesData Utilities { get; } = new UtilitiesData(api_key, json_logger);
+        /// <summary>
+        /// Stock data related APIs.
+        /// </summary>
+        public StockData StockData { get; } = new StockData(api_key, json_logger);
+        /// <summary>
+        /// Option data related APIs.
+        /// </summary>
+        public OptionData OptionData { get; } = new OptionData(api_key, json_logger);
+        /// <summary>
+        /// Commodity data related APIs.
+        /// </summary>
+        public CommodityData CommodityData { get; } = new CommodityData(api_key, json_logger);
+        /// <summary>
+        /// Fundamental data related APIs.
+        /// </summary>
+        public FundamentalData FundamentalData { get; } = new FundamentalData(api_key, json_logger);
+        /// <summary>
+        /// Forex data related APIs.
+        /// </summary>
+        public FXData FXData { get; } = new FXData(api_key, json_logger);
+        /// <summary>
+        /// Cryptocurrency data related APIs.
+        /// </summary>
+        public CryptoData CryptoData { get; } = new CryptoData(api_key, json_logger);
+        /// <summary>
+        /// Economic data related APIs.
+        /// </summary>
+        public EconomicData EconomicData { get; } = new EconomicData(api_key, json_logger);
+        /// <summary>
+        /// Fixed income data related APIs.
+        /// </summary>
+        public FixedIncomeData FixedIncomeData { get; } = new FixedIncomeData(api_key, json_logger);
+        private Action<string?>? json_logger { get; set; } = json_logger;
 
     }
 }

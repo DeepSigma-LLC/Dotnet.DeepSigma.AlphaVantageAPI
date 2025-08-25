@@ -5,6 +5,9 @@ using DeepSigma.General.Extensions;
 
 namespace DeepSigma.DataAccess.AlphaVantage
 {
+    /// <summary>
+    /// This class contains methods to access fundamental data from the Alpha Vantage API.
+    /// </summary>
     public class FundamentalData
     {
         private string api_key { get; set; }
