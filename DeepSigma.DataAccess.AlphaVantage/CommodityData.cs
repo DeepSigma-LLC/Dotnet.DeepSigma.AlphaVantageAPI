@@ -29,9 +29,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="interval"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetWTI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetWTI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=WTI&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=WTI&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -45,9 +45,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetBrent(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetBrent(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=BRENT&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=BRENT&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -61,9 +61,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="interval"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetNaturalGas(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetNaturalGas(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=NATURAL_GAS&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=NATURAL_GAS&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -76,9 +76,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="interval"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetCopper(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetCopper(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=COPPER&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=COPPER&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -91,12 +91,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetAluminum(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetAluminum(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=ALUMINUM&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=ALUMINUM&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -107,12 +106,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetWheat(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetWheat(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=WHEAT&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=WHEAT&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -123,12 +121,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetCorn(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetCorn(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=CORN&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=CORN&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -139,12 +136,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetCotton(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetCotton(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=COTTON&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=COTTON&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -155,12 +151,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetSugar(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetSugar(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=SUGAR&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=SUGAR&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -171,12 +166,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetCoffee(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetCoffee(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=COFFEE&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=COFFEE&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -187,12 +181,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetGlobalCommodityIndex(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetGlobalCommodityIndex(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=ALL_COMMODITIES&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=ALL_COMMODITIES&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }

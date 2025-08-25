@@ -25,11 +25,10 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// Within the same expiration date, contracts are sorted by strike prices from low to high.
         /// </summary>
         /// <param name="symbol"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <param name="specific_option_contract"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVOptionData>?> GetRealTimeOptionData(string symbol, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default, string? specific_option_contract = null)
+        public async Task<AVDataRequest<AVOptionData>?> GetRealTimeOptionData(string symbol, CancellationToken ct = default, string? specific_option_contract = null)
         {
             string contract_paramater = string.Empty;
             if (specific_option_contract is not null)
@@ -48,10 +47,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="symbol"></param>
         /// <param name="date"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVOptionData>?> GetHistoricalOptionData(string symbol, DateOnly date, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVOptionData>?> GetHistoricalOptionData(string symbol, DateOnly date, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={symbol}&date={date.ToString("D")}&apikey={api_key}";
             AVDataRequest<AVOptionData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVOptionData>>(url, timeout_seconds, json_logger, ct);

@@ -42,12 +42,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="local_currnecy"></param>
         /// <param name="interval"></param>
         /// <param name="output_size"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesIntraday(string base_currency, string local_currnecy, TimeSeriesIntradayInterval interval = TimeSeriesIntradayInterval.Fifteen, OutputSize output_size = OutputSize.Full, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesIntraday(string base_currency, string local_currnecy, TimeSeriesIntradayInterval interval = TimeSeriesIntradayInterval.Fifteen, OutputSize output_size = OutputSize.Full, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=FX_INTRADAY&from_currency={local_currnecy}&to_currency={base_currency}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=FX_INTRADAY&from_currency={local_currnecy}&to_currency={base_currency}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&apikey={api_key}";
             AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -58,12 +57,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <param name="base_currency"></param>
         /// <param name="local_currnecy"></param>
         /// <param name="output_size"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesDaily(string base_currency, string local_currnecy, OutputSize output_size = OutputSize.Full, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesDaily(string base_currency, string local_currnecy, OutputSize output_size = OutputSize.Full, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=FX_DAILY&from_currency={local_currnecy}&to_currency={base_currency}&outputsize={output_size.ToDescriptionString()}&datetype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=FX_DAILY&from_currency={local_currnecy}&to_currency={base_currency}&outputsize={output_size.ToDescriptionString()}&apikey={api_key}";
             AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -74,12 +72,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="base_currency"></param>
         /// <param name="local_currnecy"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesWeekly(string base_currency, string local_currnecy,  DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesWeekly(string base_currency, string local_currnecy, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=FX_WEEKLY&from_currency={local_currnecy}&to_currency={base_currency}&datetype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=FX_WEEKLY&from_currency={local_currnecy}&to_currency={base_currency}&apikey={api_key}";
             AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -90,12 +87,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="base_currency"></param>
         /// <param name="local_currnecy"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesMonthly(string base_currency, string local_currnecy, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesMonthly(string base_currency, string local_currnecy,  CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=FX_MONTHLY&from_currency={local_currnecy}&to_currency={base_currency}&datetype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=FX_MONTHLY&from_currency={local_currnecy}&to_currency={base_currency}&apikey={api_key}";
             AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
             return results;
         }

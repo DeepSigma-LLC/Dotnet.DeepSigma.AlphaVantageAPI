@@ -25,7 +25,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// covering pre-market and post-market hours where applicable (e.g., 4:00am to 8:00pm Eastern Time for the US market). 
         /// You can query both raw (as-traded) and split/dividend-adjusted intraday data from this endpoint. The OHLCV data is sometimes called "candles" in finance literature.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="symbol"></param>
         /// <param name="interval"></param>
         /// <param name="output_size"></param>
@@ -47,15 +46,13 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This API returns raw (as-traded) daily time series (date, daily open, daily high, daily low, daily close, daily volume) of the global equity specified, 
         /// covering 20+ years of historical data. The OHLCV data is sometimes called "candles" in finance literature. 
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="symbol"></param>
         /// <param name="output_size"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetDailyTimeSeriesData(string symbol, OutputSize output_size = OutputSize.Full, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetDailyTimeSeriesData(string symbol, OutputSize output_size = OutputSize.Full, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&outputsize={output_size.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&outputsize={output_size.ToDescriptionString()}&apikey={api_key}";
             AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -64,12 +61,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This API returns weekly time series (last trading day of each week, weekly open, weekly high, weekly low, weekly close, weekly volume) of the global equity specified, covering 20+ years of historical data.
         /// </summary>
         /// <param name="symbol"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetWeeklyTimeSeriesData(string symbol, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetWeeklyTimeSeriesData(string symbol, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol={symbol}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol={symbol}&apikey={api_key}";
             AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -79,12 +75,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// of the equity specified, covering 20+ years of historical data.
         /// </summary>
         /// <param name="symbol"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetMonthlyTimeSeriesData(string symbol, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetMonthlyTimeSeriesData(string symbol, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol={symbol}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol={symbol}&apikey={api_key}";
             AVTimeSeriesResponseGeneric<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGeneric<AVBar>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -94,12 +89,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// You can use this endpoint as a high-throughput alternative to the Global Quote API, which accepts one symbol per API request.
         /// </summary>
         /// <param name="symbols"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVBulkQuoteData>?> GetBulkRealTimeQuoteData(string[] symbols, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVBulkQuoteData>?> GetBulkRealTimeQuoteData(string[] symbols, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol={string.Join(",", symbols)}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol={string.Join(",", symbols)}&apikey={api_key}";
             AVDataRequest<AVBulkQuoteData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVBulkQuoteData>>(url, timeout_seconds, json_logger, ct);
             return results;
         }

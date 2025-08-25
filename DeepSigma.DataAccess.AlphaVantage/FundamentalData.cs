@@ -93,7 +93,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This API returns the annual and quarterly income statements for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
         /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="symbol"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
@@ -122,7 +121,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This API returns the annual and quarterly cash flow for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
         /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="symbol"></param>
         /// <param name="ct"></param>
         /// <returns></returns>

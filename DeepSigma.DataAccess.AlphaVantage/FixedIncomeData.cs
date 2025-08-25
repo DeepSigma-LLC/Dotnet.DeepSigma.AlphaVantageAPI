@@ -29,12 +29,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="maturity"></param>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetUSTreasuryYield(FixedIncomeMaturities maturity, TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetUSTreasuryYield(FixedIncomeMaturities maturity, TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=TREASURY_YIELD&interval={interval.ToDescriptionString()}&maturity={maturity.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=TREASURY_YIELD&interval={interval.ToDescriptionString()}&maturity={maturity.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -47,12 +46,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetFedFunds(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetFedFunds(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=FEDERAL_FUNDS_RATE&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=FEDERAL_FUNDS_RATE&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }

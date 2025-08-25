@@ -25,14 +25,12 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// Source: U.S.Bureau of Economic Analysis, Real Gross Domestic Product, retrieved from FRED, Federal Reserve Bank of St.Louis. 
         /// This data feed uses the FRED API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED API Terms of Use.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetRealGDP(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetRealGDP(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=REAL_GDP&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=REAL_GDP&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -42,13 +40,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// Source: U.S.Bureau of Economic Analysis, Real gross domestic product per capita, retrieved from FRED, Federal Reserve Bank of St.Louis. 
         /// This data feed uses the FRED API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED API Terms of Use.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="interval"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetRealGDPPerCapita(DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetRealGDPPerCapita(CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=REAL_GDP_PER_CAPITA&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=REAL_GDP_PER_CAPITA&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -59,12 +55,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
         /// <param name="interval"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetCPI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetCPI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=CPI&interval={interval.ToDescriptionString()}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=CPI&interval={interval.ToDescriptionString()}&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -77,9 +72,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVValue>?> GetInflation(DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVValue>?> GetInflation(CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=INFLATION&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=INFLATION&apikey={api_key}";
             AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -89,7 +84,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// Source: U.S.Census Bureau, Advance Retail Sales: Retail Trade, retrieved from FRED, Federal Reserve Bank of St.Louis(https://fred.stlouisfed.org/series/RSXFSN). 
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis. By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVDataRequest<AVValue>?> GetRetailSales(CancellationToken ct = default)
@@ -118,7 +112,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// Source: U.S.Bureau of Labor Statistics, All Employees, Total Nonfarm, retrieved from FRED, Federal Reserve Bank of St.Louis.This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.
         /// By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVDataRequest<AVValue>?> GetNonFarmPayrolls(CancellationToken ct = default)
@@ -136,7 +129,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// Source: U.S.Bureau of Labor Statistics, Unemployment Rate, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVDataRequest<AVValue>?> GetUnemployment(CancellationToken ct = default)

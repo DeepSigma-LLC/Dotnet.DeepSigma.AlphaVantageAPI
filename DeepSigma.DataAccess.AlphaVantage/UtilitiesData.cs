@@ -24,13 +24,12 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// The Search Endpoint returns the best-matching symbols and market information based on keywords of your choice. 
         /// The search results also contain match scores that provide you with the full flexibility to develop your own search and filtering logic.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="keyword"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVTickerSearchResponse?> GetTickerSearch(string keyword, DataReturnType return_type = DataReturnType.Json, CancellationToken ct = default)
+        public async Task<AVTickerSearchResponse?> GetTickerSearch(string keyword, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords={keyword}&datatype={return_type.ToDescriptionString()}&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords={keyword}&apikey={api_key}";
             AVTickerSearchResponse? results = await APIUtilities.GetDataFromURLAsync<AVTickerSearchResponse>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -50,7 +49,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <summary>
         /// This endpoint returns the top 20 gainers, losers, and the most active traded tickers in the US market.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVMoverResponse?> GetTopGainersAndLosers(CancellationToken ct = default)
@@ -65,7 +63,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// covering stocks, cryptocurrencies, forex, and a wide range of topics such as fiscal policy, mergers & acquisitions, IPOs, etc. 
         /// This API, combined with our core stock API, fundamental data, and technical indicator APIs, can provide you with a 360-degree view of the financial market and the broader economy.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="symbols"></param>
         /// <param name="StartDate"></param>
         /// <param name="EndDate"></param>
@@ -101,13 +98,12 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// <summary>
         /// This API returns key ETF metrics (e.g., net assets, expense ratio, and turnover), along with the corresponding ETF holdings / constituents with allocation by asset types and sectors.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="symbol"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVETFProfileResponse?> GetETFProfileAndHoldings(string symbol, CancellationToken ct = default)
         {
-            string url = $"https://www.alphavantage.co/query?function=ETF_PROFILE&symbol=symbol&apikey={api_key}";
+            string url = $"https://www.alphavantage.co/query?function=ETF_PROFILE&symbol={symbol}&apikey={api_key}";
             AVETFProfileResponse? results = await APIUtilities.GetDataFromURLAsync<AVETFProfileResponse>(url, timeout_seconds, json_logger, ct);
             return results;
         }
@@ -121,7 +117,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVListingStatusCSVData>> GetAllActiveListings(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=LISTING_STATUS&apikey={api_key}";
-            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger);
+            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
@@ -136,7 +132,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVListingStatusCSVData>> GetAllListings(DateOnly date, ListingStatus listing_status, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=LISTING_STATUS&date={date.ToString("D")}&state={listing_status.ToDescriptionString()}&apikey={api_key}";
-            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger);
+            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
@@ -150,7 +146,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVEarningsCalandarCSVData>> GetEarningsCalandar(string symbol, EarningsHorizon horizon, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&symbol={symbol}&horizon={horizon.ToDescriptionString()}&&apikey={api_key}";
-            List<AVEarningsCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVEarningsCalandarCSVData>(url, timeout_seconds, json_logger);
+            List<AVEarningsCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVEarningsCalandarCSVData>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
@@ -163,7 +159,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVIpoCalandarCSVData>> GetIPOCalandar(DateOnly date, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=IPO_CALENDAR&apikey={api_key}";
-            List<AVIpoCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVIpoCalandarCSVData>(url, timeout_seconds, json_logger);
+            List<AVIpoCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVIpoCalandarCSVData>(url, timeout_seconds, json_logger, ct);
             return results;
         }
 
