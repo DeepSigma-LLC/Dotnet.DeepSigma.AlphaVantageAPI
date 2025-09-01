@@ -39,6 +39,23 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for US Treasury Yields.
+        /// This API returns the daily, weekly, and monthly federal funds rate (interest rate) of the United States.
+        /// Source: Board of Governors of the Federal Reserve System(US), Federal Funds Effective Rate, retrieved from FRED, 
+        /// Federal Reserve Bank of St.Louis(https://fred.stlouisfed.org/series/FEDFUNDS). 
+        /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis. 
+        /// By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVDataRequest<AVValue>? GetUSTreasuryYieldFromJson(string json)
+        {
+            AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+            return results;
+        }
+
+
+        /// <summary>
         /// This API returns the daily, weekly, and monthly federal funds rate (interest rate) of the United States.
         /// Source: Board of Governors of the Federal Reserve System(US), Federal Funds Effective Rate, retrieved from FRED, 
         /// Federal Reserve Bank of St.Louis(https://fred.stlouisfed.org/series/FEDFUNDS). 
@@ -55,5 +72,20 @@ namespace DeepSigma.DataAccess.AlphaVantage
             return results;
         }
 
+        /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Fed Funds Rate.
+        /// This API returns the daily, weekly, and monthly federal funds rate (interest rate) of the United States.
+        /// Source: Board of Governors of the Federal Reserve System(US), Federal Funds Effective Rate, retrieved from FRED, 
+        /// Federal Reserve Bank of St.Louis(https://fred.stlouisfed.org/series/FEDFUNDS). 
+        /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis. 
+        /// By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVDataRequest<AVValue>? GetFedFundsFromJson(string json)
+        {
+            AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+            return results;
+        }
     }
 }

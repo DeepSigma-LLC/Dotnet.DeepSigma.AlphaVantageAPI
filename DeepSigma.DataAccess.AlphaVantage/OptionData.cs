@@ -41,6 +41,20 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Real-Time Options Data.
+        /// This API returns realtime US options data with full market coverage. 
+        /// Option chains are sorted by expiration dates in chronological order. 
+        /// Within the same expiration date, contracts are sorted by strike prices from low to high.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVDataRequest<AVOptionData>? GetRealTimeOptionDataFromJson(string json)
+        {
+            AVDataRequest<AVOptionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVOptionData>>(json);
+            return results;
+        }
+
+        /// <summary>
         /// This API returns the full historical options chain for a specific symbol on a specific date, covering 15+ years of history. 
         /// Implied volatility (IV) and common Greeks (e.g., delta, gamma, theta, vega, rho) are also returned. 
         /// Option chains are sorted by expiration dates in chronological order. Within the same expiration date, contracts are sorted by strike prices from low to high.
@@ -53,6 +67,20 @@ namespace DeepSigma.DataAccess.AlphaVantage
         {
             string url = $"https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={symbol}&date={date.ToString("D")}&apikey={api_key}";
             AVDataRequest<AVOptionData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVOptionData>>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+        /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Historical Options Data.
+        /// This API returns the full historical options chain for a specific symbol on a specific date, covering 15+ years of history. 
+        /// Implied volatility (IV) and common Greeks (e.g., delta, gamma, theta, vega, rho) are also returned. 
+        /// Option chains are sorted by expiration dates in chronological order. Within the same expiration date, contracts are sorted by strike prices from low to high. 
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVDataRequest<AVOptionData>? GetHistoricalOptionDataFromJson(string json)
+        {
+            AVDataRequest<AVOptionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVOptionData>>(json);
             return results;
         }
 

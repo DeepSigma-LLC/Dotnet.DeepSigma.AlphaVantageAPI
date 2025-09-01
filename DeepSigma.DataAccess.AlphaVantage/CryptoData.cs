@@ -34,6 +34,13 @@ namespace DeepSigma.DataAccess.AlphaVantage
             return results;
         }
 
+        public AVCurrencyExchangeRateQuoteResponse? GetExchangeRateFromJson(string json)
+        {
+            AVCurrencyExchangeRateQuoteResponse? results = APIUtilities.LoadFromJson<AVCurrencyExchangeRateQuoteResponse>(json);
+            return results;
+        }
+
+
         /// <summary>
         /// This API returns intraday time series (timestamp, open, high, low, close, volume) of the cryptocurrency specified, updated realtime.
         /// </summary>
@@ -56,7 +63,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="symbol"></param>
         /// <param name="currency"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesDaily(string symbol, string currency, CancellationToken ct = default)
@@ -72,7 +78,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="symbol"></param>
         /// <param name="currency"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesWeekly(string symbol, string currency, CancellationToken ct = default)
@@ -88,7 +93,6 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="symbol"></param>
         /// <param name="currency"></param>
-        /// <param name="return_type"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
         public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesMonthly(string symbol, string currency, CancellationToken ct = default)

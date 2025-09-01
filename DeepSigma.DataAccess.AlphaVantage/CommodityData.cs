@@ -36,6 +36,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for WTI crude oil prices.
         /// Returns the West Texas Intermediate (WTI) crude oil prices from the Alpha Vantage JSON string.
         /// Source: U.S.Energy Information Administration, Crude Oil Prices: West Texas Intermediate(WTI) - Cushing, Oklahoma, retrieved from FRED, Federal Reserve Bank of St.Louis. 
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis. By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -64,6 +65,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for Brent crude oil prices.
         /// This API returns the Brent (Europe) crude oil prices from the Alpha Vantage JSON string.
         /// Source: U.S.Energy Information Administration, Crude Oil Prices: Brent - Europe, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis. By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -94,6 +96,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
 
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for Henry Hub natural gas spot prices.
         /// This API returns the Henry Hub natural gas spot prices from the Alpha Vantage JSON string.
         /// Source: U.S.Energy Information Administration, Henry Hub Natural Gas Spot Price, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -124,6 +127,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global copper prices.
         /// This API returns the global price of copper prices from the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global price of Copper, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -154,6 +158,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
 
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global aluminum prices.
         /// This API returns the global price of aluminum from the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global price of Aluminum, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -183,6 +188,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global wheat prices.
         /// This API returns the global price of wheat from the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global price of Wheat, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -211,6 +217,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global corn prices.
         /// This API returns the global price of corn from the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global price of Corn, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -239,6 +246,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global cotton prices.
         /// This API returns the global price of cotton from the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global price of Cotton, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -267,6 +275,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global sugar prices.
         /// This API returns the global price of sugar from the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global price of Sugar, No. 11, World, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -295,6 +304,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global coffee prices.
         /// This API returns the global price of coffee from the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global price of Coffee, Other Mild Arabica, retrieved from FRED, Federal Reserve Bank of St.Louis.
         /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
@@ -322,6 +332,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON string returned by the Alpha Vantage API for global commodity price index.
         /// This API returns the global price index of all commodities  the Alpha Vantage JSON string.
         /// Source: International Monetary Fund(IMF Terms of Use), Global Price Index of All Commodities, retrieved from FRED, Federal Reserve Bank of St.Louis.This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
         /// </summary>
