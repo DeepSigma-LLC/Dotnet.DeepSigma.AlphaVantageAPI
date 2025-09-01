@@ -9,7 +9,8 @@ namespace DeepSigma.DataAccess.AlphaVantage
     /// <param name="json_logger"></param>
     public class AlphaVantageAPI(string api_key = "demo", Action<string?>? json_logger = null)
     {
-        private string api_key {  get; } = api_key;
+        private string api_key {  get; } = api_key; 
+        private Action<string?>? json_logger { get; set; } = json_logger;
         /// <summary>
         /// Utilities for Alpha Vantage API.
         /// </summary>
@@ -46,7 +47,5 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// Fixed income data related APIs.
         /// </summary>
         public FixedIncomeData FixedIncomeData { get; } = new FixedIncomeData(api_key, json_logger);
-        private Action<string?>? json_logger { get; set; } = json_logger;
-
     }
 }

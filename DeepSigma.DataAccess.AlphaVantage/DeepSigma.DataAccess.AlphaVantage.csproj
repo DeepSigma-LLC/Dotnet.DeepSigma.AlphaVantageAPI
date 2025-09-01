@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DeepSigma.DataAccess" Version="1.0.0.3" />
+    <PackageReference Include="DeepSigma.DataAccess" Version="1.0.0.7" />
   </ItemGroup>
 
 </Project>

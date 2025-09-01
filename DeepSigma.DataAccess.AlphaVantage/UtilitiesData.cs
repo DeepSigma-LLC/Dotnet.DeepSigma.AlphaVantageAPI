@@ -59,8 +59,8 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
-        /// This API returns live and historical market news & sentiment data from a large & growing selection of premier news outlets around the world, 
-        /// covering stocks, cryptocurrencies, forex, and a wide range of topics such as fiscal policy, mergers & acquisitions, IPOs, etc. 
+        /// This API returns live and historical market news and sentiment data from a large and growing selection of premier news outlets around the world, 
+        /// covering stocks, cryptocurrencies, forex, and a wide range of topics such as fiscal policy, mergers and acquisitions, IPOs, etc. 
         /// This API, combined with our core stock API, fundamental data, and technical indicator APIs, can provide you with a 360-degree view of the financial market and the broader economy.
         /// </summary>
         /// <param name="symbols"></param>

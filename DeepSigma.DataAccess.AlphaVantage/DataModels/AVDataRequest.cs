@@ -14,10 +14,10 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         public string Unit { get; set; } = string.Empty;
 
         [JsonPropertyName("endpoint")]
-        public string Endpoint { get; init; } = "";
+        public string Endpoint { get; init; } = string.Empty;
 
         [JsonPropertyName("message")]
-        public string Message { get; init; } = "";
+        public string Message { get; init; } = string.Empty;
 
         [JsonPropertyName("data")]
         public List<T> Data { get; set; } = [];

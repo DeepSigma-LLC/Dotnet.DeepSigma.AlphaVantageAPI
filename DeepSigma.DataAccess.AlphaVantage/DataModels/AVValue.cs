@@ -11,5 +11,5 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
 
         [JsonPropertyName("value")]
         public decimal Value { get; set; }
-        }
+    }
 }

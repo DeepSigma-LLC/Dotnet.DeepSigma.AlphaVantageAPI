@@ -1,0 +1,47 @@
+{
+  "name": "Henry Hub Natural Gas Spot Price",
+  "interval": "monthly",
+  "unit": "dollars per million BTU",
+  "data": [
+    {
+      "date": "2025-07-01",
+      "value": "3.2"
+    },
+    {
+      "date": "2025-06-01",
+      "value": "3.02"
+    },
+    {
+      "date": "2025-05-01",
+      "value": "3.12"
+    },
+    {
+      "date": "2025-04-01",
+      "value": "3.42"
+    },
+    {
+      "date": "2025-03-01",
+      "value": "4.12"
+    },
+    {
+      "date": "2025-02-01",
+      "value": "4.19"
+    },
+    {
+      "date": "2025-01-01",
+      "value": "4.13"
+    },
+    {
+      "date": "2024-12-01",
+      "value": "3.01"
+    },
+    {
+      "date": "2024-11-01",
+      "value": "2.12"
+    },
+    {
+      "date": "2024-10-01",
+      "value": "2.2"
+    }
+  ]
+}
