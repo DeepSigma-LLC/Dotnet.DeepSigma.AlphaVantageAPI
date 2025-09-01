@@ -6,6 +6,6 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         /// <summary>
         /// Any fields that were not mapped to properties in this object
         /// </summary>
-        public IReadOnlyDictionary<string, string> UnmappedFields { get; init; } = new Dictionary<string, string>();
+        public IReadOnlyDictionary<string, string> AllFields { get; init; } = new Dictionary<string, string>();
     }
 }

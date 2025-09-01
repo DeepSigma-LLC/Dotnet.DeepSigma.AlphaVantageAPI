@@ -10,6 +10,6 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         public decimal? AdjustedClose { get; init; }
         public decimal? DividendAmount { get; init; }
         public decimal? SplitCoefficient { get; init; }
-        public long? Volume { get; init; }
+        public decimal? Volume { get; init; }
     }
 }

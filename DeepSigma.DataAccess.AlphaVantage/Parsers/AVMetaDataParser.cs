@@ -6,14 +6,14 @@ namespace DeepSigma.DataAccess.AlphaVantage.Parsers
     /// <summary>
     /// This class parses the metadata section of an Alpha Vantage API response.
     /// </summary>
-    public class AVMetaDataParser : AVResponseParser
+    internal class AVMetaDataParser : AVResponseParser
     {
         /// <summary>
         /// Parses the metadata section of an Alpha Vantage API response.
         /// </summary>
         /// <param name="json_object"></param>
         /// <returns></returns>
-        public static AVMetaData Parse(JsonElement json_object)
+        internal static AVMetaData Parse(JsonElement json_object)
         {
             Dictionary<string, string> map = GetResponseElements(json_object);
 
@@ -31,7 +31,7 @@ namespace DeepSigma.DataAccess.AlphaVantage.Parsers
                 DigitalCurrencyName = TryGet<string>(map, null, "digital currency name") ?? "",
                 MarketCode = TryGet<string>(map, null, "market code") ?? "",
                 MarketName = TryGet<string>(map, null, "market name") ?? "",
-                UnmappedFields = map
+                AllFields = map
             };
         }
     }

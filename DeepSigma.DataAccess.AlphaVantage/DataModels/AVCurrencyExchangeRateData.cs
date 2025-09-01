@@ -2,6 +2,7 @@
 
 namespace DeepSigma.DataAccess.AlphaVantage.DataModels
 {
+    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
     public class AVCurrencyExchangeRateData
     {
         [JsonPropertyName("1. From_Currency Code")]
@@ -20,8 +21,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         public decimal ExchangeRate { get; init; }
                         
         [JsonPropertyName("6. Last Refreshed")]
-        public DateTime LastRefreshed { get; init; }
-                            
+        public string LastRefreshed { get; init; } // Marked as string since System.Text.Json only parses ISO-8601 by default
+
         [JsonPropertyName("7. Time Zone")]
         public string TimeZone { get; init; } = string.Empty;
                             

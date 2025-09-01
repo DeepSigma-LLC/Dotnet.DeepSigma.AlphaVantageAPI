@@ -6,9 +6,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Parsers
     /// <summary>
     /// Base class for parsing Alpha Vantage API responses.
     /// </summary>
-    public abstract class AVResponseParser
+    internal abstract class AVResponseParser
     {
-
         private static readonly Regex NumberPrefix = new(@"^\s*\d+\.\s*", RegexOptions.Compiled);
 
         /// <summary>

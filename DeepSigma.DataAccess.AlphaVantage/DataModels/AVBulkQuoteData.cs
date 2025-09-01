@@ -9,7 +9,7 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         public string Symbol { get; init; } = string.Empty;
 
         [JsonPropertyName("timestamp")]
-        public DateTime Timestamp { get; init; }
+        public string Timestamp { get; init; }
 
         [JsonPropertyName("open")]
         public decimal Open { get; init; }
