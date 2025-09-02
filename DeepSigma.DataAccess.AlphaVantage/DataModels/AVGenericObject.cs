@@ -1,6 +1,9 @@
 ﻿
 namespace DeepSigma.DataAccess.AlphaVantage.DataModels
 {
+    /// <summary>
+    /// A generic object to capture all fields from Alpha Vantage API responses.
+    /// </summary>
     public class AVGenericObject
     {
         /// <summary>

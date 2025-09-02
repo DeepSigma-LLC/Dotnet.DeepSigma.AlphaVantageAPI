@@ -32,6 +32,7 @@ namespace DeepSigma.DataAccess.AlphaVantage.Parsers
         /// Tries to get the value for the first key that exists in the map and is not null or whitespace. Keys are checked in the order they are provided.
         /// </summary>
         /// <param name="map"></param>
+        /// <param name="format_provider"></param>
         /// <param name="keys"></param>
         /// <returns></returns>
         private protected static T? TryGet<T>(Dictionary<string, string> map, IFormatProvider? format_provider = null, params string[] keys) where T : IParsable<T>
