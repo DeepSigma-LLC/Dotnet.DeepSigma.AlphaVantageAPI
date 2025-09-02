@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DeepSigma.DataAccess.AlphaVantage.Enums
+namespace DeepSigma.AlphaVantageAPI.Enums
 {
     /// <summary>
     /// The listing status of a security.

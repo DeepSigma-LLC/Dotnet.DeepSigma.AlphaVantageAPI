@@ -1,13 +1,13 @@
-﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.AlphaVantage.Parsers;
-using DeepSigma.DataAccess.API;
+﻿using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.Parsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DeepSigma.DataAccess.API;
 
-namespace DeepSigma.DataAccess.AlphaVantage
+namespace DeepSigma.AlphaVantageAPI
 {
     internal static class AlphaVantageAPIUtilities
     {
@@ -30,6 +30,16 @@ namespace DeepSigma.DataAccess.AlphaVantage
             if (json_logger is not null) { json_logger(json); }
 
             return JsonToParser(json);
+        }
+
+        internal static async Task<List<TResult>> GetAPIDataCSVFormat<TResult>(string url, Func<string, List<TResult>> CsvToParser, int timeout_seconds, CancellationToken ct, Action<string>? csv_logger = null)
+        {
+            string? csv = await APIUtilities.GetCsvDataAsync(url, timeout_seconds, ct);
+
+            if (csv is null) return [];
+            if (csv_logger is not null) { csv_logger(csv); }
+
+            return CsvToParser(csv);
         }
     }
 }

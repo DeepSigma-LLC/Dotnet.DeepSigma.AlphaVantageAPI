@@ -1,6 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
 
-namespace DeepSigma.DataAccess.AlphaVantage.DataModels
+namespace DeepSigma.AlphaVantageAPI.DataModels
 {
     /// <summary>
     /// Data model for OHLC (Open, High, Low, Close) data from Alpha Vantage CSV output.

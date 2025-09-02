@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DeepSigma.DataAccess.AlphaVantage.Enums
+namespace DeepSigma.AlphaVantageAPI.Enums
 {
     /// <summary>
     /// Available news topic types for Alpha Vantage news and sentiment API.

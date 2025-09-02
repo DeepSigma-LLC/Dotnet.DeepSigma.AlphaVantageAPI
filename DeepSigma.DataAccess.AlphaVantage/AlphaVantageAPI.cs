@@ -1,6 +1,5 @@
 ﻿
-
-namespace DeepSigma.DataAccess.AlphaVantage
+namespace DeepSigma.AlphaVantageAPI
 {
     /// <summary>
     /// Alpha Vantage API Client.

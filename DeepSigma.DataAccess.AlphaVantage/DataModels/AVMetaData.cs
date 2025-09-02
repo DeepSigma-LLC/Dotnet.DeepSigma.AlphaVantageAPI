@@ -1,5 +1,5 @@
 ﻿
-namespace DeepSigma.DataAccess.AlphaVantage.DataModels
+namespace DeepSigma.AlphaVantageAPI.DataModels
 {
     /// <summary>
     /// Metadata information for Alpha Vantage API responses.

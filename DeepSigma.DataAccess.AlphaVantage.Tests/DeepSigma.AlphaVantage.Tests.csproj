@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\DeepSigma.DataAccess.AlphaVantage\DeepSigma.DataAccess.AlphaVantage.csproj" />
+	  <ProjectReference Include="..\DeepSigma.DataAccess.AlphaVantage\DeepSigma.AlphaVantageAPI.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DeepSigma.DataAccess.AlphaVantage.Enums
+namespace DeepSigma.AlphaVantageAPI.Enums
 {
     /// <summary>
     /// The fixed income maturities for US Treasury yields.

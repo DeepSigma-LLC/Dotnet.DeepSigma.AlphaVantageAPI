@@ -1,7 +1,7 @@
 ﻿
 using System.Text.Json.Serialization;
 
-namespace DeepSigma.DataAccess.AlphaVantage.DataModels
+namespace DeepSigma.AlphaVantageAPI.DataModels
 {
     /// <summary>
     /// The class represents a data point with a date and a corresponding numerical value.

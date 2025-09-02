@@ -1,9 +1,9 @@
-﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.AlphaVantage.Enums;
+﻿using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.Enums;
 using DeepSigma.General.Extensions;
 using DeepSigma.DataAccess.API;
 
-namespace DeepSigma.DataAccess.AlphaVantage
+namespace DeepSigma.AlphaVantageAPI
 {
     /// <summary>
     /// This class contains various utility functions provided by Alpha Vantage, such as ticker search, market status, top gainers/losers, news sentiment, ETF profiles, and listings.
@@ -12,6 +12,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
     {
         private string api_key { get; set; }
         private Action<string?>? json_logger { get; set; } = null;
+        private Action<string?>? csv_logger { get; set; } = null;
         private int timeout_seconds { get; set; }
         internal UtilitiesData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
         {
@@ -166,21 +167,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVListingStatusCSVData>> GetAllActiveListings(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=LISTING_STATUS&apikey={api_key}";
-            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger, ct);
-            return results;
-        }
-
-        /// <summary>
-        /// Parses the CSV response returned by the Alpha Vantage API for Listing Status.
-        /// This API returns a list of active or delisted US stocks and ETFs, either as of the latest trading day. 
-        /// The endpoint is positioned to facilitate equity research on asset lifecycle and survivorship.
-        /// </summary>
-        /// <param name="csv"></param>
-        /// <returns></returns>
-        public static List<AVListingStatusCSVData>? GetListingsFromCSV(string csv)
-        {
-            csv = csv.Replace(",null,", ",,");
-            List<AVListingStatusCSVData>? results = APIUtilities.LoadFromCSV<AVListingStatusCSVData>(csv);
+            List<AVListingStatusCSVData> results = await AlphaVantageAPIUtilities.GetAPIDataCSVFormat(url, GetListingsFromCSV, timeout_seconds, ct, csv_logger);
             return results;
         }
 
@@ -195,7 +182,22 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVListingStatusCSVData>> GetAllListings(DateOnly date, ListingStatus listing_status, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=LISTING_STATUS&date={date.ToString("D")}&state={listing_status.ToDescriptionString()}&apikey={api_key}";
-            List<AVListingStatusCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVListingStatusCSVData>(url, timeout_seconds, json_logger, ct);
+            List<AVListingStatusCSVData> results = await AlphaVantageAPIUtilities.GetAPIDataCSVFormat(url, GetListingsFromCSV, timeout_seconds, ct, csv_logger);
+            return results;
+        }
+
+
+        /// <summary>
+        /// Parses the CSV response returned by the Alpha Vantage API for Listing Status.
+        /// This API returns a list of active or delisted US stocks and ETFs, either as of the latest trading day. 
+        /// The endpoint is positioned to facilitate equity research on asset lifecycle and survivorship.
+        /// </summary>
+        /// <param name="csv"></param>
+        /// <returns></returns>
+        public static List<AVListingStatusCSVData> GetListingsFromCSV(string csv)
+        {
+            csv = csv.Replace(",null,", ",,");
+            List<AVListingStatusCSVData> results = APIUtilities.LoadFromCSV<AVListingStatusCSVData>(csv);
             return results;
         }
 
@@ -209,7 +211,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVEarningsCalandarCSVData>> GetEarningsCalandar(string symbol, EarningsHorizon horizon, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=EARNINGS_CALENDAR&symbol={symbol}&horizon={horizon.ToDescriptionString()}&&apikey={api_key}";
-            List<AVEarningsCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVEarningsCalandarCSVData>(url, timeout_seconds, json_logger, ct);
+            List<AVEarningsCalandarCSVData> results = await AlphaVantageAPIUtilities.GetAPIDataCSVFormat(url, GetEarningsFromCSV, timeout_seconds, ct, csv_logger);
             return results;
         }
 
@@ -219,9 +221,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="csv"></param>
         /// <returns></returns>
-        public static List<AVEarningsCalandarCSVData>? GetEarningsFromCSV(string csv)
+        public static List<AVEarningsCalandarCSVData> GetEarningsFromCSV(string csv)
         {
-            List<AVEarningsCalandarCSVData>? results = APIUtilities.LoadFromCSV<AVEarningsCalandarCSVData>(csv);
+            List<AVEarningsCalandarCSVData> results = APIUtilities.LoadFromCSV<AVEarningsCalandarCSVData>(csv);
             return results;
         }
 
@@ -233,7 +235,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<List<AVIpoCalandarCSVData>> GetIPOCalandar(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=IPO_CALENDAR&apikey={api_key}";
-            List<AVIpoCalandarCSVData> results = await APIUtilities.GetDataFromCSVAsync<AVIpoCalandarCSVData>(url, timeout_seconds, json_logger, ct);
+            List<AVIpoCalandarCSVData> results = await AlphaVantageAPIUtilities.GetAPIDataCSVFormat(url, GetIPOCalandarFromCSV, timeout_seconds, ct, csv_logger);
             return results;
         }
 
@@ -243,9 +245,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="csv"></param>
         /// <returns></returns>
-        public static List<AVIpoCalandarCSVData>? GetIPOCalandarFromCSV(string csv)
+        public static List<AVIpoCalandarCSVData> GetIPOCalandarFromCSV(string csv)
         {
-            List<AVIpoCalandarCSVData>? results = APIUtilities.LoadFromCSV<AVIpoCalandarCSVData>(csv);
+            List<AVIpoCalandarCSVData> results = APIUtilities.LoadFromCSV<AVIpoCalandarCSVData>(csv);
             return results;
         }
     }

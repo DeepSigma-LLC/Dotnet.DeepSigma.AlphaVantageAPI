@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DeepSigma.DataAccess.AlphaVantage.DataModels
+namespace DeepSigma.AlphaVantageAPI.DataModels
 {
     /// <summary>
     /// Represents exchange rate data for a currency pair, including details such as currency codes, names,  exchange

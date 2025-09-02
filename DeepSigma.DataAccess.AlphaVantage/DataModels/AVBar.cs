@@ -1,5 +1,5 @@
 ﻿
-namespace DeepSigma.DataAccess.AlphaVantage.DataModels
+namespace DeepSigma.AlphaVantageAPI.DataModels
 {
     /// <summary>
     /// Data model representing a single bar of market data (OHLCV) from Alpha Vantage API.

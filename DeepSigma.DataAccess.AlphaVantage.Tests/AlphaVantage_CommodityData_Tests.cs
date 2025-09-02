@@ -1,9 +1,7 @@
 ﻿using Xunit;
-using DeepSigma.DataAccess.AlphaVantage;
-using DeepSigma.DataAccess.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.AlphaVantage.Tests;
+using DeepSigma.AlphaVantageAPI.DataModels;
 
-namespace DataAccessTests
+namespace DeepSigma.AlphaVantageAPI.Tests
 {
     public class AlphaVantage_CommodityData_Tests
     {

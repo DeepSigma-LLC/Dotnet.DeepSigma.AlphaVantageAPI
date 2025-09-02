@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace DeepSigma.DataAccess.AlphaVantage.Parsers
+namespace DeepSigma.AlphaVantageAPI.Parsers
 {
     /// <summary>
     /// Base class for parsing Alpha Vantage API responses.

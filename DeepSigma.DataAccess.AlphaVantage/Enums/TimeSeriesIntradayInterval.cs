@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DeepSigma.DataAccess.AlphaVantage.Enums
+namespace DeepSigma.AlphaVantageAPI.Enums
 {
     /// <summary>
     /// Intraday time intervals for Alpha Vantage Time Series API calls. 

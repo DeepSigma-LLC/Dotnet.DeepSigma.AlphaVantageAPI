@@ -1,10 +1,10 @@
-﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.AlphaVantage.Enums;
-using DeepSigma.DataAccess.AlphaVantage.Parsers;
+﻿using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.Enums;
+using DeepSigma.AlphaVantageAPI.Parsers;
 using DeepSigma.DataAccess.API;
 using DeepSigma.General.Extensions;
 
-namespace DeepSigma.DataAccess.AlphaVantage
+namespace DeepSigma.AlphaVantageAPI
 {
     /// <summary>
     /// This class contains methods to access cryptocurrency data from the Alpha Vantage API.

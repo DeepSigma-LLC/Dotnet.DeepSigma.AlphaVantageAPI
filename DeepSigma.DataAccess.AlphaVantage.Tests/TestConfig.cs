@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DeepSigma.DataAccess.AlphaVantage.Tests
+﻿
+namespace DeepSigma.AlphaVantageAPI.Tests
 {
     internal static class TestConfig
     {

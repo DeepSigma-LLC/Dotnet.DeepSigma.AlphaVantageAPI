@@ -1,8 +1,8 @@
-﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.AlphaVantage.Enums;
+﻿using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.Enums;
 using DeepSigma.DataAccess.API;
 
-namespace DeepSigma.DataAccess.AlphaVantage
+namespace DeepSigma.AlphaVantageAPI
 {
     /// <summary>
     /// This class contains methods to access option data from the Alpha Vantage API.

@@ -1,7 +1,7 @@
-﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
+﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using System.Text.Json;
 
-namespace DeepSigma.DataAccess.AlphaVantage.Parsers
+namespace DeepSigma.AlphaVantageAPI.Parsers
 {
     /// <summary>
     /// This class parses the metadata section of an Alpha Vantage API response.

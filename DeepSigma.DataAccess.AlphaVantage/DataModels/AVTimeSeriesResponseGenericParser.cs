@@ -1,8 +1,8 @@
-﻿using DeepSigma.DataAccess.AlphaVantage.Parsers;
+﻿using DeepSigma.AlphaVantageAPI.Parsers;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace DeepSigma.DataAccess.AlphaVantage.DataModels
+namespace DeepSigma.AlphaVantageAPI.DataModels
 {
     internal class AVTimeSeriesResponseGenericParser<T>
     {

@@ -1,9 +1,9 @@
-﻿using DeepSigma.DataAccess.AlphaVantage.DataModels;
-using DeepSigma.DataAccess.AlphaVantage.Enums;
+﻿using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.Enums;
 using DeepSigma.DataAccess.API;
 using DeepSigma.General.Extensions;
 
-namespace DeepSigma.DataAccess.AlphaVantage
+namespace DeepSigma.AlphaVantageAPI
 {
     /// <summary>
     /// This class contains methods to access economic data from the Alpha Vantage API.
