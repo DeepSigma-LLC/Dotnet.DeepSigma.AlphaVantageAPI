@@ -35,17 +35,44 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Company Overview.
+        /// This API returns the company information, financial ratios, and other key metrics for the equity specified. 
+        /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVComanyOverview? GetCompanyOverviewFromJson(string json)
+        {
+            AVComanyOverview? results = APIUtilities.LoadFromJson<AVComanyOverview?>(json);
+            return results;
+        }
+
+
+        /// <summary>
         /// This API returns the latest and historical insider transactions made by key stakeholders (e.g., founders, executives, board members, etc.) of a specific company.
         /// </summary>
         /// <param name="symbol"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVDataRequest<AVInsiderTransactionData>?> GetInsiderTransactions<T>(string symbol, CancellationToken ct = default)
+        public async Task<AVDataRequest<AVInsiderTransactionData>?> GetInsiderTransactions(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=INSIDER_TRANSACTIONS&symbol={symbol}&apikey={api_key}";
             AVDataRequest<AVInsiderTransactionData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVInsiderTransactionData>>(url, timeout_seconds, json_logger, ct);
             return results;
         }
+
+        /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Insider Transactions.
+        /// This API returns the latest and historical insider transactions made by key stakeholders (e.g., founders, executives, board members, etc.) of a specific company.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVDataRequest<AVInsiderTransactionData>? GetInsiderTransactionsFromJson(string json)
+        {
+            AVDataRequest<AVInsiderTransactionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVInsiderTransactionData>?>(json);
+            return results;
+        }
+
 
         /// <summary>
         /// This API returns the earnings call transcript for a given company in a specific quarter, covering over 15 years of history and enriched with LLM-based sentiment signals.
@@ -63,6 +90,18 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Earnings Call Transcript.
+        /// This API returns the earnings call transcript for a given company in a specific quarter, covering over 15 years of history and enriched with LLM-based sentiment signals.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVTranscriptResponse? GetEarningsTranscriptFromJson(string json)
+        {
+            AVTranscriptResponse? results = APIUtilities.LoadFromJson<AVTranscriptResponse?>(json);
+            return results;
+        }
+
+        /// <summary>
         /// This API returns historical and future (declared) dividend distributions.
         /// </summary>
         /// <param name="symbol"></param>
@@ -75,6 +114,17 @@ namespace DeepSigma.DataAccess.AlphaVantage
             return results;
         }
 
+        /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Dividends.
+        /// This API returns historical and future (declared) dividend distributions.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVDividendHistoryResponse? GetDividendsFromJson(string json)
+        {
+            AVDividendHistoryResponse? results = APIUtilities.LoadFromJson<AVDividendHistoryResponse?>(json);
+            return results;
+        }
 
         /// <summary>
         /// This API returns historical split events.
@@ -86,6 +136,18 @@ namespace DeepSigma.DataAccess.AlphaVantage
         {
             string url = $"https://www.alphavantage.co/query?function=SPLITS&symbol={symbol}&apikey={api_key}";
             AVStockSplitResponse? results = await APIUtilities.GetDataFromURLAsync<AVStockSplitResponse>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+        /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Stock Splits.
+        /// This API returns historical split events.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVStockSplitResponse? GetStockSplitsFromJson(string json)
+        {
+            AVStockSplitResponse? results = APIUtilities.LoadFromJson<AVStockSplitResponse?>(json);
             return results;
         }
 
@@ -104,6 +166,20 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Income Statement.
+        /// This API returns the annual and quarterly income statements for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
+        /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVIncomeStatementResponse? GetIncomeStatementFromJson(string json)
+        {
+            json = json.Replace("\"None\"", "null");
+            AVIncomeStatementResponse? results = APIUtilities.LoadFromJson<AVIncomeStatementResponse?>(json);
+            return results;
+        }
+
+        /// <summary>
         /// This API returns the annual and quarterly balance sheets for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
         /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
         /// </summary>
@@ -118,16 +194,45 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Balance Sheet.
+        /// This API returns the annual and quarterly balance sheets for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
+        /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVBalanceSheetResponse? GetBalanceSheetFromJson(string json)
+        {
+            json = json.Replace("\"None\"", "null");
+            AVBalanceSheetResponse? results = APIUtilities.LoadFromJson<AVBalanceSheetResponse?>(json);
+            return results;
+        }
+
+
+        /// <summary>
         /// This API returns the annual and quarterly cash flow for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
         /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
         /// </summary>
         /// <param name="symbol"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public async Task<AVCashFlowResponse?> GetCashFlow<T>(string symbol, CancellationToken ct = default)
+        public async Task<AVCashFlowResponse?> GetCashFlow(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=CASH_FLOW&symbol={symbol}&apikey={api_key}";
             AVCashFlowResponse? results = await APIUtilities.GetDataFromURLAsync<AVCashFlowResponse?>(url, timeout_seconds, json_logger, ct);
+            return results;
+        }
+
+        /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Cash Flow.
+        /// This API returns the annual and quarterly cash flow for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
+        /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVCashFlowResponse? GetCashFlowFromJson(string json)
+        {
+            json = json.Replace("\"None\"", "null");
+            AVCashFlowResponse? results = APIUtilities.LoadFromJson<AVCashFlowResponse?>(json);
             return results;
         }
 
@@ -146,6 +251,19 @@ namespace DeepSigma.DataAccess.AlphaVantage
         }
 
         /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Earnings History.
+        /// This API returns the annual and quarterly earnings (EPS) for the company of interest. 
+        /// Quarterly data also includes analyst estimates and surprise metrics.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVEarningsHistroyResponse? GetEarningsHistoryFromJson(string json)
+        {
+            AVEarningsHistroyResponse? results = APIUtilities.LoadFromJson<AVEarningsHistroyResponse?>(json);
+            return results;
+        }
+
+        /// <summary>
         /// This API returns the annual and quarterly EPS and revenue estimates for the company of interest, along with analyst count and revision history.
         /// </summary>
         /// <param name="symbol"></param>
@@ -158,6 +276,16 @@ namespace DeepSigma.DataAccess.AlphaVantage
             return results;
         }
 
-
+        /// <summary>
+        /// Parses the JSON response returned by the Alpha Vantage API for Earnings Estimate.
+        /// This API returns the annual and quarterly EPS and revenue estimates for the company of interest, along with analyst count and revision history.
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public AVEarningsEstimateResponse? GetEarningsEstimateFromJson(string json)
+        {
+            AVEarningsEstimateResponse? results = APIUtilities.LoadFromJson<AVEarningsEstimateResponse?>(json);
+            return results;
+        }
     }
 }

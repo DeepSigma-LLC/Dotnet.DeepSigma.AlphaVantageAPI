@@ -16,7 +16,7 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         [JsonPropertyName("eps_estimate_low")]
         public decimal? EpsEstimateLow { get; set; }
         [JsonPropertyName("eps_estimate_analyst_count")]
-        public int? EpsEstimateAnalystCount { get; set; }
+        public decimal? EpsEstimateAnalystCount { get; set; }
         [JsonPropertyName("eps_estimate_average_7_days_ago")]
         public decimal? EpsEstimateAverage7DaysAgo { get; set; }
         [JsonPropertyName("eps_estimate_average_30_days_ago")]
@@ -26,13 +26,13 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         [JsonPropertyName("eps_estimate_average_90_days_ago")]
         public decimal? EpsEstimateAverage90DaysAgo { get; set; }
         [JsonPropertyName("eps_estimate_revision_up_trailing_7_days")]
-        public int? EpsEstimateRevisionUpTrailing7Days { get; set; }
+        public decimal? EpsEstimateRevisionUpTrailing7Days { get; set; }
         [JsonPropertyName("eps_estimate_revision_down_trailing_7_days")]
-        public int? EpsEstimateRevisionDownTrailing7Days { get; set; }
+        public decimal? EpsEstimateRevisionDownTrailing7Days { get; set; }
         [JsonPropertyName("eps_estimate_revision_up_trailing_30_days")]
-        public int? EpsEstimateRevisionUpTrailing30Days { get; set; }
+        public decimal? EpsEstimateRevisionUpTrailing30Days { get; set; }
         [JsonPropertyName("eps_estimate_revision_down_trailing_30_days")]
-        public int? EpsEstimateRevisionDownTrailing30Days { get; set; }
+        public decimal? EpsEstimateRevisionDownTrailing30Days { get; set; }
         [JsonPropertyName("revenue_estimate_average")]
         public decimal? RevenueEstimateAverage { get; set; }
         [JsonPropertyName("revenue_estimate_high")]
@@ -40,6 +40,6 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         [JsonPropertyName("revenue_estimate_low")]
         public decimal? RevenueEstimateLow { get; set; }
         [JsonPropertyName("revenue_estimate_analyst_count")]
-        public int? RevenueEstimateAnalystCount { get; set; }
+        public decimal? RevenueEstimateAnalystCount { get; set; }
     }
 }

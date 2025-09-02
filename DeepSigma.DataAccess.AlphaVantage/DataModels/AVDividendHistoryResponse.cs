@@ -8,7 +8,7 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         [JsonPropertyName("symbol")]
         public string Symbol { get; set; } = string.Empty;
 
-        [JsonPropertyName("dividend_history")]
+        [JsonPropertyName("data")]
         public List<AVDividendRecord> DividendHistory { get; set; } = [];
     }
 }

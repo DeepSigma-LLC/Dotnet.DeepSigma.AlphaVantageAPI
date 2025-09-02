@@ -13,7 +13,7 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         [JsonPropertyName("fiscalDateEnding")]
         public DateTime FiscalDateEnding { get; init; }
         [JsonPropertyName("reportedCurrency")]
-        public string ReportedCurrency { get; init; }
+        public string ReportedCurrency { get; init; } = string.Empty;
         [JsonPropertyName("operatingCashflow")]
         public decimal? OperatingCashflow { get; init; }
         [JsonPropertyName("paymentsForOperatingActivities")]

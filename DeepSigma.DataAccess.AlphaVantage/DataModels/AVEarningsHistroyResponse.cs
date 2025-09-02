@@ -8,8 +8,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         [JsonPropertyName("symbol")]
         public string Symbol { get; set; } = string.Empty;
         [JsonPropertyName("annualEarnings")]
-        public List<AVEarningsAnnualData>? AnnualEarnings { get; set; }
+        public List<AVEarningsAnnualData> AnnualEarnings { get; set; } = [];
         [JsonPropertyName("quarterlyEarnings")]
-        public List<AVEarningsQuarterlyData>? QuarterlyEarnings { get; set; }
+        public List<AVEarningsQuarterlyData> QuarterlyEarnings { get; set; } = [];
     }
 }
