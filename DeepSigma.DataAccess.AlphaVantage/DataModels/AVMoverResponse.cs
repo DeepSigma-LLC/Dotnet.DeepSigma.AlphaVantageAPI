@@ -8,7 +8,7 @@ namespace DeepSigma.DataAccess.AlphaVantage.DataModels
         public string Metadata { get; init; } = string.Empty;
 
         [JsonPropertyName("last_updated")]
-        public DateTime? LastUpdated { get; init; }
+        public string LastUpdated { get; init; } = string.Empty;
 
         [JsonPropertyName("top_gainers")]
         public List<AVMoverData> TopGainers { get; init; } = [];
