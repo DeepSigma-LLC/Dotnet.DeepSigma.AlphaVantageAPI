@@ -30,7 +30,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVComanyOverview?> GetCompanyOverview(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}&apikey={api_key}";
-            AVComanyOverview? results = await APIUtilities.GetDataFromURLAsync<AVComanyOverview>(url, timeout_seconds, json_logger, ct);
+            AVComanyOverview? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCompanyOverviewFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -41,12 +41,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVComanyOverview? GetCompanyOverviewFromJson(string json)
+        public static AVComanyOverview? GetCompanyOverviewFromJson(string json)
         {
             AVComanyOverview? results = APIUtilities.LoadFromJson<AVComanyOverview?>(json);
             return results;
         }
-
 
         /// <summary>
         /// This API returns the latest and historical insider transactions made by key stakeholders (e.g., founders, executives, board members, etc.) of a specific company.
@@ -57,7 +56,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVInsiderTransactionData>?> GetInsiderTransactions(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=INSIDER_TRANSACTIONS&symbol={symbol}&apikey={api_key}";
-            AVDataRequest<AVInsiderTransactionData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVInsiderTransactionData>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVInsiderTransactionData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetInsiderTransactionsFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -67,12 +66,11 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVInsiderTransactionData>? GetInsiderTransactionsFromJson(string json)
+        public static AVDataRequest<AVInsiderTransactionData>? GetInsiderTransactionsFromJson(string json)
         {
             AVDataRequest<AVInsiderTransactionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVInsiderTransactionData>?>(json);
             return results;
         }
-
 
         /// <summary>
         /// This API returns the earnings call transcript for a given company in a specific quarter, covering over 15 years of history and enriched with LLM-based sentiment signals.
@@ -85,7 +83,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVTranscriptResponse?> GetEarningsTranscript(string symbol, int year, byte quarter, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=EARNINGS_CALL_TRANSCRIPT&symbol={symbol}&quarter={year}Q{quarter}&apikey={api_key}";
-            AVTranscriptResponse? results = await APIUtilities.GetDataFromURLAsync<AVTranscriptResponse>(url, timeout_seconds, json_logger, ct);
+            AVTranscriptResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetEarningsTranscriptFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -95,7 +93,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVTranscriptResponse? GetEarningsTranscriptFromJson(string json)
+        public static AVTranscriptResponse? GetEarningsTranscriptFromJson(string json)
         {
             AVTranscriptResponse? results = APIUtilities.LoadFromJson<AVTranscriptResponse?>(json);
             return results;
@@ -110,7 +108,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDividendHistoryResponse?> GetDividends(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=DIVIDENDS&symbol={symbol}&apikey={api_key}";
-            AVDividendHistoryResponse? results = await APIUtilities.GetDataFromURLAsync<AVDividendHistoryResponse>(url, timeout_seconds, json_logger, ct);
+            AVDividendHistoryResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetDividendsFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -120,7 +118,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDividendHistoryResponse? GetDividendsFromJson(string json)
+        public static AVDividendHistoryResponse? GetDividendsFromJson(string json)
         {
             AVDividendHistoryResponse? results = APIUtilities.LoadFromJson<AVDividendHistoryResponse?>(json);
             return results;
@@ -135,7 +133,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVStockSplitResponse?> GetStockSplits(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=SPLITS&symbol={symbol}&apikey={api_key}";
-            AVStockSplitResponse? results = await APIUtilities.GetDataFromURLAsync<AVStockSplitResponse>(url, timeout_seconds, json_logger, ct);
+            AVStockSplitResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetStockSplitsFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -145,7 +143,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVStockSplitResponse? GetStockSplitsFromJson(string json)
+        public static AVStockSplitResponse? GetStockSplitsFromJson(string json)
         {
             AVStockSplitResponse? results = APIUtilities.LoadFromJson<AVStockSplitResponse?>(json);
             return results;
@@ -161,7 +159,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVIncomeStatementResponse?> GetIncomeStatement(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={symbol}&apikey={api_key}";
-            AVIncomeStatementResponse? results = await APIUtilities.GetDataFromURLAsync<AVIncomeStatementResponse>(url, timeout_seconds, json_logger, ct);
+            AVIncomeStatementResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetIncomeStatementFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -172,7 +170,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVIncomeStatementResponse? GetIncomeStatementFromJson(string json)
+        public static AVIncomeStatementResponse? GetIncomeStatementFromJson(string json)
         {
             json = json.Replace("\"None\"", "null");
             AVIncomeStatementResponse? results = APIUtilities.LoadFromJson<AVIncomeStatementResponse?>(json);
@@ -189,7 +187,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVBalanceSheetResponse?> GetBalanceSheet(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol={symbol}&apikey={api_key}";
-            AVBalanceSheetResponse? results = await APIUtilities.GetDataFromURLAsync<AVBalanceSheetResponse>(url, timeout_seconds, json_logger, ct);
+            AVBalanceSheetResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetBalanceSheetFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -200,13 +198,12 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVBalanceSheetResponse? GetBalanceSheetFromJson(string json)
+        public static AVBalanceSheetResponse? GetBalanceSheetFromJson(string json)
         {
             json = json.Replace("\"None\"", "null");
             AVBalanceSheetResponse? results = APIUtilities.LoadFromJson<AVBalanceSheetResponse?>(json);
             return results;
         }
-
 
         /// <summary>
         /// This API returns the annual and quarterly cash flow for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
@@ -218,7 +215,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVCashFlowResponse?> GetCashFlow(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=CASH_FLOW&symbol={symbol}&apikey={api_key}";
-            AVCashFlowResponse? results = await APIUtilities.GetDataFromURLAsync<AVCashFlowResponse?>(url, timeout_seconds, json_logger, ct);
+            AVCashFlowResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCashFlowFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -229,7 +226,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVCashFlowResponse? GetCashFlowFromJson(string json)
+        public static AVCashFlowResponse? GetCashFlowFromJson(string json)
         {
             json = json.Replace("\"None\"", "null");
             AVCashFlowResponse? results = APIUtilities.LoadFromJson<AVCashFlowResponse?>(json);
@@ -246,7 +243,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVEarningsHistroyResponse?> GetEarningsHistory(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=EARNINGS&symbol={symbol}&apikey={api_key}";
-            AVEarningsHistroyResponse? results = await APIUtilities.GetDataFromURLAsync<AVEarningsHistroyResponse>(url, timeout_seconds, json_logger, ct);
+            AVEarningsHistroyResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetEarningsHistoryFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -257,7 +254,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVEarningsHistroyResponse? GetEarningsHistoryFromJson(string json)
+        public static AVEarningsHistroyResponse? GetEarningsHistoryFromJson(string json)
         {
             AVEarningsHistroyResponse? results = APIUtilities.LoadFromJson<AVEarningsHistroyResponse?>(json);
             return results;
@@ -272,7 +269,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVEarningsEstimateResponse?> GetEarningsEstimate(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=EARNINGS_ESTIMATES&symbol={symbol}&apikey={api_key}";
-            AVEarningsEstimateResponse? results = await APIUtilities.GetDataFromURLAsync<AVEarningsEstimateResponse>(url, timeout_seconds, json_logger, ct);
+            AVEarningsEstimateResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetEarningsEstimateFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -282,7 +279,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVEarningsEstimateResponse? GetEarningsEstimateFromJson(string json)
+        public static AVEarningsEstimateResponse? GetEarningsEstimateFromJson(string json)
         {
             AVEarningsEstimateResponse? results = APIUtilities.LoadFromJson<AVEarningsEstimateResponse?>(json);
             return results;

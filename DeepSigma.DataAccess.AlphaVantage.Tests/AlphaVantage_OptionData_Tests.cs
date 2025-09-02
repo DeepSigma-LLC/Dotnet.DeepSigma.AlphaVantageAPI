@@ -10,9 +10,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetHistoricalOptionDataFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Option/AVOptionDataHistorical.json");
-            AVDataRequest<AVOptionData>? results = api.OptionData.GetHistoricalOptionDataFromJson(json);
+            AVDataRequest<AVOptionData>? results = OptionData.GetHistoricalOptionDataFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -25,9 +24,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetRealTimeOptionDataFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Option/AVOptionDataRealTime.json");
-            AVDataRequest<AVOptionData>? results = api.OptionData.GetRealTimeOptionDataFromJson(json);
+            AVDataRequest<AVOptionData>? results = OptionData.GetRealTimeOptionDataFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -36,6 +34,5 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
             }
             Assert.True(has_data);
         }
-
     }
 }

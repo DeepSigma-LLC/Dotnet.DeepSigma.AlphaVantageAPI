@@ -41,15 +41,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
                 parameter = $"&month={selected_month.Value.Year}-{selected_month.Value.Month}";
             }
             string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&extended_hours={extended_hours}{parameter}&apikey={api_key}";
-            AVTimeSeriesResponseGenericParser<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGenericParser<AVBar>>(url, timeout_seconds, json_logger, ct);
-
-            if (results is null) return null;
-            results.SetParser(AVBarParser.Parse);
-
-            AVTimeSeriesResponseGeneric<AVBar> final_results = new(results.GetSeries(), results.GetMetaData());
-            return final_results;
+            AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+            return results;
         }
-
 
         /// <summary>
         /// Parses the JSON string returned by the Alpha Vantage API for intraday time series data.
@@ -59,11 +53,10 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVTimeSeriesResponseGeneric<AVBar>? GetIntradayTimeSeriesDataFromJson(string json)
+        public static AVTimeSeriesResponseGeneric<AVBar>? GetIntradayTimeSeriesDataFromJson(string json)
         {
-            return AlphaVantageAPIUtilities.JsonToResult(json);
+            return AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult(json);
         }
-
 
         /// <summary>
         /// This API returns raw (as-traded) daily time series (date, daily open, daily high, daily low, daily close, daily volume) of the global equity specified, 
@@ -76,13 +69,8 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetDailyTimeSeriesData(string symbol, OutputSize output_size = OutputSize.Full, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&outputsize={output_size.ToDescriptionString()}&apikey={api_key}";
-            AVTimeSeriesResponseGenericParser<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGenericParser<AVBar>>(url, timeout_seconds, json_logger, ct);
-
-            if (results is null) return null;
-            results.SetParser(AVBarParser.Parse);
-
-            AVTimeSeriesResponseGeneric<AVBar> final_results = new(results.GetSeries(), results.GetMetaData());
-            return final_results;
+            AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+            return results;
         }
 
         /// <summary>
@@ -92,9 +80,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVTimeSeriesResponseGeneric<AVBar>? GetDailyTimeSeriesDataFromJson(string json)
+        public static AVTimeSeriesResponseGeneric<AVBar>? GetDailyTimeSeriesDataFromJson(string json)
         {
-            return AlphaVantageAPIUtilities.JsonToResult(json);
+            return AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult(json);
         }
 
         /// <summary>
@@ -106,14 +94,8 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetWeeklyTimeSeriesData(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol={symbol}&apikey={api_key}";
-            AVTimeSeriesResponseGenericParser<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGenericParser<AVBar>>(url, timeout_seconds, json_logger, ct);
-
-            if (results is null) return null;
-            results.SetParser(AVBarParser.Parse);
-
-            AVTimeSeriesResponseGeneric<AVBar> final_results = new(results.GetSeries(), results.GetMetaData());
-            return final_results;
-
+            AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+            return results;
         }
 
         /// <summary>
@@ -122,9 +104,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVTimeSeriesResponseGeneric<AVBar>? GetWeeklyTimeSeriesDataFromJson(string json)
+        public static AVTimeSeriesResponseGeneric<AVBar>? GetWeeklyTimeSeriesDataFromJson(string json)
         {
-            return AlphaVantageAPIUtilities.JsonToResult(json);
+            return AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult(json);
         }
 
         /// <summary>
@@ -137,13 +119,8 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetMonthlyTimeSeriesData(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol={symbol}&apikey={api_key}";
-            AVTimeSeriesResponseGenericParser<AVBar>? results = await APIUtilities.GetDataFromURLAsync<AVTimeSeriesResponseGenericParser<AVBar>>(url, timeout_seconds, json_logger, ct);
-
-            if (results is null) return null;
-            results.SetParser(AVBarParser.Parse);
-
-            AVTimeSeriesResponseGeneric<AVBar> final_results = new(results.GetSeries(), results.GetMetaData());
-            return final_results;
+            AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+            return results;
         }
 
         /// <summary>
@@ -153,9 +130,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVTimeSeriesResponseGeneric<AVBar>? GetMonthlyTimeSeriesDataFromJson(string json)
+        public static AVTimeSeriesResponseGeneric<AVBar>? GetMonthlyTimeSeriesDataFromJson(string json)
         {
-            return AlphaVantageAPIUtilities.JsonToResult(json);
+            return AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult(json);
         }
 
         /// <summary>
@@ -168,7 +145,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVBulkQuoteData>?> GetBulkRealTimeQuoteData(string[] symbols, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol={string.Join(",", symbols)}&apikey={api_key}";
-            AVDataRequest<AVBulkQuoteData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVBulkQuoteData>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVBulkQuoteData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetBulkRealTimeQuoteDataFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -179,7 +156,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVBulkQuoteData>? GetBulkRealTimeQuoteDataFromJson(string json)
+        public static AVDataRequest<AVBulkQuoteData>? GetBulkRealTimeQuoteDataFromJson(string json)
         {
             AVDataRequest<AVBulkQuoteData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVBulkQuoteData>>(json);
             return results;

@@ -11,9 +11,9 @@ namespace DeepSigma.DataAccess.AlphaVantage
     public class CommodityData
     {
         private string api_key { get; set; }
-        private Action<string?>? json_logger { get; set; } = null;
+        private Action<string>? json_logger { get; set; } = null;
         private int timeout_seconds { get; set; }
-        internal CommodityData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
+        internal CommodityData(string api_key, Action<string>? json_logger, int timeout_seconds = 15)
         {
             this.api_key = api_key;
             this.json_logger = json_logger;
@@ -31,7 +31,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetWTI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=WTI&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetWTIFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -43,7 +43,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetWTIFromJson(string json)
+        public static AVDataRequest<AVValue>? GetWTIFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -60,7 +60,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetBrent(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=BRENT&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetBrentFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -72,7 +72,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetBrentFromJson(string json)
+        public static AVDataRequest<AVValue>? GetBrentFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -90,7 +90,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetNaturalGas(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=NATURAL_GAS&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetNaturalGasFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -103,7 +103,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetNaturalGasFromJson(string json)
+        public static AVDataRequest<AVValue>? GetNaturalGasFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -122,7 +122,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetCopper(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=COPPER&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCopperFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -134,7 +134,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetCopperFromJson(string json)
+        public static AVDataRequest<AVValue>? GetCopperFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -152,7 +152,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetAluminum(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=ALUMINUM&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetAluminumFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -165,7 +165,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetAluminumFromJson(string json)
+        public static AVDataRequest<AVValue>? GetAluminumFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -183,7 +183,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetWheat(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=WHEAT&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetWheatFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -195,7 +195,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetWheatFromJson(string json)
+        public static AVDataRequest<AVValue>? GetWheatFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -212,7 +212,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetCorn(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=CORN&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCornFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -224,7 +224,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetCornFromJson(string json)
+        public static AVDataRequest<AVValue>? GetCornFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -241,7 +241,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetCotton(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=COTTON&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCottonFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -253,7 +253,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetCottonFromJson(string json)
+        public static AVDataRequest<AVValue>? GetCottonFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -270,7 +270,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetSugar(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=SUGAR&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetSugarFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -282,7 +282,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetSugarFromJson(string json)
+        public static AVDataRequest<AVValue>? GetSugarFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -299,7 +299,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetCoffee(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=COFFEE&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCoffeeFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -311,7 +311,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetCoffeeFromJson(string json)
+        public static AVDataRequest<AVValue>? GetCoffeeFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -327,7 +327,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetGlobalCommodityIndex(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=ALL_COMMODITIES&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetGlobalCommodityIndexFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -338,11 +338,10 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetGlobalCommodityIndexFromJson(string json)
+        public static AVDataRequest<AVValue>? GetGlobalCommodityIndexFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
         }
-
     }
 }

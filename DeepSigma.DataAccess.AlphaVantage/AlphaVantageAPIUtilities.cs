@@ -11,7 +11,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
 {
     internal static class AlphaVantageAPIUtilities
     {
-        internal static AVTimeSeriesResponseGeneric<AVBar>? JsonToResult(string json)
+        internal static AVTimeSeriesResponseGeneric<AVBar>? JsonParserToTimeSeriesResult(string json)
         {
             AVTimeSeriesResponseGenericParser<AVBar>? results = APIUtilities.LoadFromJson<AVTimeSeriesResponseGenericParser<AVBar>>(json);
 
@@ -22,5 +22,14 @@ namespace DeepSigma.DataAccess.AlphaVantage
             return final_results;
         }
 
+        internal static async Task<TResult?> GetAPIData<TResult>(string url, Func<string, TResult> JsonToParser, int timeout_seconds, CancellationToken ct, Action<string>? json_logger = null)
+        {
+            string? json = await APIUtilities.GetJsonResponseAsync(url, timeout_seconds, ct);
+
+            if (json is null) return default;
+            if (json_logger is not null) { json_logger(json); }
+
+            return JsonToParser(json);
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetRealGDP(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=REAL_GDP&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRealGDPFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -43,7 +43,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetRealGDPFromJson(string json)
+        public static AVDataRequest<AVValue>? GetRealGDPFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -60,7 +60,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetRealGDPPerCapita(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=REAL_GDP_PER_CAPITA&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRealGDPPerCapitaFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -72,7 +72,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetRealGDPPerCapitaFromJson(string json)
+        public static AVDataRequest<AVValue>? GetRealGDPPerCapitaFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -89,7 +89,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetCPI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=CPI&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCPIFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -101,7 +101,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetCPIFromJson(string json)
+        public static AVDataRequest<AVValue>? GetCPIFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -117,7 +117,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetInflation(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=INFLATION&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetInflationFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -129,7 +129,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetInflationFromJson(string json)
+        public static AVDataRequest<AVValue>? GetInflationFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -145,7 +145,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetRetailSales(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=RETAIL_SALES&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRetailSalesFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -157,7 +157,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetRetailSalesFromJson(string json)
+        public static AVDataRequest<AVValue>? GetRetailSalesFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -173,7 +173,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetDurableGoodsOrders(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=DURABLES&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetDurableGoodsOrdersFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -185,7 +185,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetDurableGoodsOrdersFromJson(string json)
+        public static AVDataRequest<AVValue>? GetDurableGoodsOrdersFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -201,7 +201,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetNonFarmPayrolls(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=NONFARM_PAYROLL&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetNonFarmPayrollsFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -213,7 +213,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetNonFarmPayrollsFromJson(string json)
+        public static AVDataRequest<AVValue>? GetNonFarmPayrollsFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -232,7 +232,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetUnemploymentRate(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetUnemploymentRateFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -248,7 +248,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetUnemploymentRateFromJson(string json)
+        public static AVDataRequest<AVValue>? GetUnemploymentRateFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;

@@ -30,7 +30,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVTickerSearchResponse?> GetTickerSearch(string keyword, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords={keyword}&apikey={api_key}";
-            AVTickerSearchResponse? results = await APIUtilities.GetDataFromURLAsync<AVTickerSearchResponse>(url, timeout_seconds, json_logger, ct);
+            AVTickerSearchResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetTickerSearchFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -41,7 +41,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVTickerSearchResponse? GetTickerSearchFromJson(string json)
+        public static AVTickerSearchResponse? GetTickerSearchFromJson(string json)
         {
             AVTickerSearchResponse? results = APIUtilities.LoadFromJson<AVTickerSearchResponse>(json);
             return results;
@@ -55,7 +55,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVMarketClosureResponse?> GetGlobalMarketStatus(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=MARKET_STATUS&apikey={api_key}";
-            AVMarketClosureResponse? results = await APIUtilities.GetDataFromURLAsync<AVMarketClosureResponse>(url, timeout_seconds, json_logger, ct);
+            AVMarketClosureResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetGlobalMarketStatusFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -65,7 +65,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVMarketClosureResponse? GetGlobalMarketStatusFromJson(string json)
+        public static AVMarketClosureResponse? GetGlobalMarketStatusFromJson(string json)
         {
             AVMarketClosureResponse? results = APIUtilities.LoadFromJson<AVMarketClosureResponse>(json);
             return results;
@@ -79,7 +79,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVMoverResponse?> GetTopGainersAndLosers(CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey={api_key}";
-            AVMoverResponse? results = await APIUtilities.GetDataFromURLAsync<AVMoverResponse>(url, timeout_seconds, json_logger, ct);
+            AVMoverResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetTopGainersAndLosersFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -89,7 +89,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVMoverResponse? GetTopGainersAndLosersFromJson(string json)
+        public static AVMoverResponse? GetTopGainersAndLosersFromJson(string json)
         {
             AVMoverResponse? results = APIUtilities.LoadFromJson<AVMoverResponse>(json);
             return results;
@@ -141,7 +141,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVETFProfileResponse?> GetETFProfileAndHoldings(string symbol, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=ETF_PROFILE&symbol={symbol}&apikey={api_key}";
-            AVETFProfileResponse? results = await APIUtilities.GetDataFromURLAsync<AVETFProfileResponse>(url, timeout_seconds, json_logger, ct);
+            AVETFProfileResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetETFProfileAndHoldingsFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -151,7 +151,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVETFProfileResponse? GetETFProfileAndHoldingsFromJson(string json)
+        public static AVETFProfileResponse? GetETFProfileAndHoldingsFromJson(string json)
         {
             AVETFProfileResponse? results = APIUtilities.LoadFromJson<AVETFProfileResponse>(json);
             return results;
@@ -177,7 +177,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="csv"></param>
         /// <returns></returns>
-        public List<AVListingStatusCSVData>? GetListingsFromCSV(string csv)
+        public static List<AVListingStatusCSVData>? GetListingsFromCSV(string csv)
         {
             csv = csv.Replace(",null,", ",,");
             List<AVListingStatusCSVData>? results = APIUtilities.LoadFromCSV<AVListingStatusCSVData>(csv);
@@ -219,7 +219,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="csv"></param>
         /// <returns></returns>
-        public List<AVEarningsCalandarCSVData>? GetEarningsFromCSV(string csv)
+        public static List<AVEarningsCalandarCSVData>? GetEarningsFromCSV(string csv)
         {
             List<AVEarningsCalandarCSVData>? results = APIUtilities.LoadFromCSV<AVEarningsCalandarCSVData>(csv);
             return results;
@@ -243,7 +243,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="csv"></param>
         /// <returns></returns>
-        public List<AVIpoCalandarCSVData>? GetIPOCalandarFromCSV(string csv)
+        public static List<AVIpoCalandarCSVData>? GetIPOCalandarFromCSV(string csv)
         {
             List<AVIpoCalandarCSVData>? results = APIUtilities.LoadFromCSV<AVIpoCalandarCSVData>(csv);
             return results;

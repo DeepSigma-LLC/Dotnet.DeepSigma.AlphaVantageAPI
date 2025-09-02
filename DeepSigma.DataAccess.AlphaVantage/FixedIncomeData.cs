@@ -34,7 +34,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetUSTreasuryYield(FixedIncomeMaturities maturity, TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=TREASURY_YIELD&interval={interval.ToDescriptionString()}&maturity={maturity.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetUSTreasuryYieldFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -48,7 +48,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetUSTreasuryYieldFromJson(string json)
+        public static AVDataRequest<AVValue>? GetUSTreasuryYieldFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;
@@ -68,7 +68,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVValue>?> GetFedFunds(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=FEDERAL_FUNDS_RATE&interval={interval.ToDescriptionString()}&apikey={api_key}";
-            AVDataRequest<AVValue>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVValue>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetFedFundsFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -82,7 +82,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVValue>? GetFedFundsFromJson(string json)
+        public static AVDataRequest<AVValue>? GetFedFundsFromJson(string json)
         {
             AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
             return results;

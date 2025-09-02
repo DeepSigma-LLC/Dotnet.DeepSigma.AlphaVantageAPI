@@ -36,7 +36,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
                 contract_paramater = $"&contract={specific_option_contract}";
             }
             string url = $"https://www.alphavantage.co/query?function=REALTIME_OPTIONS&symbol={symbol}&require_greeks=true{contract_paramater}&apikey={api_key}";
-            AVDataRequest<AVOptionData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVOptionData>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVOptionData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRealTimeOptionDataFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -48,7 +48,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVOptionData>? GetRealTimeOptionDataFromJson(string json)
+        public static AVDataRequest<AVOptionData>? GetRealTimeOptionDataFromJson(string json)
         {
             AVDataRequest<AVOptionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVOptionData>>(json);
             return results;
@@ -66,7 +66,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         public async Task<AVDataRequest<AVOptionData>?> GetHistoricalOptionData(string symbol, DateOnly date, CancellationToken ct = default)
         {
             string url = $"https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={symbol}&date={date.ToString("D")}&apikey={api_key}";
-            AVDataRequest<AVOptionData>? results = await APIUtilities.GetDataFromURLAsync<AVDataRequest<AVOptionData>>(url, timeout_seconds, json_logger, ct);
+            AVDataRequest<AVOptionData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetHistoricalOptionDataFromJson, timeout_seconds, ct, json_logger);
             return results;
         }
 
@@ -78,7 +78,7 @@ namespace DeepSigma.DataAccess.AlphaVantage
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public AVDataRequest<AVOptionData>? GetHistoricalOptionDataFromJson(string json)
+        public static AVDataRequest<AVOptionData>? GetHistoricalOptionDataFromJson(string json)
         {
             AVDataRequest<AVOptionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVOptionData>>(json);
             return results;

@@ -10,9 +10,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Crypto/AVCryptoExchangeRate.json");
-            AVCurrencyExchangeRateQuoteResponse? results = api.CryptoData.GetExchangeRateFromJson(json);
+            AVCurrencyExchangeRateQuoteResponse? results = CryptoData.GetExchangeRateFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -25,9 +24,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateIntradayFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Crypto/AVCryptoExchangeRateIntraday.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.CryptoData.GetExchangeRatesIntradayFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = CryptoData.GetExchangeRatesIntradayFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -40,9 +38,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateDailyFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Crypto/AVCryptoExchangeRateDaily.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.CryptoData.GetExchangeRatesDailyFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = CryptoData.GetExchangeRatesDailyFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -56,9 +53,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateWeeklyFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Crypto/AVCryptoExchangeRateWeekly.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.CryptoData.GetExchangeRatesWeeklyFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = CryptoData.GetExchangeRatesWeeklyFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -72,9 +68,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateMonthlyFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Crypto/AVCryptoExchangeRateMonthly.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.CryptoData.GetExchangeRatesMonthlyFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = CryptoData.GetExchangeRatesMonthlyFromJson(json);
 
             bool has_data = false;
             if (results is not null)

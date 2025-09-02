@@ -10,9 +10,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetCompanyOverviewFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVCompanyOverview.json");
-            AVComanyOverview? results = api.FundamentalData.GetCompanyOverviewFromJson(json);
+            AVComanyOverview? results = FundamentalData.GetCompanyOverviewFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -25,9 +24,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetInsiderTransactionsFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVInsiderTransactions.json");
-            AVDataRequest<AVInsiderTransactionData>? results = api.FundamentalData.GetInsiderTransactionsFromJson(json);
+            AVDataRequest<AVInsiderTransactionData>? results = FundamentalData.GetInsiderTransactionsFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -40,9 +38,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetEarningsTranscriptFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVEarningsTranscript.json");
-            AVTranscriptResponse? results = api.FundamentalData.GetEarningsTranscriptFromJson(json);
+            AVTranscriptResponse? results = FundamentalData.GetEarningsTranscriptFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -55,9 +52,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetDividendsFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVDividends.json");
-            AVDividendHistoryResponse? results = api.FundamentalData.GetDividendsFromJson(json);
+            AVDividendHistoryResponse? results = FundamentalData.GetDividendsFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -70,9 +66,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetStockSplitsFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVStockSplit.json");
-            AVStockSplitResponse? results = api.FundamentalData.GetStockSplitsFromJson(json);
+            AVStockSplitResponse? results = FundamentalData.GetStockSplitsFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -85,9 +80,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetIncomeStatementFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVIncomeStatement.json");
-            AVIncomeStatementResponse? results = api.FundamentalData.GetIncomeStatementFromJson(json);
+            AVIncomeStatementResponse? results = FundamentalData.GetIncomeStatementFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -100,9 +94,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetBalanceSheetFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVBalanceSheet.json");
-            AVBalanceSheetResponse? results = api.FundamentalData.GetBalanceSheetFromJson(json);
+            AVBalanceSheetResponse? results = FundamentalData.GetBalanceSheetFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -115,9 +108,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetCashFlowFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVCashFlow.json");
-            AVCashFlowResponse? results = api.FundamentalData.GetCashFlowFromJson(json);
+            AVCashFlowResponse? results = FundamentalData.GetCashFlowFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -131,9 +123,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetEarningsHistoryFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVEarningsHistory.json");
-            AVEarningsHistroyResponse? results = api.FundamentalData.GetEarningsHistoryFromJson(json);
+            AVEarningsHistroyResponse? results = FundamentalData.GetEarningsHistoryFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -147,9 +138,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetEarningsEstimateFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVEarningsEstimate.json");
-            AVEarningsEstimateResponse? results = api.FundamentalData.GetEarningsEstimateFromJson(json);
+            AVEarningsEstimateResponse? results = FundamentalData.GetEarningsEstimateFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -158,8 +148,5 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
             }
             Assert.True(has_data);
         }
-
-
-
     }
 }

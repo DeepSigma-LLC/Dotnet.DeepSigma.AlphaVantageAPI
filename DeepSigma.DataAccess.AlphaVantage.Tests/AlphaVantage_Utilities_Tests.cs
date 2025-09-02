@@ -9,9 +9,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetGlobalMarketStatusDataFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Utilities/AVGlobalMarketStatus.json");
-            AVMarketClosureResponse? results = api.Utilities.GetGlobalMarketStatusFromJson(json);
+            AVMarketClosureResponse? results = UtilitiesData.GetGlobalMarketStatusFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -24,9 +23,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetTopMoversFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Utilities/AVTopGainLosersActive.json");
-            AVMoverResponse? results = api.Utilities.GetTopGainersAndLosersFromJson(json);
+            AVMoverResponse? results = UtilitiesData.GetTopGainersAndLosersFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -39,9 +37,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetETFProfileAndHoldingsFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Utilities/AVETFProfile.json");
-            AVETFProfileResponse? results = api.Utilities.GetETFProfileAndHoldingsFromJson(json);
+            AVETFProfileResponse? results = UtilitiesData.GetETFProfileAndHoldingsFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -55,9 +52,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetTickerSearchFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Utilities/AVTickerSearch.json");
-            AVTickerSearchResponse? results = api.Utilities.GetTickerSearchFromJson(json);
+            AVTickerSearchResponse? results = UtilitiesData.GetTickerSearchFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -70,9 +66,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetEarningsCalendarFromCSV_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/Utilities/earnings_calendar.csv");
-            List<AVEarningsCalandarCSVData>? results = api.Utilities.GetEarningsFromCSV(json);
+            List<AVEarningsCalandarCSVData>? results = UtilitiesData.GetEarningsFromCSV(json);
 
             bool has_data = false;
             if (results is not null)
@@ -81,14 +76,12 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
             }
             Assert.True(has_data);
         }
-
 
         [Fact]
         public void GetIPOCalendarFromCSV_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string data = File.ReadAllText(TestConfig.data_path + "/Utilities/ipo_calendar.csv");
-            List<AVIpoCalandarCSVData>? results = api.Utilities.GetIPOCalandarFromCSV(data);
+            List<AVIpoCalandarCSVData>? results = UtilitiesData.GetIPOCalandarFromCSV(data);
 
             bool has_data = false;
             if (results is not null)
@@ -97,14 +90,12 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
             }
             Assert.True(has_data);
         }
-
 
         [Fact]
         public void GetListingStatusFromCSV_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string data = File.ReadAllText(TestConfig.data_path + "/Utilities/listing_status_active_today.csv");
-            List<AVListingStatusCSVData>? results = api.Utilities.GetListingsFromCSV(data);
+            List<AVListingStatusCSVData>? results = UtilitiesData.GetListingsFromCSV(data);
 
             bool has_data = false;
             if (results is not null)
@@ -113,6 +104,5 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
             }
             Assert.True(has_data);
         }
-
     }
 }

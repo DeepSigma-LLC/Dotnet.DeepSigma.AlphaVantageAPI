@@ -10,9 +10,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetFedFundsRateFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/FixedIncome/AVFedFundsRate.json");
-            AVDataRequest<AVValue>? results = api.FixedIncomeData.GetFedFundsFromJson(json);
+            AVDataRequest<AVValue>? results = FixedIncomeData.GetFedFundsFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -25,9 +24,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetUSTreasuryYieldsFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/FixedIncome/AVTreasuryYields.json");
-            AVDataRequest<AVValue>? results = api.FixedIncomeData.GetUSTreasuryYieldFromJson(json);
+            AVDataRequest<AVValue>? results = FixedIncomeData.GetUSTreasuryYieldFromJson(json);
 
             bool has_data = false;
             if (results is not null)

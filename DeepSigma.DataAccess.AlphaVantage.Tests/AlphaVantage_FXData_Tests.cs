@@ -8,9 +8,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/FX/AVFXExchangeRateQuote.json");
-            AVCurrencyExchangeRateQuoteResponse? results = api.FXData.GetExchangeRateFromJson(json);
+            AVCurrencyExchangeRateQuoteResponse? results = FXData.GetExchangeRateFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -23,9 +22,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateIntradayFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/FX/AVFXExchangeRateIntraday.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.FXData.GetExchangeRatesIntradayFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = FXData.GetExchangeRatesIntradayFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -38,9 +36,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateDailyFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/FX/AVFXExchangeRateDaily.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.FXData.GetExchangeRatesDailyFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = FXData.GetExchangeRatesDailyFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -54,9 +51,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateWeeklyFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/FX/AVFXExchangeRateWeekly.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.FXData.GetExchangeRatesWeeklyFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = FXData.GetExchangeRatesWeeklyFromJson(json);
 
             bool has_data = false;
             if (results is not null)
@@ -70,9 +66,8 @@ namespace DeepSigma.DataAccess.AlphaVantage.Tests
         [Fact]
         public void GetExchangeRateMonthlyFromJson_ResultsShouldReturnValues()
         {
-            AlphaVantageAPI api = new("demo");
             string json = File.ReadAllText(TestConfig.data_path + "/FX/AVFXExchangeRateMonthly.json");
-            AVTimeSeriesResponseGeneric<AVBar>? results = api.FXData.GetExchangeRatesMonthlyFromJson(json);
+            AVTimeSeriesResponseGeneric<AVBar>? results = FXData.GetExchangeRatesMonthlyFromJson(json);
 
             bool has_data = false;
             if (results is not null)
