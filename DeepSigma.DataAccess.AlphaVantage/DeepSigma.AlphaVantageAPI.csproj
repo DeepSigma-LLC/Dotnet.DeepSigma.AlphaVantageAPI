@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>DeepSigma.AlphaVantage</Title>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.1.0</Version>
     <Authors>DeepSigma LLC</Authors>
     <Description>C# library for interacting with Alpha Vantage API.</Description>
     <PackageProjectUrl>https://github.com/DeepSigma-LLC/Dotnet.DeepSigma.AlphaVantageAPI</PackageProjectUrl>
@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DeepSigma.DataAccess" Version="1.0.0.8" />
+    <PackageReference Include="DeepSigma.DataAccess" Version="1.0.1" />
   </ItemGroup>
 
 </Project>
