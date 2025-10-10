@@ -1,21 +1,20 @@
 ﻿using System.ComponentModel;
 
-namespace DeepSigma.AlphaVantageAPI.Enums
+namespace DeepSigma.AlphaVantageAPI.Enums;
+
+/// <summary>
+/// The listing status of a security.
+/// </summary>
+public enum ListingStatus
 {
     /// <summary>
-    /// The listing status of a security.
+    /// The security is currently active and trading.
     /// </summary>
-    public enum ListingStatus
-    {
-        /// <summary>
-        /// The security is currently active and trading.
-        /// </summary>
-        [Description("active")]
-        Active,
-        /// <summary>
-        /// The security has been delisted and is no longer trading.
-        /// </summary>
-        [Description("delisted")]
-        Delisted
-    }
+    [Description("active")]
+    Active,
+    /// <summary>
+    /// The security has been delisted and is no longer trading.
+    /// </summary>
+    [Description("delisted")]
+    Delisted
 }

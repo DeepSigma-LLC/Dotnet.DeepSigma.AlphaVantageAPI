@@ -1,26 +1,25 @@
 ﻿using System.ComponentModel;
 
-namespace DeepSigma.AlphaVantageAPI.Enums
+namespace DeepSigma.AlphaVantageAPI.Enums;
+
+/// <summary>
+/// The earnings time horizon for data request.
+/// </summary>
+public enum EarningsHorizon
 {
     /// <summary>
-    /// The earnings time horizon for data request.
+    /// The 3 month earnings horizon.
     /// </summary>
-    public enum EarningsHorizon
-    {
-        /// <summary>
-        /// The 3 month earnings horizon.
-        /// </summary>
-        [Description("3month")]
-        ThreeMonth,
-        /// <summary>
-        /// The 6 month earnings horizon.
-        /// </summary>
-        [Description("6month")]
-        SixMonth,
-        /// <summary>
-        /// The 12 month earnings horizon.
-        /// </summary>
-        [Description("12month")]
-        TwelveMonth
-    }
+    [Description("3month")]
+    ThreeMonth,
+    /// <summary>
+    /// The 6 month earnings horizon.
+    /// </summary>
+    [Description("6month")]
+    SixMonth,
+    /// <summary>
+    /// The 12 month earnings horizon.
+    /// </summary>
+    [Description("12month")]
+    TwelveMonth
 }
