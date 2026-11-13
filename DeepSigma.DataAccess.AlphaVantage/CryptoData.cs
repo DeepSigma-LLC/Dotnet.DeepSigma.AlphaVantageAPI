@@ -1,25 +1,16 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using DeepSigma.AlphaVantageAPI.Enums;
-using DeepSigma.DataAccess.API;
-using DeepSigma.General.Extensions;
+using DeepSigma.DataAccess.Web;
+using DeepSigma.Core.Extensions;
 
 namespace DeepSigma.AlphaVantageAPI;
 
 /// <summary>
 /// This class contains methods to access cryptocurrency data from the Alpha Vantage API.
 /// </summary>
-public class CryptoData
+public class CryptoData(HttpClient client, ApiOptions options) : AbstractDataAPI(client, options)
 {
-    private string api_key { get; set; }
-    private Action<string?>? json_logger { get; set; } = null;
-    private int timeout_seconds { get; set; }
-    internal CryptoData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
-    {
-        this.api_key = api_key;
-        this.json_logger = json_logger;
-        this.timeout_seconds = timeout_seconds;
-    }
-
+ 
     /// <summary>
     /// This API returns the realtime exchange rate for any pair of digital currency (e.g., Bitcoin) or physical currency (e.g., USD).
     /// </summary>
@@ -29,8 +20,8 @@ public class CryptoData
     /// <returns></returns>
     public async Task<AVCurrencyExchangeRateQuoteResponse?> GetExchangeRate(string base_currency, string local_currnecy, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={local_currnecy}&to_currency={base_currency}&apikey={api_key}";
-        AVCurrencyExchangeRateQuoteResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetExchangeRateFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={local_currnecy}&to_currency={base_currency}&apikey={Options.APIKey}";
+        AVCurrencyExchangeRateQuoteResponse? results = await Utilities.GetAPIData(url, GetExchangeRateFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -42,7 +33,7 @@ public class CryptoData
     /// <returns></returns>
     public static AVCurrencyExchangeRateQuoteResponse? GetExchangeRateFromJson(string json)
     {
-        AVCurrencyExchangeRateQuoteResponse? results = APIUtilities.LoadFromJson<AVCurrencyExchangeRateQuoteResponse>(json);
+        AVCurrencyExchangeRateQuoteResponse? results = Serializer.LoadFromJson<AVCurrencyExchangeRateQuoteResponse>(json);
         return results;
     }
 
@@ -57,8 +48,8 @@ public class CryptoData
     /// <returns></returns>
     public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesIntraday(string symbol, string currency, TimeSeriesIntradayInterval interval = TimeSeriesIntradayInterval.Fifteen, OutputSize output_size = OutputSize.Full, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol={symbol}&market={currency}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetExchangeRatesIntradayFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol={symbol}&market={currency}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, GetExchangeRatesIntradayFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -83,8 +74,8 @@ public class CryptoData
     /// <returns></returns>
     public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesDaily(string symbol, string currency, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol={symbol}&market={currency}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetExchangeRatesDailyFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol={symbol}&market={currency}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, GetExchangeRatesDailyFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -110,8 +101,8 @@ public class CryptoData
     /// <returns></returns>
     public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesWeekly(string symbol, string currency, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_WEEKLY&symbol={symbol}&market={currency}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetExchangeRatesWeeklyFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_WEEKLY&symbol={symbol}&market={currency}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, GetExchangeRatesWeeklyFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -137,8 +128,8 @@ public class CryptoData
     /// <returns></returns>
     public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetExchangeRatesMonthly(string symbol, string currency, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_MONTHLY&symbol={symbol}&market={currency}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetExchangeRatesMonthlyFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_MONTHLY&symbol={symbol}&market={currency}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, GetExchangeRatesMonthlyFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 

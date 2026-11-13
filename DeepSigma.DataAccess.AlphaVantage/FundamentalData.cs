@@ -1,23 +1,13 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
-using DeepSigma.DataAccess.API;
+using DeepSigma.DataAccess.Web;
 
 namespace DeepSigma.AlphaVantageAPI;
 
 /// <summary>
 /// This class contains methods to access fundamental data from the Alpha Vantage API.
 /// </summary>
-public class FundamentalData
+public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDataAPI(client, options)
 {
-    private string api_key { get; set; }
-    private Action<string?>? json_logger { get; set; } = null;
-    private int timeout_seconds { get; set; }
-    internal FundamentalData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
-    {
-        this.api_key = api_key;
-        this.json_logger = json_logger;
-        this.timeout_seconds = timeout_seconds;
-    }
-
     /// <summary>
     /// This API returns the company information, financial ratios, and other key metrics for the equity specified. 
     /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
@@ -27,8 +17,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVComanyOverview?> GetCompanyOverview(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}&apikey={api_key}";
-        AVComanyOverview? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCompanyOverviewFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}&apikey={Options.APIKey}";
+        AVComanyOverview? results = await Utilities.GetAPIData(url, GetCompanyOverviewFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -41,7 +31,7 @@ public class FundamentalData
     /// <returns></returns>
     public static AVComanyOverview? GetCompanyOverviewFromJson(string json)
     {
-        AVComanyOverview? results = APIUtilities.LoadFromJson<AVComanyOverview?>(json);
+        AVComanyOverview? results = Serializer.LoadFromJson<AVComanyOverview?>(json);
         return results;
     }
 
@@ -53,8 +43,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVDataRequest<AVInsiderTransactionData>?> GetInsiderTransactions(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=INSIDER_TRANSACTIONS&symbol={symbol}&apikey={api_key}";
-        AVDataRequest<AVInsiderTransactionData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetInsiderTransactionsFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=INSIDER_TRANSACTIONS&symbol={symbol}&apikey={Options.APIKey}";
+        AVDataRequest<AVInsiderTransactionData>? results = await Utilities.GetAPIData(url, GetInsiderTransactionsFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -66,7 +56,7 @@ public class FundamentalData
     /// <returns></returns>
     public static AVDataRequest<AVInsiderTransactionData>? GetInsiderTransactionsFromJson(string json)
     {
-        AVDataRequest<AVInsiderTransactionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVInsiderTransactionData>?>(json);
+        AVDataRequest<AVInsiderTransactionData>? results = Serializer.LoadFromJson<AVDataRequest<AVInsiderTransactionData>?>(json);
         return results;
     }
 
@@ -80,8 +70,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVTranscriptResponse?> GetEarningsTranscript(string symbol, int year, byte quarter, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=EARNINGS_CALL_TRANSCRIPT&symbol={symbol}&quarter={year}Q{quarter}&apikey={api_key}";
-        AVTranscriptResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetEarningsTranscriptFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=EARNINGS_CALL_TRANSCRIPT&symbol={symbol}&quarter={year}Q{quarter}&apikey={Options.APIKey}";
+        AVTranscriptResponse? results = await Utilities.GetAPIData(url, GetEarningsTranscriptFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -93,7 +83,7 @@ public class FundamentalData
     /// <returns></returns>
     public static AVTranscriptResponse? GetEarningsTranscriptFromJson(string json)
     {
-        AVTranscriptResponse? results = APIUtilities.LoadFromJson<AVTranscriptResponse?>(json);
+        AVTranscriptResponse? results = Serializer.LoadFromJson<AVTranscriptResponse?>(json);
         return results;
     }
 
@@ -105,8 +95,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVDividendHistoryResponse?> GetDividends(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=DIVIDENDS&symbol={symbol}&apikey={api_key}";
-        AVDividendHistoryResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetDividendsFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=DIVIDENDS&symbol={symbol}&apikey={Options.APIKey}";
+        AVDividendHistoryResponse? results = await Utilities.GetAPIData(url, GetDividendsFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -118,7 +108,7 @@ public class FundamentalData
     /// <returns></returns>
     public static AVDividendHistoryResponse? GetDividendsFromJson(string json)
     {
-        AVDividendHistoryResponse? results = APIUtilities.LoadFromJson<AVDividendHistoryResponse?>(json);
+        AVDividendHistoryResponse? results = Serializer.LoadFromJson<AVDividendHistoryResponse?>(json);
         return results;
     }
 
@@ -130,8 +120,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVStockSplitResponse?> GetStockSplits(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=SPLITS&symbol={symbol}&apikey={api_key}";
-        AVStockSplitResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetStockSplitsFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=SPLITS&symbol={symbol}&apikey={Options.APIKey}";
+        AVStockSplitResponse? results = await Utilities.GetAPIData(url, GetStockSplitsFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -143,7 +133,7 @@ public class FundamentalData
     /// <returns></returns>
     public static AVStockSplitResponse? GetStockSplitsFromJson(string json)
     {
-        AVStockSplitResponse? results = APIUtilities.LoadFromJson<AVStockSplitResponse?>(json);
+        AVStockSplitResponse? results = Serializer.LoadFromJson<AVStockSplitResponse?>(json);
         return results;
     }
 
@@ -156,8 +146,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVIncomeStatementResponse?> GetIncomeStatement(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={symbol}&apikey={api_key}";
-        AVIncomeStatementResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetIncomeStatementFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={symbol}&apikey={Options.APIKey}";
+        AVIncomeStatementResponse? results = await Utilities.GetAPIData(url, GetIncomeStatementFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -171,7 +161,7 @@ public class FundamentalData
     public static AVIncomeStatementResponse? GetIncomeStatementFromJson(string json)
     {
         json = json.Replace("\"None\"", "null");
-        AVIncomeStatementResponse? results = APIUtilities.LoadFromJson<AVIncomeStatementResponse?>(json);
+        AVIncomeStatementResponse? results = Serializer.LoadFromJson<AVIncomeStatementResponse?>(json);
         return results;
     }
 
@@ -184,8 +174,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVBalanceSheetResponse?> GetBalanceSheet(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol={symbol}&apikey={api_key}";
-        AVBalanceSheetResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetBalanceSheetFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol={symbol}&apikey={Options.APIKey}";
+        AVBalanceSheetResponse? results = await Utilities.GetAPIData(url, GetBalanceSheetFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -199,7 +189,7 @@ public class FundamentalData
     public static AVBalanceSheetResponse? GetBalanceSheetFromJson(string json)
     {
         json = json.Replace("\"None\"", "null");
-        AVBalanceSheetResponse? results = APIUtilities.LoadFromJson<AVBalanceSheetResponse?>(json);
+        AVBalanceSheetResponse? results = Serializer.LoadFromJson<AVBalanceSheetResponse?>(json);
         return results;
     }
 
@@ -212,8 +202,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVCashFlowResponse?> GetCashFlow(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=CASH_FLOW&symbol={symbol}&apikey={api_key}";
-        AVCashFlowResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCashFlowFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=CASH_FLOW&symbol={symbol}&apikey={Options.APIKey}";
+        AVCashFlowResponse? results = await Utilities.GetAPIData(url, GetCashFlowFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -227,7 +217,7 @@ public class FundamentalData
     public static AVCashFlowResponse? GetCashFlowFromJson(string json)
     {
         json = json.Replace("\"None\"", "null");
-        AVCashFlowResponse? results = APIUtilities.LoadFromJson<AVCashFlowResponse?>(json);
+        AVCashFlowResponse? results = Serializer.LoadFromJson<AVCashFlowResponse?>(json);
         return results;
     }
 
@@ -240,8 +230,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVEarningsHistroyResponse?> GetEarningsHistory(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=EARNINGS&symbol={symbol}&apikey={api_key}";
-        AVEarningsHistroyResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetEarningsHistoryFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=EARNINGS&symbol={symbol}&apikey={Options.APIKey}";
+        AVEarningsHistroyResponse? results = await Utilities.GetAPIData(url, GetEarningsHistoryFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -254,7 +244,7 @@ public class FundamentalData
     /// <returns></returns>
     public static AVEarningsHistroyResponse? GetEarningsHistoryFromJson(string json)
     {
-        AVEarningsHistroyResponse? results = APIUtilities.LoadFromJson<AVEarningsHistroyResponse?>(json);
+        AVEarningsHistroyResponse? results = Serializer.LoadFromJson<AVEarningsHistroyResponse?>(json);
         return results;
     }
 
@@ -266,8 +256,8 @@ public class FundamentalData
     /// <returns></returns>
     public async Task<AVEarningsEstimateResponse?> GetEarningsEstimate(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=EARNINGS_ESTIMATES&symbol={symbol}&apikey={api_key}";
-        AVEarningsEstimateResponse? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetEarningsEstimateFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=EARNINGS_ESTIMATES&symbol={symbol}&apikey={Options.APIKey}";
+        AVEarningsEstimateResponse? results = await Utilities.GetAPIData(url, GetEarningsEstimateFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -279,7 +269,7 @@ public class FundamentalData
     /// <returns></returns>
     public static AVEarningsEstimateResponse? GetEarningsEstimateFromJson(string json)
     {
-        AVEarningsEstimateResponse? results = APIUtilities.LoadFromJson<AVEarningsEstimateResponse?>(json);
+        AVEarningsEstimateResponse? results = Serializer.LoadFromJson<AVEarningsEstimateResponse?>(json);
         return results;
     }
 }

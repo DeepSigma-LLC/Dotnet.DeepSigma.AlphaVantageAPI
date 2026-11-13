@@ -1,51 +1,52 @@
-﻿using CsvHelper.Configuration.Attributes;
+﻿using CsvHelper;
 
 namespace DeepSigma.AlphaVantageAPI.DataModels;
 
 /// <summary>
 /// The class represents IPO calendar data from Alpha Vantage in CSV format.
 /// </summary>
-public class AVIpoCalandarCSVData
+[CsvRecord]
+public partial class AVIpoCalandarCSVData
 {
     /// <summary>
     /// The stock symbol of the IPO.
     /// </summary>
-    [Name("symbol")]
+    [CsvColumn("symbol")]
     public string Symbol { get; init; } = String.Empty;
 
     /// <summary>
     /// The name of the company going public.
     /// </summary>
-    [Name("name")]
+    [CsvColumn("name")]
     public string Name { get; init; } = String.Empty;
 
     /// <summary>
     /// The date of the IPO.
     /// </summary>
-    [Name("ipoDate")]
+    [CsvColumn("ipoDate")]
     public DateTime? IpoDate { get; init; }
 
     /// <summary>
     /// The price range low for the IPO.
     /// </summary>
-    [Name("priceRangeLow")]
+    [CsvColumn("priceRangeLow")]
     public decimal? PriceRangeLow { get; init; }
 
     /// <summary>
     /// The price range high for the IPO.
     /// </summary>
-    [Name("priceRangeHigh")]
+    [CsvColumn("priceRangeHigh")]
     public decimal? PriceRangeHigh { get; init; }
 
     /// <summary>
     /// The currency in which the IPO is priced.
     /// </summary>
-    [Name("currency")]
+    [CsvColumn("currency")]
     public string Currency { get; init; } = String.Empty;
 
     /// <summary>
     /// The exchange where the IPO is listed.
     /// </summary>
-    [Name("exchange")]
+    [CsvColumn("exchange")]
     public string Exchange { get; init; } = String.Empty;
 }

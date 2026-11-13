@@ -1,24 +1,15 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using DeepSigma.AlphaVantageAPI.Enums;
-using DeepSigma.DataAccess.API;
-using DeepSigma.General.Extensions;
+using DeepSigma.DataAccess.Web;
+using DeepSigma.Core.Extensions;
 
 namespace DeepSigma.AlphaVantageAPI;
 
 /// <summary>
 /// This class contains methods to access economic data from the Alpha Vantage API.
 /// </summary>
-public class EconomicData
+public class EconomicData(HttpClient client, ApiOptions options) : AbstractDataAPI(client, options)
 {
-    private string api_key { get; set; }
-    private Action<string?>? json_logger { get; set; } = null;
-    private int timeout_seconds { get; set; }
-    internal EconomicData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
-    {
-        this.api_key = api_key;
-        this.json_logger = json_logger;
-        this.timeout_seconds = timeout_seconds;
-    }
 
     /// <summary>
     /// This API returns the annual and quarterly Real GDP of the United States.
@@ -30,8 +21,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetRealGDP(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=REAL_GDP&interval={interval.ToDescriptionString()}&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRealGDPFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=REAL_GDP&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetRealGDPFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -45,7 +36,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetRealGDPFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -59,8 +50,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetRealGDPPerCapita(CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=REAL_GDP_PER_CAPITA&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRealGDPPerCapitaFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=REAL_GDP_PER_CAPITA&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetRealGDPPerCapitaFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -74,7 +65,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetRealGDPPerCapitaFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -88,8 +79,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetCPI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=CPI&interval={interval.ToDescriptionString()}&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetCPIFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=CPI&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetCPIFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -103,7 +94,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetCPIFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -116,8 +107,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetInflation(CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=INFLATION&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetInflationFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=INFLATION&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetInflationFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -131,7 +122,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetInflationFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -144,8 +135,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetRetailSales(CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=RETAIL_SALES&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRetailSalesFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=RETAIL_SALES&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetRetailSalesFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -159,7 +150,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetRetailSalesFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -172,8 +163,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetDurableGoodsOrders(CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=DURABLES&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetDurableGoodsOrdersFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=DURABLES&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetDurableGoodsOrdersFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -187,7 +178,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetDurableGoodsOrdersFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -200,8 +191,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetNonFarmPayrolls(CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=NONFARM_PAYROLL&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetNonFarmPayrollsFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=NONFARM_PAYROLL&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetNonFarmPayrollsFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -215,7 +206,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetNonFarmPayrollsFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -231,8 +222,8 @@ public class EconomicData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetUnemploymentRate(CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetUnemploymentRateFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetUnemploymentRateFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -250,7 +241,7 @@ public class EconomicData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetUnemploymentRateFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 

@@ -1,4 +1,4 @@
-﻿using CsvHelper.Configuration.Attributes;
+﻿using CsvHelper;
 
 
 namespace DeepSigma.AlphaVantageAPI.DataModels;
@@ -6,47 +6,48 @@ namespace DeepSigma.AlphaVantageAPI.DataModels;
 /// <summary>
 /// The class represents the structure of CSV data returned by the Alpha Vantage API for listing and delisting status of securities.
 /// </summary>
-public class AVListingStatusCSVData
+[CsvRecord]
+public partial class AVListingStatusCSVData
 {
     /// <summary>
     /// The stock symbol of the security.
     /// </summary>
-    [Name("symbol")]
+    [CsvColumn("symbol")]
     public string Symbol { get; init; } = String.Empty;
 
     /// <summary>
     /// The name of the security.
     /// </summary>
-    [Name("name")]
+    [CsvColumn("name")]
     public string Name { get; init; } = String.Empty;
 
     /// <summary>
     /// The exchange where the security is listed.
     /// </summary>
-    [Name("exchange")]
+    [CsvColumn("exchange")]
     public string Exchange { get; init; } = String.Empty;
 
     /// <summary>
     /// The type of asset (e.g., stock, ETF).
     /// </summary>
-    [Name("assetType")]
+    [CsvColumn("assetType")]
     public string AssetType { get; init; } = String.Empty;
 
     /// <summary>
     /// The IPO date of the security.
     /// </summary>
-    [Name("ipoDate")]
+    [CsvColumn("ipoDate")]
     public DateTime? IpoDate { get; init; }
 
     /// <summary>
     /// The delisting date of the security, if applicable.
     /// </summary>
-    [Name("delistingDate")]
+    [CsvColumn("delistingDate")]
     public DateTime? DelistingDate { get; init; }
 
     /// <summary>
     /// The current status of the security (e.g., active, delisted).
     /// </summary>
-    [Name("status")]
+    [CsvColumn("status")]
     public string Status { get; init; } = String.Empty;
 }

@@ -1,43 +1,44 @@
-﻿using CsvHelper.Configuration.Attributes;
+﻿using CsvHelper;
 
 namespace DeepSigma.AlphaVantageAPI.DataModels;
 
 /// <summary>
 /// Data model for OHLC (Open, High, Low, Close) data from Alpha Vantage CSV output.
 /// </summary>
-public class AlphaVantageCsvOHLC
+[CsvRecord]
+public partial class AlphaVantageCsvOHLC
 {
     /// <summary>
     /// The timestamp of the OHLC data point.
     /// </summary>
-    [Name("timestamp")]
+    [CsvColumn("timestamp")]
     public DateTime Timestamp { get; init; }
 
     /// <summary>
     /// The opening price.
     /// </summary>
-    [Name("open")]
+    [CsvColumn("open")]
     public decimal Open { get; init; }
 
     /// <summary>
     /// The highest price.
     /// </summary>
-    [Name("high")]
+    [CsvColumn("high")]
     public decimal High { get; init; }
 
     /// <summary>
     /// The lowest price.
     /// </summary>
-    [Name("low")]
+    [CsvColumn("low")]
     public decimal Low { get; init; }
     /// <summary>
     /// The closing price.
     /// </summary>
-    [Name("close")]
+    [CsvColumn("close")]
     public decimal Close { get; init;}
     /// <summary>
     /// The trading volume.
     /// </summary>
-    [Name("volume")]
+    [CsvColumn("volume")]
     public long Volume { get; init; }
 }

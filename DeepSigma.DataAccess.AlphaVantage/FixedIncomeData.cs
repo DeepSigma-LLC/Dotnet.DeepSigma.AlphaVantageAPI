@@ -1,24 +1,15 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using DeepSigma.AlphaVantageAPI.Enums;
-using DeepSigma.DataAccess.API;
-using DeepSigma.General.Extensions;
+using DeepSigma.DataAccess.Web;
+using DeepSigma.Core.Extensions;
 
 namespace DeepSigma.AlphaVantageAPI;
 
 /// <summary>
 /// This class contains methods to access fixed income data from the Alpha Vantage API.
 /// </summary>
-public class FixedIncomeData
+public class FixedIncomeData(HttpClient client, ApiOptions options) : AbstractDataAPI(client, options)
 {
-    private string api_key { get; set; }
-    private Action<string?>? json_logger { get; set; } = null;
-    private int timeout_seconds { get; set; }
-    internal FixedIncomeData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
-    {
-        this.api_key = api_key;
-        this.json_logger = json_logger;
-        this.timeout_seconds = timeout_seconds;
-    }
 
     /// <summary>
     /// This API returns the daily, weekly, and monthly US treasury yield of a given maturity timeline (e.g., 5 year, 30 year, etc).
@@ -33,8 +24,8 @@ public class FixedIncomeData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetUSTreasuryYield(FixedIncomeMaturities maturity, TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=TREASURY_YIELD&interval={interval.ToDescriptionString()}&maturity={maturity.ToDescriptionString()}&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetUSTreasuryYieldFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=TREASURY_YIELD&interval={interval.ToDescriptionString()}&maturity={maturity.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetUSTreasuryYieldFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -50,7 +41,7 @@ public class FixedIncomeData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetUSTreasuryYieldFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 
@@ -67,8 +58,8 @@ public class FixedIncomeData
     /// <returns></returns>
     public async Task<AVDataRequest<AVValue>?> GetFedFunds(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=FEDERAL_FUNDS_RATE&interval={interval.ToDescriptionString()}&apikey={api_key}";
-        AVDataRequest<AVValue>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetFedFundsFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=FEDERAL_FUNDS_RATE&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetFedFundsFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -84,7 +75,7 @@ public class FixedIncomeData
     /// <returns></returns>
     public static AVDataRequest<AVValue>? GetFedFundsFromJson(string json)
     {
-        AVDataRequest<AVValue>? results = APIUtilities.LoadFromJson<AVDataRequest<AVValue>>(json);
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
         return results;
     }
 }

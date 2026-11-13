@@ -1,14 +1,17 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using DeepSigma.AlphaVantageAPI.Parsers;
-using DeepSigma.DataAccess.API;
+using DeepSigma.DataAccess.Web;
 
 namespace DeepSigma.AlphaVantageAPI;
 
-internal static class AlphaVantageAPIUtilities
+internal class AlphaVantageAPIUtilities(HttpClient client)
 {
+    private HttpClient _client = client;
+    private HttpApi _httpApi = new(client);
+
     internal static AVTimeSeriesResponseGeneric<AVBar>? JsonParserToTimeSeriesResult(string json)
     {
-        AVTimeSeriesResponseGenericParser<AVBar>? results = APIUtilities.LoadFromJson<AVTimeSeriesResponseGenericParser<AVBar>>(json);
+        AVTimeSeriesResponseGenericParser<AVBar>? results = Serializer.LoadFromJson<AVTimeSeriesResponseGenericParser<AVBar>>(json);
 
         if (results is null) return null;
         results.SetParser(AVBarParser.Parse);
@@ -17,9 +20,9 @@ internal static class AlphaVantageAPIUtilities
         return final_results;
     }
 
-    internal static async Task<TResult?> GetAPIData<TResult>(string url, Func<string, TResult> JsonToParser, int timeout_seconds, CancellationToken ct, Action<string>? json_logger = null)
+    internal async Task<TResult?> GetAPIData<TResult>(string url, Func<string, TResult> JsonToParser, int timeout_seconds, CancellationToken ct, Action<string>? json_logger = null)
     {
-        string? json = await APIUtilities.GetJsonResponseAsync(url, timeout_seconds, ct);
+        string? json = await _httpApi.GetJsonResponseAsync(url, timeout_seconds, ct);
 
         if (json is null) return default;
         if (json_logger is not null) { json_logger(json); }
@@ -27,9 +30,9 @@ internal static class AlphaVantageAPIUtilities
         return JsonToParser(json);
     }
 
-    internal static async Task<List<TResult>> GetAPIDataCSVFormat<TResult>(string url, Func<string, List<TResult>> CsvToParser, int timeout_seconds, CancellationToken ct, Action<string>? csv_logger = null)
+    internal async Task<List<TResult>> GetAPIDataCSVFormat<TResult>(string url, Func<string, List<TResult>> CsvToParser, int timeout_seconds, CancellationToken ct, Action<string>? csv_logger = null)
     {
-        string? csv = await APIUtilities.GetCsvDataAsync(url, timeout_seconds, ct);
+        string? csv = await _httpApi.GetCsvDataAsync(url, timeout_seconds, ct);
 
         if (csv is null) return [];
         if (csv_logger is not null) { csv_logger(csv); }

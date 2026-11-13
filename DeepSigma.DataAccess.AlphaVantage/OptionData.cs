@@ -1,22 +1,13 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
-using DeepSigma.DataAccess.API;
+using DeepSigma.DataAccess.Web;
 
 namespace DeepSigma.AlphaVantageAPI;
 
 /// <summary>
 /// This class contains methods to access option data from the Alpha Vantage API.
 /// </summary>
-public class OptionData
+public class OptionData(HttpClient client, ApiOptions options) : AbstractDataAPI(client, options)
 {
-    private string api_key { get; set; }
-    private Action<string?>? json_logger { get; set; } = null;
-    private int timeout_seconds { get; set; }
-    internal OptionData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
-    {
-        this.api_key = api_key;
-        this.json_logger = json_logger;
-        this.timeout_seconds = timeout_seconds;
-    }
 
     /// <summary>
     /// This API returns realtime US options data with full market coverage. 
@@ -34,8 +25,8 @@ public class OptionData
         {
             contract_paramater = $"&contract={specific_option_contract}";
         }
-        string url = $"https://www.alphavantage.co/query?function=REALTIME_OPTIONS&symbol={symbol}&require_greeks=true{contract_paramater}&apikey={api_key}";
-        AVDataRequest<AVOptionData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetRealTimeOptionDataFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=REALTIME_OPTIONS&symbol={symbol}&require_greeks=true{contract_paramater}&apikey={Options.APIKey}";
+        AVDataRequest<AVOptionData>? results = await Utilities.GetAPIData(url, GetRealTimeOptionDataFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -49,7 +40,7 @@ public class OptionData
     /// <returns></returns>
     public static AVDataRequest<AVOptionData>? GetRealTimeOptionDataFromJson(string json)
     {
-        AVDataRequest<AVOptionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVOptionData>>(json);
+        AVDataRequest<AVOptionData>? results = Serializer.LoadFromJson<AVDataRequest<AVOptionData>>(json);
         return results;
     }
 
@@ -64,8 +55,8 @@ public class OptionData
     /// <returns></returns>
     public async Task<AVDataRequest<AVOptionData>?> GetHistoricalOptionData(string symbol, DateOnly date, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={symbol}&date={date.ToString("D")}&apikey={api_key}";
-        AVDataRequest<AVOptionData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetHistoricalOptionDataFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol={symbol}&date={date.ToString("D")}&apikey={Options.APIKey}";
+        AVDataRequest<AVOptionData>? results = await Utilities.GetAPIData(url, GetHistoricalOptionDataFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -79,7 +70,7 @@ public class OptionData
     /// <returns></returns>
     public static AVDataRequest<AVOptionData>? GetHistoricalOptionDataFromJson(string json)
     {
-        AVDataRequest<AVOptionData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVOptionData>>(json);
+        AVDataRequest<AVOptionData>? results = Serializer.LoadFromJson<AVDataRequest<AVOptionData>>(json);
         return results;
     }
 

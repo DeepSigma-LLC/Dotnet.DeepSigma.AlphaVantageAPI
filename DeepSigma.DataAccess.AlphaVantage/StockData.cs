@@ -1,24 +1,15 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using DeepSigma.AlphaVantageAPI.Enums;
-using DeepSigma.DataAccess.API;
-using DeepSigma.General.Extensions;
+using DeepSigma.DataAccess.Web;
+using DeepSigma.Core.Extensions;
 
 namespace DeepSigma.AlphaVantageAPI;
 
 /// <summary>
 /// This class contains methods to access stock data from the Alpha Vantage API.
 /// </summary>
-public class StockData
+public class StockData(HttpClient client, ApiOptions options) : AbstractDataAPI(client, options)
 {
-    private string api_key { get; set; }
-    private Action<string?>? json_logger { get; set; } = null;
-    private int timeout_seconds { get; set; }
-    internal StockData(string api_key, Action<string?>? json_logger, int timeout_seconds = 15)
-    {
-        this.api_key = api_key;
-        this.json_logger = json_logger;
-        this.timeout_seconds = timeout_seconds;
-    }
 
     /// <summary>
     /// This API returns current and 20+ years of historical intraday OHLCV time series of the equity specified, 
@@ -39,8 +30,8 @@ public class StockData
         {
             parameter = $"&month={selected_month.Value.Year}-{selected_month.Value.Month}";
         }
-        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&extended_hours={extended_hours}{parameter}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval={interval.ToDescriptionString()}&outputsize={output_size.ToDescriptionString()}&extended_hours={extended_hours}{parameter}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -67,8 +58,8 @@ public class StockData
     /// <returns></returns>
     public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetDailyTimeSeriesData(string symbol, OutputSize output_size = OutputSize.Full, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&outputsize={output_size.ToDescriptionString()}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={symbol}&outputsize={output_size.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -92,8 +83,8 @@ public class StockData
     /// <returns></returns>
     public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetWeeklyTimeSeriesData(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol={symbol}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol={symbol}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -117,8 +108,8 @@ public class StockData
     /// <returns></returns>
     public async Task<AVTimeSeriesResponseGeneric<AVBar>?> GetMonthlyTimeSeriesData(string symbol, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol={symbol}&apikey={api_key}";
-        AVTimeSeriesResponseGeneric<AVBar>? results = await AlphaVantageAPIUtilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol={symbol}&apikey={Options.APIKey}";
+        AVTimeSeriesResponseGeneric<AVBar>? results = await Utilities.GetAPIData(url, AlphaVantageAPIUtilities.JsonParserToTimeSeriesResult, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -143,8 +134,8 @@ public class StockData
     /// <returns></returns>
     public async Task<AVDataRequest<AVBulkQuoteData>?> GetBulkRealTimeQuoteData(string[] symbols, CancellationToken ct = default)
     {
-        string url = $"https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol={string.Join(",", symbols)}&apikey={api_key}";
-        AVDataRequest<AVBulkQuoteData>? results = await AlphaVantageAPIUtilities.GetAPIData(url, GetBulkRealTimeQuoteDataFromJson, timeout_seconds, ct, json_logger);
+        string url = $"https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol={string.Join(",", symbols)}&apikey={Options.APIKey}";
+        AVDataRequest<AVBulkQuoteData>? results = await Utilities.GetAPIData(url, GetBulkRealTimeQuoteDataFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -157,7 +148,7 @@ public class StockData
     /// <returns></returns>
     public static AVDataRequest<AVBulkQuoteData>? GetBulkRealTimeQuoteDataFromJson(string json)
     {
-        AVDataRequest<AVBulkQuoteData>? results = APIUtilities.LoadFromJson<AVDataRequest<AVBulkQuoteData>>(json);
+        AVDataRequest<AVBulkQuoteData>? results = Serializer.LoadFromJson<AVDataRequest<AVBulkQuoteData>>(json);
         return results;
     }
 }
