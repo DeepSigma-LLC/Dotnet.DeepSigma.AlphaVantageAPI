@@ -1,0 +1,2436 @@
+{
+  "politicians": [
+    {
+      "bioguide_id": "B001314",
+      "display_name": "Aaron Bean",
+      "aliases": [
+        "aaron bean",
+        "aaron paul bean",
+        "aaron p bean",
+        "a bean"
+      ],
+      "chamber": "house",
+      "state": "FL",
+      "district": "4",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S001179",
+      "display_name": "Aaron Schock",
+      "aliases": [
+        "aaron schock",
+        "a schock"
+      ],
+      "chamber": "house",
+      "state": "IL",
+      "district": "18",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "18",
+          "start_date": "2015-01-06",
+          "end_date": "2015-03-31"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "18",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "18",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "18",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "F000467",
+      "display_name": "Abby Finkenauer",
+      "aliases": [
+        "abby finkenauer",
+        "a finkenauer"
+      ],
+      "chamber": "house",
+      "state": "IA",
+      "district": "1",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "IA",
+          "district": "1",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S001209",
+      "display_name": "Abigail Davis Spanberger",
+      "aliases": [
+        "abigail davis spanberger",
+        "abigail d spanberger",
+        "abigail spanberger",
+        "a spanberger"
+      ],
+      "chamber": "house",
+      "state": "VA",
+      "district": "7",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "VA",
+          "district": "7",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "VA",
+          "district": "7",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "VA",
+          "district": "7",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "H001098",
+      "display_name": "Abraham J. Hamadeh",
+      "aliases": [
+        "abraham hamadeh",
+        "abraham jamal hamadeh",
+        "abraham j hamadeh",
+        "a hamadeh"
+      ],
+      "chamber": "house",
+      "state": "AZ",
+      "district": "8",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "AZ",
+          "district": "8",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S001150",
+      "display_name": "Adam B. Schiff",
+      "aliases": [
+        "adam b schiff",
+        "adam schiff",
+        "a schiff"
+      ],
+      "chamber": "senate",
+      "state": "CA",
+      "district": null,
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "CA",
+          "district": null,
+          "start_date": "2025-01-03",
+          "end_date": "2031-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "CA",
+          "district": null,
+          "start_date": "2024-12-09",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "30",
+          "start_date": "2023-01-03",
+          "end_date": "2024-12-08"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "28",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "28",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "28",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "28",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "28",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "29",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "29",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "29",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "29",
+          "start_date": "2005-01-04",
+          "end_date": "2007-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "29",
+          "start_date": "2003-01-07",
+          "end_date": "2005-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "27",
+          "start_date": "2001-01-03",
+          "end_date": "2003-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "G000605",
+      "display_name": "Adam Gray",
+      "aliases": [
+        "adam c gray",
+        "adam channing gray",
+        "adam gray",
+        "a gray"
+      ],
+      "chamber": "house",
+      "state": "CA",
+      "district": "13",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "13",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "K000378",
+      "display_name": "Adam Kinzinger",
+      "aliases": [
+        "adam kinzinger",
+        "a kinzinger"
+      ],
+      "chamber": "house",
+      "state": "IL",
+      "district": "16",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "16",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "16",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "16",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "16",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "16",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IL",
+          "district": "11",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S000510",
+      "display_name": "Adam Smith",
+      "aliases": [
+        "adam smith",
+        "a smith"
+      ],
+      "chamber": "house",
+      "state": "WA",
+      "district": "9",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2005-01-04",
+          "end_date": "2007-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2003-01-07",
+          "end_date": "2005-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "2001-01-03",
+          "end_date": "2003-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "1999-01-06",
+          "end_date": "2001-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WA",
+          "district": "9",
+          "start_date": "1997-01-07",
+          "end_date": "1999-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "M001240",
+      "display_name": "Addison P. McDowell",
+      "aliases": [
+        "addison mcdowell",
+        "addison parker mcdowell",
+        "addison p mcdowell",
+        "a mcdowell"
+      ],
+      "chamber": "house",
+      "state": "NC",
+      "district": "6",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "6",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "G000606",
+      "display_name": "Adelita S. Grijalva",
+      "aliases": [
+        "adelita grijalva",
+        "adelita s grijalva",
+        "a grijalva"
+      ],
+      "chamber": "house",
+      "state": "AZ",
+      "district": "7",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "AZ",
+          "district": "7",
+          "start_date": "2025-11-12",
+          "end_date": "2027-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "M001200",
+      "display_name": "A. Donald McEachin",
+      "aliases": [
+        "a d mceachin",
+        "a donald mceachin",
+        "a mceachin"
+      ],
+      "chamber": "house",
+      "state": "VA",
+      "district": "4",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "VA",
+          "district": "4",
+          "start_date": "2021-01-03",
+          "end_date": "2022-11-28"
+        },
+        {
+          "chamber": "house",
+          "state": "VA",
+          "district": "4",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "VA",
+          "district": "4",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "F000465",
+      "display_name": "A. Drew Ferguson IV",
+      "aliases": [
+        "a d ferguson",
+        "a drew ferguson",
+        "a ferguson"
+      ],
+      "chamber": "house",
+      "state": "GA",
+      "district": "3",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "GA",
+          "district": "3",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "GA",
+          "district": "3",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "GA",
+          "district": "3",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "GA",
+          "district": "3",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "E000297",
+      "display_name": "Adriano Espaillat",
+      "aliases": [
+        "adriano espaillat",
+        "a espaillat"
+      ],
+      "chamber": "house",
+      "state": "NY",
+      "district": "13",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "13",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "13",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "13",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "13",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "13",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S001172",
+      "display_name": "Adrian Smith",
+      "aliases": [
+        "adrian smith",
+        "a smith"
+      ],
+      "chamber": "house",
+      "state": "NE",
+      "district": "3",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NE",
+          "district": "3",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "W000832",
+      "display_name": "Aisha Wahab",
+      "aliases": [
+        "aisha wahab",
+        "a wahab"
+      ],
+      "chamber": "house",
+      "state": "CA",
+      "district": "14",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "2026-09-02",
+          "end_date": "2027-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "A000383",
+      "display_name": "Alan Armstrong",
+      "aliases": [
+        "a armstrong",
+        "alan armstrong"
+      ],
+      "chamber": "senate",
+      "state": "OK",
+      "district": null,
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "OK",
+          "district": null,
+          "start_date": "2026-03-24",
+          "end_date": "2027-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "G000556",
+      "display_name": "Alan Grayson",
+      "aliases": [
+        "a grayson",
+        "alan grayson"
+      ],
+      "chamber": "house",
+      "state": "FL",
+      "district": "9",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "9",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "9",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "8",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "N000186",
+      "display_name": "Alan Nunnelee",
+      "aliases": [
+        "alan nunnelee",
+        "a nunnelee"
+      ],
+      "chamber": "house",
+      "state": "MS",
+      "district": "1",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "MS",
+          "district": "1",
+          "start_date": "2015-01-06",
+          "end_date": "2015-02-06"
+        },
+        {
+          "chamber": "house",
+          "state": "MS",
+          "district": "1",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MS",
+          "district": "1",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "L000579",
+      "display_name": "Alan S. Lowenthal",
+      "aliases": [
+        "alan lowenthal",
+        "alan s lowenthal",
+        "a lowenthal"
+      ],
+      "chamber": "house",
+      "state": "CA",
+      "district": "47",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "47",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "47",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "47",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "47",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "47",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S001165",
+      "display_name": "Albio Sires",
+      "aliases": [
+        "albio sires",
+        "a sires"
+      ],
+      "chamber": "house",
+      "state": "NJ",
+      "district": "8",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "8",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "8",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "8",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "8",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "8",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "13",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "13",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "13",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "13",
+          "start_date": "2006-11-13",
+          "end_date": "2007-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "H000324",
+      "display_name": "Alcee L. Hastings",
+      "aliases": [
+        "a hastings",
+        "alcee hastings",
+        "alcee l hastings"
+      ],
+      "chamber": "house",
+      "state": "FL",
+      "district": "20",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "20",
+          "start_date": "2021-01-03",
+          "end_date": "2021-04-06"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "20",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "20",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "20",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "20",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "2005-01-04",
+          "end_date": "2007-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "2003-01-07",
+          "end_date": "2005-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "2001-01-03",
+          "end_date": "2003-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "1999-01-06",
+          "end_date": "2001-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "1997-01-07",
+          "end_date": "1999-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "1995-01-04",
+          "end_date": "1997-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "23",
+          "start_date": "1993-01-05",
+          "end_date": "1995-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "M001195",
+      "display_name": "Alexander X. Mooney",
+      "aliases": [
+        "alexander mooney",
+        "alexander x mooney",
+        "a mooney"
+      ],
+      "chamber": "house",
+      "state": "WV",
+      "district": "2",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "WV",
+          "district": "2",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WV",
+          "district": "2",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WV",
+          "district": "2",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WV",
+          "district": "2",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "WV",
+          "district": "2",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "O000172",
+      "display_name": "Alexandria Ocasio-Cortez",
+      "aliases": [
+        "alexandria ocasio-cortez",
+        "a ocasio-cortez"
+      ],
+      "chamber": "house",
+      "state": "NY",
+      "district": "14",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "14",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "14",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "14",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "14",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "P000145",
+      "display_name": "Alex Padilla",
+      "aliases": [
+        "alejandro padilla",
+        "alex padilla",
+        "a padilla"
+      ],
+      "chamber": "senate",
+      "state": "CA",
+      "district": null,
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "CA",
+          "district": null,
+          "start_date": "2023-01-03",
+          "end_date": "2029-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "CA",
+          "district": null,
+          "start_date": "2022-12-22",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "CA",
+          "district": null,
+          "start_date": "2021-01-20",
+          "end_date": "2022-12-21"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "F000457",
+      "display_name": "Al Franken",
+      "aliases": [
+        "a franken",
+        "alan franken",
+        "alan s franken",
+        "alan stuart franken",
+        "al franken"
+      ],
+      "chamber": "senate",
+      "state": "MN",
+      "district": null,
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "MN",
+          "district": null,
+          "start_date": "2015-01-06",
+          "end_date": "2018-01-02"
+        },
+        {
+          "chamber": "senate",
+          "state": "MN",
+          "district": null,
+          "start_date": "2009-07-07",
+          "end_date": "2015-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "G000553",
+      "display_name": "Al Green",
+      "aliases": [
+        "a green",
+        "al green"
+      ],
+      "chamber": "house",
+      "state": "TX",
+      "district": "9",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TX",
+          "district": "9",
+          "start_date": "2005-01-04",
+          "end_date": "2007-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "L000586",
+      "display_name": "Al Lawson, Jr.",
+      "aliases": [
+        "a lawson",
+        "al lawson"
+      ],
+      "chamber": "house",
+      "state": "FL",
+      "district": "5",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "5",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "5",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "5",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "W000807",
+      "display_name": "Allen B. West",
+      "aliases": [
+        "allen b west",
+        "allen west",
+        "a west"
+      ],
+      "chamber": "house",
+      "state": "FL",
+      "district": "22",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "22",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S001162",
+      "display_name": "Allyson Y. Schwartz",
+      "aliases": [
+        "allyson schwartz",
+        "allyson y schwartz",
+        "a schwartz"
+      ],
+      "chamber": "house",
+      "state": "PA",
+      "district": "13",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "PA",
+          "district": "13",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "PA",
+          "district": "13",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "PA",
+          "district": "13",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "PA",
+          "district": "13",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "PA",
+          "district": "13",
+          "start_date": "2005-01-04",
+          "end_date": "2007-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "A000370",
+      "display_name": "Alma S. Adams",
+      "aliases": [
+        "a adams",
+        "alma adams",
+        "alma s adams"
+      ],
+      "chamber": "house",
+      "state": "NC",
+      "district": "12",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "12",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "12",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "12",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "12",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "12",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "12",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NC",
+          "district": "12",
+          "start_date": "2014-11-12",
+          "end_date": "2015-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "B001287",
+      "display_name": "Ami Bera",
+      "aliases": [
+        "a bera",
+        "ami bera"
+      ],
+      "chamber": "house",
+      "state": "CA",
+      "district": "6",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "6",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "6",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "7",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "7",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "7",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "7",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "7",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "K000367",
+      "display_name": "Amy Klobuchar",
+      "aliases": [
+        "a klobuchar",
+        "amy jean klobuchar",
+        "amy j klobuchar",
+        "amy klobuchar"
+      ],
+      "chamber": "senate",
+      "state": "MN",
+      "district": null,
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "MN",
+          "district": null,
+          "start_date": "2025-01-03",
+          "end_date": "2031-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "MN",
+          "district": null,
+          "start_date": "2019-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "MN",
+          "district": null,
+          "start_date": "2013-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "MN",
+          "district": null,
+          "start_date": "2007-01-04",
+          "end_date": "2013-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "M001246",
+      "display_name": "Analilia Mejia",
+      "aliases": [
+        "a mejia",
+        "analilia mejia"
+      ],
+      "chamber": "house",
+      "state": "NJ",
+      "district": "11",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "11",
+          "start_date": "2026-04-20",
+          "end_date": "2027-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "C001045",
+      "display_name": "Ander Crenshaw",
+      "aliases": [
+        "a crenshaw",
+        "ander crenshaw"
+      ],
+      "chamber": "house",
+      "state": "FL",
+      "district": "4",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2005-01-04",
+          "end_date": "2007-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2003-01-07",
+          "end_date": "2005-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "4",
+          "start_date": "2001-01-03",
+          "end_date": "2003-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "S001226",
+      "display_name": "Andrea Salinas",
+      "aliases": [
+        "andrea rose salinas",
+        "andrea r salinas",
+        "andrea salinas",
+        "a salinas"
+      ],
+      "chamber": "house",
+      "state": "OR",
+      "district": "6",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "OR",
+          "district": "6",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "OR",
+          "district": "6",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "C001072",
+      "display_name": "André Carson",
+      "aliases": [
+        "a carson",
+        "andre carson"
+      ],
+      "chamber": "house",
+      "state": "IN",
+      "district": "7",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "IN",
+          "district": "7",
+          "start_date": "2008-03-13",
+          "end_date": "2009-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "O000175",
+      "display_name": "Andrew Ogles",
+      "aliases": [
+        "andrew ogles",
+        "a ogles"
+      ],
+      "chamber": "house",
+      "state": "TN",
+      "district": "5",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "TN",
+          "district": "5",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "TN",
+          "district": "5",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "G000597",
+      "display_name": "Andrew R. Garbarino",
+      "aliases": [
+        "a garbarino",
+        "andrew garbarino",
+        "andrew r garbarino"
+      ],
+      "chamber": "house",
+      "state": "NY",
+      "district": "2",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "2",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "2",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NY",
+          "district": "2",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "C001116",
+      "display_name": "Andrew S. Clyde",
+      "aliases": [
+        "a clyde",
+        "andrew clyde",
+        "andrew s clyde"
+      ],
+      "chamber": "house",
+      "state": "GA",
+      "district": "9",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "GA",
+          "district": "9",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "GA",
+          "district": "9",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "GA",
+          "district": "9",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "B001282",
+      "display_name": "Andy Barr",
+      "aliases": [
+        "a barr",
+        "andy barr",
+        "garland barr",
+        "g barr"
+      ],
+      "chamber": "house",
+      "state": "KY",
+      "district": "6",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "KY",
+          "district": "6",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "KY",
+          "district": "6",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "KY",
+          "district": "6",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "KY",
+          "district": "6",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "KY",
+          "district": "6",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "KY",
+          "district": "6",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "KY",
+          "district": "6",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "B001302",
+      "display_name": "Andy Biggs",
+      "aliases": [
+        "a biggs",
+        "andy biggs"
+      ],
+      "chamber": "house",
+      "state": "AZ",
+      "district": "5",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "AZ",
+          "district": "5",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "AZ",
+          "district": "5",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "AZ",
+          "district": "5",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "AZ",
+          "district": "5",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "AZ",
+          "district": "5",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "H001052",
+      "display_name": "Andy Harris",
+      "aliases": [
+        "a harris",
+        "andy harris"
+      ],
+      "chamber": "house",
+      "state": "MD",
+      "district": "1",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MD",
+          "district": "1",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "K000394",
+      "display_name": "Andy Kim",
+      "aliases": [
+        "a kim",
+        "andy kim"
+      ],
+      "chamber": "senate",
+      "state": "NJ",
+      "district": null,
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "NJ",
+          "district": null,
+          "start_date": "2025-01-03",
+          "end_date": "2031-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "NJ",
+          "district": null,
+          "start_date": "2024-12-09",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "3",
+          "start_date": "2023-01-03",
+          "end_date": "2024-12-08"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "3",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "NJ",
+          "district": "3",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "L000592",
+      "display_name": "Andy Levin",
+      "aliases": [
+        "a levin",
+        "andy levin"
+      ],
+      "chamber": "house",
+      "state": "MI",
+      "district": "9",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "MI",
+          "district": "9",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MI",
+          "district": "9",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "A000382",
+      "display_name": "Angela D. Alsobrooks",
+      "aliases": [
+        "a alsobrooks",
+        "angela alsobrooks",
+        "angela d alsobrooks",
+        "angela deneece alsobrooks"
+      ],
+      "chamber": "senate",
+      "state": "MD",
+      "district": null,
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "MD",
+          "district": null,
+          "start_date": "2025-01-03",
+          "end_date": "2031-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "C001119",
+      "display_name": "Angie Craig",
+      "aliases": [
+        "a craig",
+        "angie craig"
+      ],
+      "chamber": "house",
+      "state": "MN",
+      "district": "2",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "MN",
+          "district": "2",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MN",
+          "district": "2",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MN",
+          "district": "2",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "MN",
+          "district": "2",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "K000383",
+      "display_name": "Angus S. King, Jr.",
+      "aliases": [
+        "a king",
+        "angus king",
+        "angus s king"
+      ],
+      "chamber": "senate",
+      "state": "ME",
+      "district": null,
+      "party": "I",
+      "terms": [
+        {
+          "chamber": "senate",
+          "state": "ME",
+          "district": null,
+          "start_date": "2025-01-03",
+          "end_date": "2031-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "ME",
+          "district": null,
+          "start_date": "2019-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "senate",
+          "state": "ME",
+          "district": null,
+          "start_date": "2013-01-03",
+          "end_date": "2019-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "E000215",
+      "display_name": "Anna G. Eshoo",
+      "aliases": [
+        "a eshoo",
+        "anna eshoo",
+        "anna g eshoo"
+      ],
+      "chamber": "house",
+      "state": "CA",
+      "district": "16",
+      "party": "D",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "16",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "18",
+          "start_date": "2021-01-03",
+          "end_date": "2023-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "18",
+          "start_date": "2019-01-03",
+          "end_date": "2021-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "18",
+          "start_date": "2017-01-03",
+          "end_date": "2019-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "18",
+          "start_date": "2015-01-06",
+          "end_date": "2017-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "18",
+          "start_date": "2013-01-03",
+          "end_date": "2015-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "2011-01-05",
+          "end_date": "2013-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "2009-01-06",
+          "end_date": "2011-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "2007-01-04",
+          "end_date": "2009-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "2005-01-04",
+          "end_date": "2007-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "2003-01-07",
+          "end_date": "2005-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "2001-01-03",
+          "end_date": "2003-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "1999-01-06",
+          "end_date": "2001-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "1997-01-07",
+          "end_date": "1999-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "1995-01-04",
+          "end_date": "1997-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "CA",
+          "district": "14",
+          "start_date": "1993-01-05",
+          "end_date": "1995-01-03"
+        }
+      ]
+    },
+    {
+      "bioguide_id": "L000596",
+      "display_name": "Anna Paulina Luna",
+      "aliases": [
+        "a luna",
+        "anna luna",
+        "anna paulina luna",
+        "anna p luna"
+      ],
+      "chamber": "house",
+      "state": "FL",
+      "district": "13",
+      "party": "R",
+      "terms": [
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "13",
+          "start_date": "2025-01-03",
+          "end_date": "2027-01-03"
+        },
+        {
+          "chamber": "house",
+          "state": "FL",
+          "district": "13",
+          "start_date": "2023-01-03",
+          "end_date": "2025-01-03"
+        }
+      ]
+    }
+  ]
+}

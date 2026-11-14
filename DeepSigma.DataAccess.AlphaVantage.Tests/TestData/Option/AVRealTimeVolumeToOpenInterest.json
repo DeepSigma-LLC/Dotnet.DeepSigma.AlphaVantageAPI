@@ -1,0 +1,932 @@
+{
+  "symbol": "NVDA",
+  "data": [
+    {
+      "contractID": "NVDA261113C00050000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "50.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.49230769"
+    },
+    {
+      "contractID": "NVDA261113P00050000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "50.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.02910959"
+    },
+    {
+      "contractID": "NVDA261113C00055000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "55.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.75806452"
+    },
+    {
+      "contractID": "NVDA261113P00055000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "55.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00000000"
+    },
+    {
+      "contractID": "NVDA261113C00060000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "60.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.56521739"
+    },
+    {
+      "contractID": "NVDA261113P00060000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "60.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00000000"
+    },
+    {
+      "contractID": "NVDA261113C00065000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "65.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.69444444"
+    },
+    {
+      "contractID": "NVDA261113P00065000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "65.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00000000"
+    },
+    {
+      "contractID": "NVDA261113C00070000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "70.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.31428571"
+    },
+    {
+      "contractID": "NVDA261113P00070000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "70.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.20040080"
+    },
+    {
+      "contractID": "NVDA261113C00075000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "75.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.73611111"
+    },
+    {
+      "contractID": "NVDA261113P00075000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "75.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00000000"
+    },
+    {
+      "contractID": "NVDA261113C00080000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "80.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "3.73333333"
+    },
+    {
+      "contractID": "NVDA261113P00080000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "80.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.02966051"
+    },
+    {
+      "contractID": "NVDA261113C00085000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "85.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.89795918"
+    },
+    {
+      "contractID": "NVDA261113P00085000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "85.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00000000"
+    },
+    {
+      "contractID": "NVDA261113C00090000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "90.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.35185185"
+    },
+    {
+      "contractID": "NVDA261113P00090000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "90.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00005936"
+    },
+    {
+      "contractID": "NVDA261113C00095000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "95.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.76086957"
+    },
+    {
+      "contractID": "NVDA261113P00095000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "95.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00000000"
+    },
+    {
+      "contractID": "NVDA261113C00100000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "100.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.54205607"
+    },
+    {
+      "contractID": "NVDA261113P00100000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "100.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00036905"
+    },
+    {
+      "contractID": "NVDA261113C00105000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "105.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.46875000"
+    },
+    {
+      "contractID": "NVDA261113P00105000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "105.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00273021"
+    },
+    {
+      "contractID": "NVDA261113C00110000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "110.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.62068966"
+    },
+    {
+      "contractID": "NVDA261113P00110000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "110.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00501770"
+    },
+    {
+      "contractID": "NVDA261113C00115000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "115.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.95833333"
+    },
+    {
+      "contractID": "NVDA261113P00115000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "115.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.01312372"
+    },
+    {
+      "contractID": "NVDA261113C00120000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "120.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.37000000"
+    },
+    {
+      "contractID": "NVDA261113P00120000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "120.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.02670188"
+    },
+    {
+      "contractID": "NVDA261113C00125000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "125.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.31660232"
+    },
+    {
+      "contractID": "NVDA261113P00125000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "125.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.02563326"
+    },
+    {
+      "contractID": "NVDA261113C00126000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "126.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "4.44000000"
+    },
+    {
+      "contractID": "NVDA261113P00126000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "126.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00514706"
+    },
+    {
+      "contractID": "NVDA261113C00127000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "127.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "6.00000000"
+    },
+    {
+      "contractID": "NVDA261113P00127000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "127.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.02205006"
+    },
+    {
+      "contractID": "NVDA261113C00128000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "128.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "9.00000000"
+    },
+    {
+      "contractID": "NVDA261113P00128000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "128.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00809717"
+    },
+    {
+      "contractID": "NVDA261113C00129000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "129.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "6.75000000"
+    },
+    {
+      "contractID": "NVDA261113P00129000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "129.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.00232320"
+    },
+    {
+      "contractID": "NVDA261113C00130000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "130.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.00000000"
+    },
+    {
+      "contractID": "NVDA261113P00130000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "130.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.01546956"
+    },
+    {
+      "contractID": "NVDA261113C00131000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "131.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "2.58823529"
+    },
+    {
+      "contractID": "NVDA261113P00131000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "131.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.01032110"
+    },
+    {
+      "contractID": "NVDA261113C00132000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "132.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.03389831"
+    },
+    {
+      "contractID": "NVDA261113P00132000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "132.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.01362089"
+    },
+    {
+      "contractID": "NVDA261113C00133000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "133.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "2.12500000"
+    },
+    {
+      "contractID": "NVDA261113P00133000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "133.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.67149758"
+    },
+    {
+      "contractID": "NVDA261113C00134000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "134.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "2.92307692"
+    },
+    {
+      "contractID": "NVDA261113P00134000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "134.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.22066936"
+    },
+    {
+      "contractID": "NVDA261113C00135000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "135.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.05732484"
+    },
+    {
+      "contractID": "NVDA261113P00135000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "135.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.53435434"
+    },
+    {
+      "contractID": "NVDA261113C00136000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "136.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.13333333"
+    },
+    {
+      "contractID": "NVDA261113P00136000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "136.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.16989247"
+    },
+    {
+      "contractID": "NVDA261113C00137000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "137.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.04761905"
+    },
+    {
+      "contractID": "NVDA261113P00137000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "137.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.12070044"
+    },
+    {
+      "contractID": "NVDA261113C00138000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "138.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.25000000"
+    },
+    {
+      "contractID": "NVDA261113P00138000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "138.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.18019884"
+    },
+    {
+      "contractID": "NVDA261113C00139000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "139.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.04761905"
+    },
+    {
+      "contractID": "NVDA261113P00139000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "139.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.15072237"
+    },
+    {
+      "contractID": "NVDA261113C00140000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "140.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.31434599"
+    },
+    {
+      "contractID": "NVDA261113P00140000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "140.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.19436483"
+    },
+    {
+      "contractID": "NVDA261113C00141000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "141.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.01746725"
+    },
+    {
+      "contractID": "NVDA261113P00141000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "141.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.30021444"
+    },
+    {
+      "contractID": "NVDA261113C00142000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "142.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.41666667"
+    },
+    {
+      "contractID": "NVDA261113P00142000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "142.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.54884048"
+    },
+    {
+      "contractID": "NVDA261113C00143000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "143.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.29411765"
+    },
+    {
+      "contractID": "NVDA261113P00143000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "143.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.61835184"
+    },
+    {
+      "contractID": "NVDA261113C00144000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "144.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.20967742"
+    },
+    {
+      "contractID": "NVDA261113P00144000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "144.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.29441553"
+    },
+    {
+      "contractID": "NVDA261113C00145000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "145.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.97372263"
+    },
+    {
+      "contractID": "NVDA261113P00145000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "145.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.30971421"
+    },
+    {
+      "contractID": "NVDA261113C00146000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "146.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.86567164"
+    },
+    {
+      "contractID": "NVDA261113P00146000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "146.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.96554252"
+    },
+    {
+      "contractID": "NVDA261113C00147000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "147.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.18352060"
+    },
+    {
+      "contractID": "NVDA261113P00147000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "147.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.12550916"
+    },
+    {
+      "contractID": "NVDA261113C00148000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "148.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.27319588"
+    },
+    {
+      "contractID": "NVDA261113P00148000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "148.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.32420229"
+    },
+    {
+      "contractID": "NVDA261113C00149000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "149.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.73088685"
+    },
+    {
+      "contractID": "NVDA261113P00149000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "149.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.76368080"
+    },
+    {
+      "contractID": "NVDA261113C00150000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "150.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.52389508"
+    },
+    {
+      "contractID": "NVDA261113P00150000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "150.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.66508772"
+    },
+    {
+      "contractID": "NVDA261113C00152500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "152.50",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.50420712"
+    },
+    {
+      "contractID": "NVDA261113P00152500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "152.50",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "4.26421144"
+    },
+    {
+      "contractID": "NVDA261113C00155000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "155.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.53409355"
+    },
+    {
+      "contractID": "NVDA261113P00155000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "155.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "6.31377403"
+    },
+    {
+      "contractID": "NVDA261113C00157500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "157.50",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "3.47278835"
+    },
+    {
+      "contractID": "NVDA261113P00157500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "157.50",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "15.32427925"
+    },
+    {
+      "contractID": "NVDA261113C00160000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "160.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "16.73821340"
+    },
+    {
+      "contractID": "NVDA261113P00160000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "160.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "15.95482189"
+    },
+    {
+      "contractID": "NVDA261113C00162500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "162.50",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "37.76304996"
+    },
+    {
+      "contractID": "NVDA261113P00162500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "162.50",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "12.25008060"
+    },
+    {
+      "contractID": "NVDA261113C00165000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "165.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "14.50119014"
+    },
+    {
+      "contractID": "NVDA261113P00165000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "165.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "3.73577901"
+    },
+    {
+      "contractID": "NVDA261113C00167500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "167.50",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "7.31549390"
+    },
+    {
+      "contractID": "NVDA261113P00167500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "167.50",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.92707666"
+    },
+    {
+      "contractID": "NVDA261113C00170000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "170.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "5.03650268"
+    },
+    {
+      "contractID": "NVDA261113P00170000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "170.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.95788987"
+    },
+    {
+      "contractID": "NVDA261113C00172500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "172.50",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "3.02009760"
+    },
+    {
+      "contractID": "NVDA261113P00172500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "172.50",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.36564333"
+    },
+    {
+      "contractID": "NVDA261113C00175000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "175.00",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.45987479"
+    },
+    {
+      "contractID": "NVDA261113P00175000",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "175.00",
+      "type": "put",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "0.30180489"
+    },
+    {
+      "contractID": "NVDA261113C00177500",
+      "symbol": "NVDA",
+      "expiration": "2026-11-13",
+      "strike": "177.50",
+      "type": "call",
+      "date": "2026-11-13",
+      "volume_open_interest_ratio": "1.15356083"
+    }
+  ]
+}

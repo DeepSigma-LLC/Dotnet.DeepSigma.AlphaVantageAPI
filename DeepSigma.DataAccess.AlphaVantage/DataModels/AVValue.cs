@@ -19,5 +19,5 @@ public class AVValue
     /// The numerical value associated with the date.
     /// </summary>
     [JsonPropertyName("value")]
-    public decimal Value { get; set; }
+    public decimal? Value { get; set; }
 }

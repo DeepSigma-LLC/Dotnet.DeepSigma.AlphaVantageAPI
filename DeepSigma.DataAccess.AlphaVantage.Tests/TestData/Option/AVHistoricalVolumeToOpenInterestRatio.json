@@ -1,0 +1,78 @@
+{
+  "symbol": "NVDA",
+  "date": "2026-04-06",
+  "data": [
+    {
+      "contractID": "NVDA260406C00105000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "105.00",
+      "type": "call",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": "60.00000000"
+    },
+    {
+      "contractID": "NVDA260406P00105000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "105.00",
+      "type": "put",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": "0.04878049"
+    },
+    {
+      "contractID": "NVDA260406C00110000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "110.00",
+      "type": "call",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": null
+    },
+    {
+      "contractID": "NVDA260406P00110000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "110.00",
+      "type": "put",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": "0.09677419"
+    },
+    {
+      "contractID": "NVDA260406C00115000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "115.00",
+      "type": "call",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": null
+    },
+    {
+      "contractID": "NVDA260406P00115000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "115.00",
+      "type": "put",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": "0.00000000"
+    },
+    {
+      "contractID": "NVDA260406C00120000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "120.00",
+      "type": "call",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": "0.40909091"
+    },
+    {
+      "contractID": "NVDA260406P00120000",
+      "symbol": "NVDA",
+      "expiration": "2026-04-06",
+      "strike": "120.00",
+      "type": "put",
+      "date": "2026-04-06",
+      "volume_open_interest_ratio": "0.00000000"
+    }
+  ]
+}
