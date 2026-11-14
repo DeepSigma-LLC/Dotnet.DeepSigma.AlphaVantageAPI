@@ -38,11 +38,7 @@ public class OptionData(HttpClient client, ApiOptions options) : AbstractDataAPI
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVDataRequest<AVOptionData>? GetRealTimeOptionDataFromJson(string json)
-    {
-        AVDataRequest<AVOptionData>? results = Serializer.LoadFromJson<AVDataRequest<AVOptionData>>(json);
-        return results;
-    }
+    public static AVDataRequest<AVOptionData>? GetRealTimeOptionDataFromJson(string json) => Serializer.LoadFromJson<AVDataRequest<AVOptionData>>(json);
 
     /// <summary>
     /// This API returns the full historical options chain for a specific symbol on a specific date, covering 15+ years of history. 
@@ -68,10 +64,6 @@ public class OptionData(HttpClient client, ApiOptions options) : AbstractDataAPI
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVDataRequest<AVOptionData>? GetHistoricalOptionDataFromJson(string json)
-    {
-        AVDataRequest<AVOptionData>? results = Serializer.LoadFromJson<AVDataRequest<AVOptionData>>(json);
-        return results;
-    }
+    public static AVDataRequest<AVOptionData>? GetHistoricalOptionDataFromJson(string json) => Serializer.LoadFromJson<AVDataRequest<AVOptionData>>(json);
 
 }

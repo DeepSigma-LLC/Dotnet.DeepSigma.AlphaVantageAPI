@@ -1,9 +1,7 @@
 ﻿using Xunit;
 using DeepSigma.AlphaVantageAPI.DataModels;
-using DeepSigma.AlphaVantageAPI;
-using DeepSigma.AlphaVantageAPI.Tests;
 
-namespace DeepSigma.AlphaVantage.Tests;
+namespace DeepSigma.AlphaVantageAPI.Tests;
 
 public class AlphaVantage_FixedIncome_Tests
 {

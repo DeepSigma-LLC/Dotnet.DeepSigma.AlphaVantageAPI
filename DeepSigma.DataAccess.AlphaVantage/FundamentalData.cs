@@ -29,11 +29,33 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVComanyOverview? GetCompanyOverviewFromJson(string json)
+    public static AVComanyOverview? GetCompanyOverviewFromJson(string json) => Serializer.LoadFromJson<AVComanyOverview?>(json);
+
+
+    /// <summary>
+    /// This API returns the company information, financial ratios, and other key metrics for the equity specified. 
+    /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+    /// </summary>
+    /// <param name="symbol"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVCompanyLogoResponse?> GetCompanyLogo(string symbol, CancellationToken ct = default)
     {
-        AVComanyOverview? results = Serializer.LoadFromJson<AVComanyOverview?>(json);
+        string url = $"https://www.alphavantage.co/query?function=COMPANY_LOGO&symbol={symbol}&apikey={Options.APIKey}";
+        AVCompanyLogoResponse? results = await Utilities.GetAPIData(url, GetCompanyLogoFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
+
+    /// <summary>
+    /// Parses the JSON response returned by the Alpha Vantage API for Company Overview.
+    /// This API returns the company information, financial ratios, and other key metrics for the equity specified. 
+    /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVCompanyLogoResponse? GetCompanyLogoFromJson(string json) => Serializer.LoadFromJson<AVCompanyLogoResponse?>(json);
+
+
 
     /// <summary>
     /// This API returns the latest and historical insider transactions made by key stakeholders (e.g., founders, executives, board members, etc.) of a specific company.
@@ -54,11 +76,7 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVDataRequest<AVInsiderTransactionData>? GetInsiderTransactionsFromJson(string json)
-    {
-        AVDataRequest<AVInsiderTransactionData>? results = Serializer.LoadFromJson<AVDataRequest<AVInsiderTransactionData>?>(json);
-        return results;
-    }
+    public static AVDataRequest<AVInsiderTransactionData>? GetInsiderTransactionsFromJson(string json) => Serializer.LoadFromJson<AVDataRequest<AVInsiderTransactionData>>(json);
 
     /// <summary>
     /// This API returns the earnings call transcript for a given company in a specific quarter, covering over 15 years of history and enriched with LLM-based sentiment signals.
@@ -81,11 +99,7 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVTranscriptResponse? GetEarningsTranscriptFromJson(string json)
-    {
-        AVTranscriptResponse? results = Serializer.LoadFromJson<AVTranscriptResponse?>(json);
-        return results;
-    }
+    public static AVTranscriptResponse? GetEarningsTranscriptFromJson(string json) => Serializer.LoadFromJson<AVTranscriptResponse?>(json);
 
     /// <summary>
     /// This API returns historical and future (declared) dividend distributions.
@@ -106,11 +120,7 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVDividendHistoryResponse? GetDividendsFromJson(string json)
-    {
-        AVDividendHistoryResponse? results = Serializer.LoadFromJson<AVDividendHistoryResponse?>(json);
-        return results;
-    }
+    public static AVDividendHistoryResponse? GetDividendsFromJson(string json) => Serializer.LoadFromJson<AVDividendHistoryResponse?>(json);
 
     /// <summary>
     /// This API returns historical split events.
@@ -131,11 +141,7 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVStockSplitResponse? GetStockSplitsFromJson(string json)
-    {
-        AVStockSplitResponse? results = Serializer.LoadFromJson<AVStockSplitResponse?>(json);
-        return results;
-    }
+    public static AVStockSplitResponse? GetStockSplitsFromJson(string json) => Serializer.LoadFromJson<AVStockSplitResponse?>(json);
 
     /// <summary>
     /// This API returns the annual and quarterly income statements for the company of interest, with normalized fields mapped to GAAP and IFRS taxonomies of the SEC. 
@@ -242,11 +248,7 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVEarningsHistroyResponse? GetEarningsHistoryFromJson(string json)
-    {
-        AVEarningsHistroyResponse? results = Serializer.LoadFromJson<AVEarningsHistroyResponse?>(json);
-        return results;
-    }
+    public static AVEarningsHistroyResponse? GetEarningsHistoryFromJson(string json) => Serializer.LoadFromJson<AVEarningsHistroyResponse?>(json);
 
     /// <summary>
     /// This API returns the annual and quarterly EPS and revenue estimates for the company of interest, along with analyst count and revision history.
@@ -267,12 +269,21 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVEarningsEstimateResponse? GetEarningsEstimateFromJson(string json)
+    public static AVEarningsEstimateResponse? GetEarningsEstimateFromJson(string json) => Serializer.LoadFromJson<AVEarningsEstimateResponse?>(json);
+
+
+    /// <summary>
+    /// This API returns the annual and quarterly EPS and revenue estimates for the company of interest, along with analyst count and revision history.
+    /// </summary>
+    /// <param name="symbol"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVSharesOutstandingResponse?> GetSharesOutstanding(string symbol, CancellationToken ct = default)
     {
-        AVEarningsEstimateResponse? results = Serializer.LoadFromJson<AVEarningsEstimateResponse?>(json);
+        string url = $"https://www.alphavantage.co/query?function=SHARES_OUTSTANDING&symbol={symbol}&apikey={Options.APIKey}";
+        AVSharesOutstandingResponse? results = await Utilities.GetAPIData(url, GetSharesOutstandingFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
-
 
     /// <summary>
     /// Parses the JSON response returned by the Alpha Vantage API for Shares Outstanding.
@@ -281,9 +292,5 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVEarningsEstimateResponse? GetSharesOutstandingFromJson(string json)
-    {
-        AVEarningsEstimateResponse? results = Serializer.LoadFromJson<AVEarningsEstimateResponse?>(json);
-        return results;
-    }
+    public static AVSharesOutstandingResponse? GetSharesOutstandingFromJson(string json) => Serializer.LoadFromJson<AVSharesOutstandingResponse?>(json);
 }

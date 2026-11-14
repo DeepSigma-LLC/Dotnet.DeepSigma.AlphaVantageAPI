@@ -1,7 +1,7 @@
 ﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using Xunit;
 
-namespace DeepSigma.AlphaVantageAPI.Tests.Tests;
+namespace DeepSigma.AlphaVantageAPI.Tests;
 
 public class AlphaVantage_IndexData_Tests
 {
@@ -23,7 +23,7 @@ public class AlphaVantage_IndexData_Tests
     public void GetIndexCatalogFromJson_ResultsShouldReturnValues()
     {
         string json = File.ReadAllText(TestConfig.data_path + "/Index/AVIndexCatalog.json");
-        Dictionary<string, string>? results = IndexData.GetIndexCatelogFromJson(json);
+        Dictionary<string, string>? results = IndexData.GetIndexCatalogFromJson(json);
         bool has_data = false;
         if (results is not null)
         {

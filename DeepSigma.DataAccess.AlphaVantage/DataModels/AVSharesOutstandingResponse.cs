@@ -1,0 +1,8 @@
+﻿namespace DeepSigma.AlphaVantageAPI.DataModels;
+
+public sealed class AVSharesOutstandingResponse
+{
+    public string Symbol { get; set; } = "";
+    public string Status { get; set; } = "";
+    public List<AVSharesOutstandingData> Data { get; set; } = [];
+}

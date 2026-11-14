@@ -21,6 +21,21 @@ public class AlphaVantage_Fundamental_Tests
     }
 
     [Fact]
+    public void GetCompanyLogoFromJson_ResultsShouldReturnValues()
+    {
+        string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVCompanyLogo.json");
+        AVCompanyLogoResponse? results = FundamentalData.GetCompanyLogoFromJson(json);
+
+        bool has_data = false;
+        if (results is not null)
+        {
+            has_data = results.LogoUrlPng.Length > 0;
+        }
+        Assert.True(has_data);
+    }
+
+
+    [Fact]
     public void GetInsiderTransactionsFromJson_ResultsShouldReturnValues()
     {
         string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVInsiderTransactions.json");
@@ -144,6 +159,20 @@ public class AlphaVantage_Fundamental_Tests
         if (results is not null)
         {
             has_data = results.Estimates.Count > 0;
+        }
+        Assert.True(has_data);
+    }
+
+    [Fact]
+    public void GetSharesOutstandingFromJson_ResultsShouldReturnValues()
+    {
+        string json = File.ReadAllText(TestConfig.data_path + "/Fundamental/AVSharesOutstanding.json");
+        AVSharesOutstandingResponse? results = FundamentalData.GetSharesOutstandingFromJson(json);
+
+        bool has_data = false;
+        if (results is not null)
+        {
+            has_data = results.Data.Count > 0;
         }
         Assert.True(has_data);
     }
