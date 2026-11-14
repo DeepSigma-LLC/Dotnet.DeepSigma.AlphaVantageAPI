@@ -1,4 +1,4 @@
-﻿using DeepSigma.AlphaVantageAPI.DataModels;
+﻿using DeepSigma.AlphaVantageAPI.Models;
 using System.Text.Json;
 
 namespace DeepSigma.AlphaVantageAPI.Parsers;

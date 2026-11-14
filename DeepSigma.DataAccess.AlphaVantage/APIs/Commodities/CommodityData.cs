@@ -1,0 +1,336 @@
+﻿using DeepSigma.AlphaVantageAPI.Models;
+using DeepSigma.AlphaVantageAPI.Enums;
+using DeepSigma.DataAccess.Web;
+using DeepSigma.Core.Extensions;
+
+namespace DeepSigma.AlphaVantageAPI.APIs.Commodities;
+
+/// <summary>
+/// This class contains methods to access commodity data from the Alpha Vantage API.
+/// </summary>
+public class CommodityData(HttpClient client, ApiOptions options) : AbstractDataAPI(client, options)
+{
+    /// <summary>
+    /// This API returns the West Texas Intermediate (WTI) crude oil prices in daily, weekly, and monthly horizons.
+    /// Source: U.S.Energy Information Administration, Crude Oil Prices: West Texas Intermediate(WTI) - Cushing, Oklahoma, retrieved from FRED, Federal Reserve Bank of St.Louis. 
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis. By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetWTI(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=WTI&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetWTIFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for WTI crude oil prices.
+    /// Returns the West Texas Intermediate (WTI) crude oil prices from the Alpha Vantage JSON string.
+    /// Source: U.S.Energy Information Administration, Crude Oil Prices: West Texas Intermediate(WTI) - Cushing, Oklahoma, retrieved from FRED, Federal Reserve Bank of St.Louis. 
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis. By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetWTIFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns the Brent (Europe) crude oil prices in daily, weekly, and monthly horizons.
+    /// Source: U.S.Energy Information Administration, Crude Oil Prices: Brent - Europe, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis. By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetBrent(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=BRENT&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetBrentFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for Brent crude oil prices.
+    /// This API returns the Brent (Europe) crude oil prices from the Alpha Vantage JSON string.
+    /// Source: U.S.Energy Information Administration, Crude Oil Prices: Brent - Europe, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis. By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetBrentFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+
+    /// <summary>
+    /// This API returns the Henry Hub natural gas spot prices in daily, weekly, and monthly horizons.
+    /// Source: U.S.Energy Information Administration, Henry Hub Natural Gas Spot Price, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetNaturalGas(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=NATURAL_GAS&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetNaturalGasFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for Henry Hub natural gas spot prices.
+    /// This API returns the Henry Hub natural gas spot prices from the Alpha Vantage JSON string.
+    /// Source: U.S.Energy Information Administration, Henry Hub Natural Gas Spot Price, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetNaturalGasFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+
+
+    /// <summary>
+    /// This API returns the global price of copper in monthly, quarterly, and annual horizons.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Copper, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetCopper(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=COPPER&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetCopperFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global copper prices.
+    /// This API returns the global price of copper prices from the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Copper, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetCopperFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+
+    /// <summary>
+    /// This API returns the global price of aluminum in monthly, quarterly, and annual horizons.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Aluminum, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetAluminum(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=ALUMINUM&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetAluminumFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global aluminum prices.
+    /// This API returns the global price of aluminum from the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Aluminum, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetAluminumFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+
+    /// <summary>
+    /// This API returns the global price of wheat in monthly, quarterly, and annual horizons.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Wheat, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetWheat(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=WHEAT&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetWheatFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global wheat prices.
+    /// This API returns the global price of wheat from the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Wheat, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetWheatFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns the global price of corn in monthly, quarterly, and annual horizons.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Corn, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetCorn(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=CORN&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetCornFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global corn prices.
+    /// This API returns the global price of corn from the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Corn, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetCornFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns the global price of cotton in monthly, quarterly, and annual horizons.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Cotton, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetCotton(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=COTTON&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetCottonFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global cotton prices.
+    /// This API returns the global price of cotton from the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Cotton, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetCottonFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns the global price of sugar in monthly, quarterly, and annual horizons.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Sugar, No. 11, World, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetSugar(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=SUGAR&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetSugarFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global sugar prices.
+    /// This API returns the global price of sugar from the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Sugar, No. 11, World, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetSugarFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns the global price of coffee in monthly, quarterly, and annual horizons.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Coffee, Other Mild Arabica, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetCoffee(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=COFFEE&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetCoffeeFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global coffee prices.
+    /// This API returns the global price of coffee from the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global price of Coffee, Other Mild Arabica, retrieved from FRED, Federal Reserve Bank of St.Louis.
+    /// This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetCoffeeFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns the global price index of all commodities in monthly, quarterly, and annual temporal dimensions.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global Price Index of All Commodities, retrieved from FRED, Federal Reserve Bank of St.Louis.This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVDataRequest<AVValue>?> GetGlobalCommodityIndex(TimeSeriesInterval interval = TimeSeriesInterval.Daily, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=ALL_COMMODITIES&interval={interval.ToDescriptionString()}&apikey={Options.APIKey}";
+        AVDataRequest<AVValue>? results = await Utilities.GetAPIData(url, GetGlobalCommodityIndexFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parses the JSON string returned by the Alpha Vantage API for global commodity price index.
+    /// This API returns the global price index of all commodities  the Alpha Vantage JSON string.
+    /// Source: International Monetary Fund(IMF Terms of Use), Global Price Index of All Commodities, retrieved from FRED, Federal Reserve Bank of St.Louis.This data feed uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St.Louis.By using this data feed, you agree to be bound by the FRED® API Terms of Use.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVValue>? GetGlobalCommodityIndexFromJson(string json)
+    {
+        AVDataRequest<AVValue>? results = Serializer.LoadFromJson<AVDataRequest<AVValue>>(json);
+        return results;
+    }
+}

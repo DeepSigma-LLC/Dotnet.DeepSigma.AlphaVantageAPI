@@ -1,5 +1,7 @@
 ﻿using Xunit;
-using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.Models;
+using DeepSigma.AlphaVantageAPI.APIs.Utilities;
+using DeepSigma.AlphaVantageAPI.APIs.Utilities.Models;
 
 namespace DeepSigma.AlphaVantageAPI.Tests;
 
@@ -100,6 +102,20 @@ public class AlphaVantage_Utilities_Tests
         if (results is not null)
         {
             has_data = results.Count > 0;
+        }
+        Assert.True(has_data);
+    }
+
+    [Fact]
+    public void GetInstitutionalHoldings_ShouldReturnValues()
+    {
+        string data = File.ReadAllText(TestConfig.data_path + "/Utilities/AVInstitutionalOwnership.json");
+        AVInstitutionalHoldingResponse? results = UtilitiesData.GetInstitutionalHoldingResponseFromJson(data);
+
+        bool has_data = false;
+        if (results is not null)
+        {
+            has_data = results.Holdings.Count > 0;
         }
         Assert.True(has_data);
     }

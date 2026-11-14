@@ -1,4 +1,6 @@
-﻿using DeepSigma.AlphaVantageAPI.DataModels;
+﻿using DeepSigma.AlphaVantageAPI.APIs.Index;
+using DeepSigma.AlphaVantageAPI.APIs.Index.Models;
+using DeepSigma.AlphaVantageAPI.Models;
 using Xunit;
 
 namespace DeepSigma.AlphaVantageAPI.Tests;

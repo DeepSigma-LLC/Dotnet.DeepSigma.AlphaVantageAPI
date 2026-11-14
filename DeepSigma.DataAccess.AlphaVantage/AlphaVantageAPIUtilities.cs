@@ -1,4 +1,4 @@
-﻿using DeepSigma.AlphaVantageAPI.DataModels;
+﻿using DeepSigma.AlphaVantageAPI.Models;
 using DeepSigma.AlphaVantageAPI.Parsers;
 using DeepSigma.DataAccess.Web;
 
@@ -30,11 +30,11 @@ internal class AlphaVantageAPIUtilities(HttpClient client)
         return JsonToParser(json);
     }
 
-    internal async Task<List<TResult>> GetAPIDataCSVFormat<TResult>(string url, Func<string, List<TResult>> CsvToParser, int timeout_seconds, CancellationToken ct, Action<string>? csv_logger = null)
+    internal async Task<List<TResult>?> GetAPIDataCSVFormat<TResult>(string url, Func<string, List<TResult>?> CsvToParser, int timeout_seconds, CancellationToken ct, Action<string>? csv_logger = null)
     {
         string? csv = await _httpApi.GetCsvDataAsync(url, timeout_seconds, ct);
 
-        if (csv is null) return [];
+        if (csv is null) return default;
         if (csv_logger is not null) { csv_logger(csv); }
 
         return CsvToParser(csv);
