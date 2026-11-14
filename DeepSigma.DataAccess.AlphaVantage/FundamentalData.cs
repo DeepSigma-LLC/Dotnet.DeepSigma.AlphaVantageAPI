@@ -272,4 +272,18 @@ public class FundamentalData(HttpClient client, ApiOptions options) : AbstractDa
         AVEarningsEstimateResponse? results = Serializer.LoadFromJson<AVEarningsEstimateResponse?>(json);
         return results;
     }
+
+
+    /// <summary>
+    /// Parses the JSON response returned by the Alpha Vantage API for Shares Outstanding.
+    /// This API returns the quarterly numbers of shares outstanding for the company of interest, with both diluted and basic shares outstanding values returned. 
+    /// Data is generally refreshed on the same day a company reports its latest earnings and financials.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVEarningsEstimateResponse? GetSharesOutstandingFromJson(string json)
+    {
+        AVEarningsEstimateResponse? results = Serializer.LoadFromJson<AVEarningsEstimateResponse?>(json);
+        return results;
+    }
 }

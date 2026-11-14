@@ -1,8 +1,8 @@
-﻿using DeepSigma.AlphaVantageAPI.Parsers;
+﻿using DeepSigma.AlphaVantageAPI.DataModels;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace DeepSigma.AlphaVantageAPI.DataModels;
+namespace DeepSigma.AlphaVantageAPI.Parsers;
 
 internal class AVTimeSeriesResponseGenericParser<T>
 {
@@ -10,8 +10,9 @@ internal class AVTimeSeriesResponseGenericParser<T>
     /// Note: JSON elements must be public with getters and setters to be deserialized properly.
     /// </summary>
     [JsonPropertyName("Meta Data")]
-    public JsonElement MetaDataRaw { get; init; }
-    internal AVMetaData GetMetaData() => AVMetaDataParser.Parse(MetaDataRaw);
+    public JsonElement? MetaDataRaw { get; init; }
+    internal AVMetaData GetMetaData() => MetaDataRaw.HasValue ? AVMetaDataParser.Parse(MetaDataRaw.Value) : new();
+
     // Keys are dates like "2025-08-12"; we'll keep them as strings or post-convert.
 
     /// <summary>
@@ -29,8 +30,7 @@ internal class AVTimeSeriesResponseGenericParser<T>
     /// <returns></returns>
     internal SortedDictionary<DateTime, T> GetSeries(JsonSerializerOptions? options = null)
     {
-        var kvp = ExtensionData.FirstOrDefault(p => p.Key.Contains("Time Series", StringComparison.OrdinalIgnoreCase));
-
+        KeyValuePair<string, JsonElement> kvp = ExtensionData.FirstOrDefault(p => p.Key.Contains("Time Series", StringComparison.OrdinalIgnoreCase));
         if (string.IsNullOrEmpty(kvp.Key)) return [];
 
         var seriesObj = kvp.Value;

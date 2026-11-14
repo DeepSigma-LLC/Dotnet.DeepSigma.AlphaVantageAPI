@@ -19,6 +19,7 @@ internal class AVBarParser : AVResponseParser
 
         return new AVBar
         {
+            DateTime = TryGet<DateTime>(map, null, "date"),
             Open = TryGet<decimal>(map, null, "open"),
             High = TryGet<decimal>(map, null, "high"),
             Low = TryGet<decimal>(map, null, "low"),

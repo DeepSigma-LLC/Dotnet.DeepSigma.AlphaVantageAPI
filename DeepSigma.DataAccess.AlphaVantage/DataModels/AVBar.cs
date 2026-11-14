@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json.Serialization;
+
 namespace DeepSigma.AlphaVantageAPI.DataModels;
 
 /// <summary>
@@ -6,6 +8,11 @@ namespace DeepSigma.AlphaVantageAPI.DataModels;
 /// </summary>
 public class AVBar : AVGenericObject
 {
+    /// <summary>
+    /// Date time of the bar.
+    /// </summary>
+    [JsonPropertyName("date")]
+    public DateTime? DateTime { get; init; }
     /// <summary>
     /// The open price.
     /// </summary>
