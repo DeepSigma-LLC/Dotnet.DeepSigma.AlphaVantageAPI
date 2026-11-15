@@ -2,81 +2,35 @@
 
 A .NET client library for working with the [Alpha Vantage](https://www.alphavantage.co/) API in C#.
 
-This project wraps multiple Alpha Vantage endpoints behind a single `AlphaVantageAPI` facade and also provides static JSON/CSV parsing helpers that let you deserialize saved responses without making live HTTP requests. The repository includes xUnit tests plus fixture data covering the supported response formats.
+The client groups supported Alpha Vantage endpoints behind an `AlphaVantageAPI` facade. Endpoint modules expose asynchronous request methods, and many also provide static JSON/CSV parsers so saved responses can be read without making HTTP requests. The repository includes xUnit tests and response fixtures.
 
-## What this library covers
+## Supported API areas
 
-The client is organized into focused modules exposed from `AlphaVantageAPI`:
+The facade exposes the following modules:
 
-- `Utilities`
-  - Symbol search
-  - Global market status
-  - Top gainers / losers / most active
-  - Historical news
-  - ETF profile and holdings
-  - Listing status
-  - Earnings calendar
-  - IPO calendar
-- `StockData`
-  - Intraday time series
-  - Daily, weekly, and monthly adjusted time series
-  - Bulk realtime quotes
-- `OptionData`
-  - Realtime options chains
-  - Historical options chains
-- `CommodityData`
-  - WTI, Brent, natural gas
-  - Copper, aluminum
-  - Wheat, corn, cotton, sugar, coffee
-  - Global commodity index
-- `FundamentalData`
-  - Company overview
-  - Insider transactions
-  - Earnings transcripts
-  - Dividends
-  - Stock splits
-  - Income statement
-  - Balance sheet
-  - Cash flow
-  - Earnings history
-  - Earnings estimates
-- `FXData`
-  - Realtime exchange rate quote
-  - Intraday, daily, weekly, monthly FX series
-- `CryptoData`
-  - Realtime exchange rate quote
-  - Intraday, daily, weekly, monthly crypto series
-- `EconomicData`
-  - Real GDP
-  - Real GDP per capita
-  - CPI
-  - Inflation
-  - Retail sales
-  - Durable goods orders
-  - Non-farm payrolls
-  - Unemployment rate
-- `FixedIncomeData`
-  - U.S. Treasury yields
-  - Federal funds rate
+- `Utilities`: symbol search, market status, top gainers/losers/most active, historical news, ETF profiles and holdings, listing status, earnings and IPO calendars, institutional holdings, congressional trades, and politician metadata.
+- `StockData`: intraday, daily, weekly, and monthly time series; bulk real-time quotes; bulk bid/ask prices.
+- `OptionData`: real-time and historical option chains, put/call ratios, and volume-to-open-interest ratios.
+- `CommodityData`: WTI, Brent, natural gas, copper, aluminum, wheat, corn, cotton, sugar, coffee, and the global commodity index.
+- `FundamentalData`: company overview and logo, insider transactions, earnings transcripts/history/estimates, dividends, stock splits, shares outstanding, income statements, balance sheets, and cash flows.
+- `FXData`: exchange-rate quotes and intraday, daily, weekly, and monthly FX time series.
+- `CryptoData`: exchange-rate quotes and intraday, daily, weekly, and monthly cryptocurrency time series.
+- `EconomicData`: real GDP, real GDP per capita, CPI, inflation, retail sales, durable goods orders, non-farm payrolls, and unemployment.
+- `FixedIncomeData`: U.S. Treasury yields and the federal funds rate.
+- `IndexData`: index catalog and index time series.
 
 ## Highlights
 
 - Unified entry point through `AlphaVantageAPI`
-- Async-first API surface
+- Async request methods with cancellation-token support
 - Strongly typed response models
-- Static parsing helpers for JSON and CSV fixtures
-- Optional raw response logging callback
+- Static JSON/CSV parsing helpers for saved responses
+- Configurable request timeout and optional JSON/CSV logging callbacks
 - xUnit tests with sample response files for parser validation
 
 ## Target framework
 
-This project currently targets:
-
-```xml
-<TargetFramework>net10.0</TargetFramework>
-```
-
-That makes it a modern .NET library, but it also means consumers need a compatible .NET SDK/runtime.
+The library and test project target .NET 11. Use a compatible .NET 11 SDK to build and run the project.
 
 ## Installation
 
@@ -88,7 +42,7 @@ dotnet add reference path/to/DeepSigma.AlphaVantageAPI.csproj
 
 ### Option 2: add the NuGet package
 
-If you publish or consume this library through NuGet, use the package ID associated with the project/package configuration in your feed.
+The library project generates a NuGet package on build. Its default package ID is `DeepSigma.AlphaVantageAPI`:
 
 ```bash
 dotnet add package DeepSigma.AlphaVantageAPI
@@ -104,13 +58,18 @@ using DeepSigma.AlphaVantageAPI;
 var api = new AlphaVantageAPI("YOUR_ALPHA_VANTAGE_API_KEY");
 ```
 
-You can also provide a logger callback to inspect raw responses:
+Pass an `ApiOptions` instance to configure the request timeout and raw response callbacks. JSON and CSV callbacks are invoked for their corresponding response formats:
 
 ```csharp
-var api = new AlphaVantageAPI(
-    "YOUR_ALPHA_VANTAGE_API_KEY",
-    json => Console.WriteLine(json)
-);
+using DeepSigma.AlphaVantageAPI;
+
+var options = new ApiOptions(
+    APIKey: "YOUR_ALPHA_VANTAGE_API_KEY",
+    TimeoutSeconds: 30,
+    JSONLogger: json => Console.WriteLine(json),
+    CSVLogger: csv => Console.WriteLine(csv));
+
+var api = new AlphaVantageAPI(options.APIKey, options);
 ```
 
 ## Quick start
@@ -237,12 +196,11 @@ One of the strongest parts of this repository is that the parsers are usable ind
 ### Parse JSON without making a request
 
 ```csharp
-using DeepSigma.AlphaVantageAPI;
-using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.APIs.Fundamentals;
 
 string json = File.ReadAllText("AVCompanyOverview.json");
 
-AVComanyOverview? overview = FundamentalData.GetCompanyOverviewFromJson(json);
+var overview = FundamentalData.GetCompanyOverviewFromJson(json);
 
 if (overview is not null)
 {
@@ -253,12 +211,11 @@ if (overview is not null)
 ### Parse CSV utility responses
 
 ```csharp
-using DeepSigma.AlphaVantageAPI;
-using DeepSigma.AlphaVantageAPI.DataModels;
+using DeepSigma.AlphaVantageAPI.APIs.Utilities;
 
 string csv = File.ReadAllText("earnings_calendar.csv");
 
-List<AVEarningsCalandarCSVData> rows = UtilitiesData.GetEarningsFromCSV(csv);
+var rows = UtilitiesData.GetEarningsFromCSV(csv);
 
 Console.WriteLine(rows.Count);
 ```
@@ -279,6 +236,7 @@ api.FXData
 api.CryptoData
 api.EconomicData
 api.FixedIncomeData
+api.IndexData
 ```
 
 ### Selected methods
@@ -294,6 +252,7 @@ await api.Utilities.GetETFProfileAndHoldings("SPY");
 await api.StockData.GetIntradayTimeSeriesData("MSFT");
 await api.StockData.GetDailyTimeSeriesData("MSFT");
 await api.StockData.GetBulkRealTimeQuoteData(new[] { "MSFT", "AAPL", "NVDA" });
+await api.StockData.GetBulkRealTimeBidAskPrice(new[] { "MSFT", "AAPL" });
 
 // Fundamentals
 await api.FundamentalData.GetCompanyOverview("MSFT");
@@ -301,23 +260,23 @@ await api.FundamentalData.GetBalanceSheet("MSFT");
 await api.FundamentalData.GetCashFlow("MSFT");
 await api.FundamentalData.GetEarningsTranscript("MSFT", 2025, 1);
 
-// Macro / rates
+// Macro / rates / indices
 await api.EconomicData.GetInflation();
 await api.FixedIncomeData.GetUSTreasuryYield(FixedIncomeMaturities.TenYear);
 await api.FixedIncomeData.GetFedFunds();
+await api.IndexData.GetIndexCatalog();
+await api.IndexData.GetIndexData("SPX");
 ```
 
 ## Running tests
 
-The repository includes an xUnit test project plus fixture files under `DeepSigma.DataAccess.AlphaVantage.Tests/TestData`.
-
-Run the test suite with:
+The repository includes the `DeepSigma.DataAccess.AlphaVantage.Tests` xUnit test project and JSON/CSV fixtures under its `TestData` directory. Run it from the repository root with:
 
 ```bash
-dotnet test
+dotnet test DeepSigma.DataAccess.AlphaVantage.Tests/DeepSigma.AlphaVantageAPI.Tests.csproj
 ```
 
-The tests focus heavily on parser correctness by loading stored JSON/CSV samples and confirming that expected models are populated.
+The tests validate response parsing against stored samples; most do not require live Alpha Vantage requests.
 
 ## Project structure
 
@@ -325,17 +284,20 @@ The tests focus heavily on parser correctness by loading stored JSON/CSV samples
 .
 ├── DeepSigma.DataAccess.AlphaVantage
 │   ├── AlphaVantageAPI.cs
-│   ├── UtilitiesData.cs
-│   ├── StockData.cs
-│   ├── OptionData.cs
-│   ├── CommodityData.cs
-│   ├── FundamentalData.cs
-│   ├── FXData.cs
-│   ├── CryptoData.cs
-│   ├── EconomicData.cs
-│   ├── FixedIncomeData.cs
-│   ├── DataModels/
+│   ├── ApiOptions.cs
+│   ├── APIs/
+│   │   ├── Commodities/
+│   │   ├── Crypto/
+│   │   ├── Economics/
+│   │   ├── Fixed Income/
+│   │   ├── Fundamentals/
+│   │   ├── FX/
+│   │   ├── Index/
+│   │   ├── Option/
+│   │   ├── Stock/
+│   │   └── Utilities/
 │   ├── Enums/
+│   ├── Models/
 │   └── Parsers/
 └── DeepSigma.DataAccess.AlphaVantage.Tests
     ├── Tests/
@@ -346,8 +308,8 @@ The tests focus heavily on parser correctness by loading stored JSON/CSV samples
 
 - Alpha Vantage rate limits still apply.
 - Some endpoint names in the code mirror Alpha Vantage naming very closely, including a few existing spelling inconsistencies such as `GetHistroicalNews`, `GetEarningsCalandar`, and `GetIPOCalandar`.
-- The project depends on `DeepSigma.DataAccess` for HTTP and serialization utilities.
-- The codebase is designed around Alpha Vantage response shapes, so static parser helpers are a first-class part of the API.
+- The project depends on `DeepSigma.DataAccess.Web` for HTTP and serialization utilities.
+- Static parser methods belong to the relevant API module (for example, `FundamentalData.GetCompanyOverviewFromJson`).
 
 ## Why this repo is useful
 
