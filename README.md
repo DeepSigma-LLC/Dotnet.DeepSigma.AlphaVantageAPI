@@ -172,6 +172,25 @@ if (cpi is not null)
 }
 ```
 
+### Index catalog and time series
+
+```csharp
+var api = new AlphaVantageAPI("YOUR_ALPHA_VANTAGE_API_KEY");
+
+var catalog = await api.IndexData.GetIndexCatalog();
+var indexData = await api.IndexData.GetIndexData("SPX");
+
+if (catalog is not null && catalog.TryGetValue("SPX", out var indexName))
+{
+    Console.WriteLine(indexName);
+}
+
+if (indexData is not null)
+{
+    Console.WriteLine($"Index bars returned: {indexData.Data.Count}");
+}
+```
+
 ### Listings, earnings calendar, and IPO calendar
 
 ```csharp
