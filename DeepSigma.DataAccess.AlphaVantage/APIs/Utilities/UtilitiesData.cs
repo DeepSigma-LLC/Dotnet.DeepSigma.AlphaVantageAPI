@@ -275,4 +275,25 @@ public class UtilitiesData(HttpClient client, ApiOptions options) : AbstractData
     /// <param name="json"></param>
     /// <returns></returns>
     public static AVCongressTradesResponse? GetCongressTradesFromJson(string json) => Serializer.LoadFromJson<AVCongressTradesResponse>(json);
+
+
+    /// <summary>
+    /// This API returns the key metadata for US congressional representatives, such as bioguide_id, district, time in service, etc.
+    /// </summary>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVPoliticianMetaDataResponse?> GetPoliticianMetaData(CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=POLITICIAN_METADATA&apikey={Options.APIKey}";
+        AVPoliticianMetaDataResponse? results = await Utilities.GetAPIData(url, GetPoliticianMetaDataFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parse the JSON response returned by the Alpha Vantage API for Politician Meta Data.
+    /// This API returns the key metadata for US congressional representatives, such as bioguide_id, district, time in service, etc.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVPoliticianMetaDataResponse? GetPoliticianMetaDataFromJson(string json) => Serializer.LoadFromJson<AVPoliticianMetaDataResponse>(json);
 }

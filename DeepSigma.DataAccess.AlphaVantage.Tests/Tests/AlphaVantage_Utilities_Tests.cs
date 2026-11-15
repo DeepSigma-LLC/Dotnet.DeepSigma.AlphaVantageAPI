@@ -132,4 +132,17 @@ public class AlphaVantage_Utilities_Tests
         }
         Assert.True(has_data);
     }
+
+    [Fact]
+    public void GetPoliticianMetaData_ShouldReturnValues()
+    {
+        string data = File.ReadAllText(TestConfig.data_path + "/Utilities/AVPoliticianMetaData.json");
+        AVPoliticianMetaDataResponse? results = UtilitiesData.GetPoliticianMetaDataFromJson(data);
+        bool has_data = false;
+        if (results is not null)
+        {
+            has_data = results.Politicians.Count > 0;
+        }
+        Assert.True(has_data);
+    }
 }
