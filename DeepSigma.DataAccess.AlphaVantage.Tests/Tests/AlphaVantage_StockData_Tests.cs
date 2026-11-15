@@ -77,4 +77,17 @@ public class AlphaVantage_StockData_Tests
         }
         Assert.True(has_data);
     }
+
+    [Fact]
+    public void GetBulkBidAskPriceRequestFromJson_ResultsShouldReturnValues()
+    {
+        string json = File.ReadAllText(TestConfig.data_path + "/Stock/AVRealTimeBulkBidAskPrices.json");
+        AVDataRequest<AVBidAskPrice>? results = StockData.GetBulkRealTimeBidAskPriceFromJson(json);
+        bool has_data = false;
+        if (results is not null)
+        {
+            has_data = results.Data.Count > 0;
+        }
+        Assert.True(has_data);
+    }
 }

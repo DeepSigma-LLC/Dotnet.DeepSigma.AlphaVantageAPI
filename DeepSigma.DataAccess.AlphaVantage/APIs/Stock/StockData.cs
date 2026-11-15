@@ -132,9 +132,15 @@ public class StockData(HttpClient client, ApiOptions options) : AbstractDataAPI(
     /// </summary>
     /// <param name="symbols"></param>
     /// <param name="ct"></param>
+    /// <exception cref="ArgumentException">Thrown when the number of symbols exceeds 100.</exception>
     /// <returns></returns>
     public async Task<AVDataRequest<AVBulkQuoteData>?> GetBulkRealTimeQuoteData(string[] symbols, CancellationToken ct = default)
     {
+        if (symbols.Length > 100)
+        {
+            throw new ArgumentException("The maximum number of symbols allowed is 100.");
+        }
+
         string url = $"https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol={string.Join(",", symbols)}&apikey={Options.APIKey}";
         AVDataRequest<AVBulkQuoteData>? results = await Utilities.GetAPIData(url, GetBulkRealTimeQuoteDataFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
@@ -150,6 +156,40 @@ public class StockData(HttpClient client, ApiOptions options) : AbstractDataAPI(
     public static AVDataRequest<AVBulkQuoteData>? GetBulkRealTimeQuoteDataFromJson(string json)
     {
         AVDataRequest<AVBulkQuoteData>? results = Serializer.LoadFromJson<AVDataRequest<AVBulkQuoteData>>(json);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns realtime bid and ask prices for US-traded symbols in bulk, accepting up to 100 symbols per API request and covering both regular and extended (pre-market and post-market) trading hours. 
+    /// You can use this endpoint as an efficient way to query top-of-the-book Level 2 data.
+    /// </summary>
+    /// <param name="symbols">An array of US-traded symbols to query.</param>
+    /// <param name="ct">A cancellation token.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the bulk real-time bid and ask price data.</returns>
+    /// <exception cref="ArgumentException">Thrown when the number of symbols exceeds 100.</exception>
+    public async Task<AVDataRequest<AVBidAskPrice>?> GetBulkRealTimeBidAskPrice(string[] symbols, CancellationToken ct = default)
+    {
+        if (symbols.Length > 100)
+        {
+            throw new ArgumentException("The maximum number of symbols allowed is 100.");
+        }
+
+        string url = $"https://www.alphavantage.co/query?function=REALTIME_BULK_BID_ASK_PRICES&symbol={string.Join(",", symbols)}&apikey={Options.APIKey}";
+        AVDataRequest<AVBidAskPrice>? results = await Utilities.GetAPIData(url, GetBulkRealTimeBidAskPriceFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+
+    /// <summary>
+    /// Parse the JSON string returned by the Alpha Vantage API for realtime bulk bid and ask price data.
+    /// This API returns realtime bid and ask prices for US-traded symbols in bulk, accepting up to 100 symbols per API request and covering both regular and extended (pre-market and post-market) trading hours. 
+    /// You can use this endpoint as an efficient way to query top-of-the-book Level 2 data.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVDataRequest<AVBidAskPrice>? GetBulkRealTimeBidAskPriceFromJson(string json)
+    {
+        AVDataRequest<AVBidAskPrice>? results = Serializer.LoadFromJson<AVDataRequest<AVBidAskPrice>>(json);
         return results;
     }
 }

@@ -110,12 +110,25 @@ public class AlphaVantage_Utilities_Tests
     public void GetInstitutionalHoldings_ShouldReturnValues()
     {
         string data = File.ReadAllText(TestConfig.data_path + "/Utilities/AVInstitutionalOwnership.json");
-        AVInstitutionalHoldingResponse? results = UtilitiesData.GetInstitutionalHoldingResponseFromJson(data);
+        AVInstitutionalHoldingResponse? results = UtilitiesData.GetInstitutionalHoldingsFromJson(data);
 
         bool has_data = false;
         if (results is not null)
         {
             has_data = results.Holdings.Count > 0;
+        }
+        Assert.True(has_data);
+    }
+
+    [Fact]
+    public void GetCongressTrades_ShouldReturnValues()
+    {
+        string data = File.ReadAllText(TestConfig.data_path + "/Utilities/AVCongressTrades.json");
+        AVCongressTradesResponse? results = UtilitiesData.GetCongressTradesFromJson(data);
+        bool has_data = false;
+        if (results is not null)
+        {
+            has_data = results.Trades.Count > 0;
         }
         Assert.True(has_data);
     }

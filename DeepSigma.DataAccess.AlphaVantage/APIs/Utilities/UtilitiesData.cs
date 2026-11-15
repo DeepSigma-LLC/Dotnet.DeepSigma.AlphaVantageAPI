@@ -225,10 +225,10 @@ public class UtilitiesData(HttpClient client, ApiOptions options) : AbstractData
     /// </summary>
     /// <param name="ct"></param>
     /// <returns></returns>
-    public async Task<AVInstitutionalHoldingResponse?> GetInstitutionalHoldingResponse(CancellationToken ct = default)
+    public async Task<AVInstitutionalHoldingResponse?> GetInstitutionalHoldings(CancellationToken ct = default)
     {
         string url = $"https://www.alphavantage.co/query?function=INSTITUTIONAL_HOLDINGS&apikey={Options.APIKey}";
-        AVInstitutionalHoldingResponse? results = await Utilities.GetAPIData(url, GetInstitutionalHoldingResponseFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        AVInstitutionalHoldingResponse? results = await Utilities.GetAPIData(url, GetInstitutionalHoldingsFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
         return results;
     }
 
@@ -239,5 +239,40 @@ public class UtilitiesData(HttpClient client, ApiOptions options) : AbstractData
     /// </summary>
     /// <param name="json"></param>
     /// <returns></returns>
-    public static AVInstitutionalHoldingResponse? GetInstitutionalHoldingResponseFromJson(string json) => Serializer.LoadFromJson<AVInstitutionalHoldingResponse>(json);
+    public static AVInstitutionalHoldingResponse? GetInstitutionalHoldingsFromJson(string json) => Serializer.LoadFromJson<AVInstitutionalHoldingResponse>(json);
+
+
+    /// <summary>
+    /// This API returns the latest and historical stock trades disclosed by US congressional representatives.
+    /// </summary>
+    /// <param name="symbol"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVCongressTradesResponse?> GetCongressTrades(string symbol, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=CONGRESS_TRADES&symbol={symbol}&apikey={Options.APIKey}";
+        AVCongressTradesResponse? results = await Utilities.GetAPIData(url, GetCongressTradesFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// This API returns the latest and historical stock trades disclosed by US congressional representatives.
+    /// </summary>
+    /// <param name="bioguide_id"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task<AVCongressTradesResponse?> GetCongressTradesByBioguideId(string bioguide_id, CancellationToken ct = default)
+    {
+        string url = $"https://www.alphavantage.co/query?function=CONGRESS_TRADES&bioguide_id={bioguide_id}&apikey={Options.APIKey}";
+        AVCongressTradesResponse? results = await Utilities.GetAPIData(url, GetCongressTradesFromJson, Options.TimeoutSeconds, ct, Options.JSONLogger);
+        return results;
+    }
+
+    /// <summary>
+    /// Parse the JSON response returned by the Alpha Vantage API for Congress Trades.
+    /// This API returns the latest and historical stock trades disclosed by US congressional representatives.
+    /// </summary>
+    /// <param name="json"></param>
+    /// <returns></returns>
+    public static AVCongressTradesResponse? GetCongressTradesFromJson(string json) => Serializer.LoadFromJson<AVCongressTradesResponse>(json);
 }
