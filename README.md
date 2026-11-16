@@ -227,6 +227,18 @@ if (overview is not null)
 }
 ```
 
+### Refusals that arrive as HTTP 200
+
+Alpha Vantage answers a rate limit or a bad call with an HTTP 200 whose JSON holds `Information`, `Note` or
+`Error Message` instead of data. Every JSON call of this package checks for that before parsing and throws an
+`InvalidOperationException` ("Alpha Vantage information: ...") rather than returning an empty result. The check is
+public, for saved responses and other callers:
+
+```csharp
+AlphaVantageResponseGuard.Check(json);                                   // throws on a refusal
+var data = Serializer.LoadFromJson<MyType>(json, guard: AlphaVantageResponseGuard.Guard);
+```
+
 ### Parse CSV utility responses
 
 ```csharp

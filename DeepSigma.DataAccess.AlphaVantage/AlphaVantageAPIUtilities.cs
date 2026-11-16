@@ -7,7 +7,7 @@ namespace DeepSigma.AlphaVantageAPI;
 internal class AlphaVantageAPIUtilities(HttpClient client)
 {
     private HttpClient _client = client;
-    private HttpApi _httpApi = new(client);
+    private HttpApi _httpApi = new(client, responseGuard: AlphaVantageResponseGuard.Guard);
 
     internal static AVTimeSeriesResponseGeneric<AVBar>? JsonParserToTimeSeriesResult(string json)
     {
@@ -26,6 +26,7 @@ internal class AlphaVantageAPIUtilities(HttpClient client)
 
         if (json is null) return default;
         if (json_logger is not null) { json_logger(json); }
+        AlphaVantageResponseGuard.Check(json);      // a refusal in a 200 throws, rather than parsing to nothing
 
         return JsonToParser(json);
     }

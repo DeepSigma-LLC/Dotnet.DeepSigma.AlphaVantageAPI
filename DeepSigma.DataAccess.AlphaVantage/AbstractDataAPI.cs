@@ -23,5 +23,5 @@ public abstract class AbstractDataAPI(HttpClient client, ApiOptions options)
     /// <summary>
     ///Gets or sets the HTTP API used to send requests to the Alpha Vantage service.    
     /// </summary>
-    protected HttpApi HttpApi { get; init; } = new HttpApi(client);
+    protected HttpApi HttpApi { get; init; } = new HttpApi(client, responseGuard: AlphaVantageResponseGuard.Guard);
 }
